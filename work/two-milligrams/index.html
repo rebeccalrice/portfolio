@@ -1,0 +1,2276 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>The Unmarked Mile | Two Milligrams | Rebecca Rice</title>
+<meta name="description" content="Two Milligrams: a data-driven scrollytelling story about fentanyl in America, by Rebecca Rice.">
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Hanken+Grotesk:wght@400;500;600&display=swap">
+<style>
+:root{
+  --paper:#F4F1EA; --card:#FBF9F4; --white:#FFFFFF; --ink:#1F1D1A; --ink2:#3F3B35; --muted:#6B665E; --gray:#9A958C; --rule:#D5CFC3;
+  --land:#E3DED3; --pale:#D8ECF1; --blue:#79ADC0; --deep:#2A6175;
+  --bar:60px;
+  --serif:Newsreader,Georgia,serif; --sans:'Hanken Grotesk',system-ui,sans-serif;
+  color-scheme: light;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--paper);color:var(--ink)}
+body{font-family:var(--sans);-webkit-font-smoothing:antialiased;
+  padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-right)}
+
+/* nav */
+.bar{position:fixed;top:0;left:0;right:0;height:var(--bar);z-index:30;background:var(--white);
+  box-shadow:0 1px 0 var(--rule),0 6px 18px -12px rgba(31,29,26,.25);
+  display:flex;align-items:center;gap:36px;padding:0 max(28px,env(safe-area-inset-right)) 0 max(28px,env(safe-area-inset-left));
+  transition:transform .45s ease}
+body.oncover .bar{transform:translateY(-110%)}
+.brand{font-family:var(--serif);font-size:23px;letter-spacing:-.01em;white-space:nowrap;color:var(--ink);text-decoration:none}
+.chapters{display:flex;align-items:center;gap:28px;margin-left:auto;overflow-x:auto;scrollbar-width:none;min-width:0}
+.chapters::-webkit-scrollbar{display:none}
+.chapters a,.chapters span{font-size:14px;color:var(--muted);white-space:nowrap;text-decoration:none;padding:6px 0;border-bottom:2px solid transparent;transition:color .3s,border-color .3s}
+.chapters em{font-family:var(--serif);font-style:italic;font-size:15px;margin-right:6px;color:var(--gray)}
+.chapters a:hover{color:var(--ink)}
+.chapters .on{color:var(--ink);border-bottom-color:var(--ink)}
+.chapters .on em{color:var(--ink)}
+.chapters span[aria-disabled]{color:#A9A399;cursor:default}
+.chapters .src{padding-left:28px;border-left:1px solid var(--rule);border-bottom:none}
+
+/* cover */
+.cover{position:relative;height:100vh;height:100svh;overflow:hidden;background:#2B3A52;color:#fff}
+.cover .sky{position:absolute;inset:0;background:linear-gradient(180deg,#26344A 0%,#4C5D75 38%,#97887C 66%,#D2AE88 74%,#C79A73 76%,#1C2026 76.2%,#16191E 100%)}
+.cover svg.road{position:absolute;inset:0;width:100%;height:100%}
+.cover video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.cover .shade{position:absolute;inset:0;background:radial-gradient(ellipse 60% 45% at 50% 50%,rgba(10,12,16,.45) 0%,rgba(10,12,16,0) 100%),linear-gradient(0deg,rgba(10,12,16,.35) 0%,rgba(10,12,16,0) 40%)}
+.cover .words{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:calc(100% - 48px);max-width:1200px;text-align:center}
+.cover h1{margin:0;font-family:var(--serif);font-weight:400;font-size:clamp(30px,8vw,112px);line-height:.95;letter-spacing:-.02em;white-space:nowrap}
+.cover .dek{margin:18px 0 0;font-family:var(--serif);font-style:italic;font-size:clamp(20px,2.2vw,27px);line-height:1.3;color:rgba(255,255,255,.88)}
+.cover .cue{position:absolute;left:50%;bottom:28px;transform:translateX(-50%);font-size:13px;letter-spacing:.02em;color:rgba(255,255,255,.75);display:flex;flex-direction:column;align-items:center;gap:10px}
+.cover .cue i{display:block;width:1px;height:34px;background:linear-gradient(rgba(255,255,255,.8),rgba(255,255,255,0))}
+.cover .ph{position:absolute;right:20px;bottom:20px;font-size:11px;color:rgba(255,255,255,.55)}
+
+/* chapter opener + text screens */
+.opener,.quiet{min-height:100vh;min-height:100svh;display:flex;align-items:center;justify-content:center;padding:calc(var(--bar) + 40px) max(24px,env(safe-area-inset-right)) 60px max(24px,env(safe-area-inset-left))}
+.opener .in,.quiet .in{max-width:720px}
+.opener .ch{font-family:var(--serif);font-style:italic;font-size:24px;color:var(--muted);margin:0 0 6px}
+.opener h2{margin:0 0 22px;font-family:var(--serif);font-weight:400;font-size:clamp(48px,6vw,76px);line-height:1;letter-spacing:-.02em}
+.opener p,.quiet p{margin:0;font-family:var(--serif);font-size:clamp(20px,2vw,26px);line-height:1.45;color:var(--ink2)}
+.quiet p+p{margin-top:22px}
+.quiet .lead{font-size:clamp(30px,3.4vw,42px);line-height:1.2;color:var(--ink)}
+.quiet.note{background:#EFE9DD}
+.quiet.note p{font-style:italic;font-size:clamp(26px,3vw,38px);line-height:1.3;color:var(--ink);text-align:center}
+
+/* scrolly shared */
+.scrolly{position:relative}
+.stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
+.stage canvas,.stage svg{position:absolute;inset:0;width:100%;height:100%}
+.stage svg{pointer-events:none;overflow:visible}
+.steps{position:relative;margin-top:-100vh;margin-top:-100svh;z-index:5;pointer-events:none}
+.step{min-height:100vh;min-height:100svh;display:flex;align-items:center;padding:calc(var(--bar) + 24px) 0 24px max(48px,env(safe-area-inset-left))}
+.step.tall{min-height:130vh}
+.card{pointer-events:auto;width:380px;background:var(--card);border:1px solid var(--rule);padding:26px 28px 24px;
+  box-shadow:0 1px 0 rgba(31,29,26,.03),0 12px 30px -18px rgba(31,29,26,.25)}
+.card p{margin:0;font-family:var(--serif);font-size:21px;line-height:1.42;color:var(--ink)}
+.card p+p{margin-top:12px}
+.card p.sub{font-size:18px;color:var(--ink2)}
+.card strong{font-weight:500;color:var(--deep)}
+.card .kicker{font-family:var(--serif);font-style:italic;font-size:22px;color:var(--muted);margin:0 0 4px}
+.card h2{margin:0 0 14px;font-family:var(--serif);font-weight:400;font-size:46px;line-height:1.02;letter-spacing:-.015em}
+.card.title{background:transparent;border:none;box-shadow:none;padding:0;width:420px}
+.card.title p{font-size:22px;color:var(--ink2)}
+.card .big{font-size:30px;line-height:1.2}
+.card .num{color:var(--deep);font-weight:500}
+.card .hint{margin-top:16px;font-family:var(--sans);font-size:13px;color:var(--muted);display:flex;align-items:center;gap:8px}
+.card .hint i{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--ink);box-shadow:0 0 0 2px var(--card),0 0 0 3px var(--ink)}
+
+/* map ui */
+.legend{position:absolute;right:28px;bottom:28px;z-index:6;font-size:15.5px;line-height:1.35;color:var(--ink);background:rgba(251,249,244,.97);border:1px solid var(--rule);box-shadow:0 10px 24px -16px rgba(31,29,26,.35);
+  padding:16px 18px;display:flex;flex-direction:column;gap:10px;max-width:360px;transition:opacity .4s}
+.legend .row{display:flex;align-items:center;gap:12px}
+.legend .note{color:var(--ink2);font-size:13.5px;line-height:1.45;padding-top:8px;border-top:1px solid var(--rule)}
+.legend svg{position:static;width:40px;height:14px;flex:none}
+.tip{position:fixed;z-index:40;pointer-events:none;max-width:260px;background:var(--ink);color:var(--paper);font-size:13px;line-height:1.4;padding:9px 11px;opacity:0;transition:opacity .15s}
+.tip b{display:block;font-weight:600;margin-bottom:2px}
+.panel{position:absolute;right:24px;top:calc(var(--bar) + 20px);z-index:7;width:300px;background:var(--white);border:1px solid var(--ink);padding:18px 20px 16px;display:none}
+.panel.open{display:block}
+.panel .k{font-size:13px;color:var(--muted)}
+.panel h3{margin:2px 0 8px;font-family:var(--serif);font-weight:400;font-size:28px;line-height:1.05}
+.panel p{margin:0 0 10px;font-size:14px;line-height:1.45;color:var(--ink2)}
+.panel .grp{border-top:1px solid var(--rule);padding-top:10px;color:var(--ink)}
+.panel .src{font-size:11px;color:var(--muted);margin:0}
+.panel button{position:absolute;top:10px;right:10px;width:32px;height:32px;border:none;background:none;font-size:20px;line-height:1;color:var(--ink);cursor:pointer}
+.panel button:focus-visible,.port:focus-visible,.chapters a:focus-visible{outline:2px solid var(--deep);outline-offset:2px}
+
+/* svg marks */
+.lbl{font-family:var(--sans);font-size:12px;fill:var(--ink2);paint-order:stroke;stroke:#FBFAF6;stroke-width:4px;stroke-linejoin:round}
+.lbl.country{font-size:14px;font-weight:600;letter-spacing:.02em;fill:var(--ink)}
+.lbl.ocean{font-family:var(--serif);font-style:italic;font-size:16px;fill:var(--gray);stroke:none}
+.lbl.route{fill:var(--deep);font-weight:600}
+.lbl.city{font-size:12px;fill:var(--ink2)}
+.hand{font-family:var(--serif);font-style:italic;font-size:21px;fill:var(--deep);paint-order:stroke;stroke:#FBFAF6;stroke-width:4px;stroke-linejoin:round}
+.route-main{fill:none;stroke:var(--deep);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.route-sec{fill:none;stroke:var(--deep);stroke-width:.8;stroke-linecap:round;stroke-linejoin:round;opacity:.85}
+.route-glow{display:none}
+.hit{fill:none;stroke:transparent;stroke-width:18;pointer-events:stroke;cursor:help}
+.port{pointer-events:all;cursor:pointer}
+.port circle.dot{fill:var(--ink);stroke:#FBFAF6;stroke-width:1.2}
+.port circle.ring{fill:none;stroke:var(--deep);stroke-width:2;opacity:0}
+.port.sel circle.ring{opacity:1}
+.port:hover circle.dot{fill:var(--deep)}
+.halo{fill:var(--pale);fill-opacity:.55;stroke:var(--blue);stroke-width:.8}
+.loading{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--muted)}
+
+/* ending strip */
+.next{position:relative;z-index:6;background:var(--white);border-top:1px solid var(--rule);padding:56px max(24px,env(safe-area-inset-left)) 64px;text-align:center}
+.next p{margin:0;font-family:var(--serif);font-size:24px;color:var(--ink2)}
+.next p em{color:var(--muted)}
+
+@media (max-width:899px){
+  :root{--bar:56px}
+  .bar{gap:16px;padding:0 max(16px,env(safe-area-inset-right)) 0 max(16px,env(safe-area-inset-left))}
+  .brand{font-size:19px}
+  .chapters{gap:18px}
+  .chapters > :not(.on){display:none}
+  .cover .words{width:calc(100% - 32px)}
+  .step{align-items:flex-end;padding:0 max(16px,env(safe-area-inset-right)) 9vh max(16px,env(safe-area-inset-left))}
+  .card,.card.title{width:100%;padding:18px 18px 16px}
+  .card.title{background:rgba(251,249,244,.95);border:1px solid var(--rule)}
+  .card p{font-size:18px}
+  .card h2{font-size:36px}
+  .card .big{font-size:24px}
+  .legend .note{display:none}
+  .legend{left:16px;right:auto;top:calc(var(--bar) + 10px);bottom:auto;max-width:calc(100% - 32px);font-size:13.5px;padding:10px 12px;gap:7px}
+  .panel{left:16px;right:16px;width:auto;top:auto;bottom:16px}
+}
+
+/* photo / video scenes */
+.media{position:absolute;inset:0;overflow:hidden;background:#0E1013}
+.media img,.media video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.media::after{content:"";position:absolute;inset:0;background:rgba(8,9,12,.35)}
+.ph-aerial{background:radial-gradient(ellipse 9% 70% at 50% 50%,rgba(240,226,190,.28),transparent 70%),radial-gradient(circle at 70% 30%,rgba(255,230,180,.12),transparent 18%),radial-gradient(circle at 28% 62%,rgba(255,230,180,.08),transparent 14%),#0C0E10}
+.ph-street{background:radial-gradient(circle at 62% 8%,rgba(255,236,190,.35),transparent 22%),linear-gradient(180deg,#1C2433 0%,#283346 45%,#1A1D22 62%,#121418 100%)}
+.ph-window{background:radial-gradient(ellipse 22% 38% at 50% 42%,rgba(120,150,150,.22),transparent 70%),linear-gradient(90deg,#0B0B0C 0%,#151718 30%,#1B1E1F 50%,#151718 70%,#0B0B0C 100%)}
+.ph-tag{position:absolute;right:20px;bottom:20px;z-index:2;font-size:11px;color:rgba(255,255,255,.5)}
+.step.center{justify-content:center;padding-left:max(24px,env(safe-area-inset-left));padding-right:max(24px,env(safe-area-inset-right))}
+.step.left{padding-left:max(56px,env(safe-area-inset-left))}
+.step.low{justify-content:center;align-items:flex-end;padding:0 max(24px,env(safe-area-inset-right)) 18vh max(24px,env(safe-area-inset-left))}
+.over{pointer-events:auto;max-width:600px;color:#fff;text-shadow:0 1px 18px rgba(0,0,0,.55)}
+.step.left .over{max-width:440px}
+.step.low .over{text-align:center;max-width:620px}
+.over p{margin:0;font-family:var(--serif);font-size:clamp(20px,2vw,25px);line-height:1.5}
+.over p+p{margin-top:18px}
+.over.title{text-align:center}
+.over.statement{max-width:900px;text-align:center}
+.over.statement p{font-size:clamp(40px,5.2vw,76px);line-height:1.08;letter-spacing:-.02em}
+.over.statement p+p{margin-top:.25em;font-style:italic}
+.over .ch{font-style:italic;color:rgba(255,255,255,.75);font-size:24px;margin-bottom:6px}
+.over h2{margin:0;font-family:var(--serif);font-weight:400;font-size:clamp(48px,6vw,76px);line-height:1;letter-spacing:-.02em}
+.breath canvas{z-index:1}
+.range{position:absolute;right:max(32px,env(safe-area-inset-right));top:calc(var(--bar) + 28px);z-index:2;margin:0;font-size:13px;color:rgba(255,255,255,.75);transition:opacity .6s}
+.home{position:absolute;z-index:6;right:max(32px,env(safe-area-inset-right));bottom:40px;width:300px;background:rgba(251,249,244,.94);padding:16px 18px;border:1px solid rgba(255,255,255,.4);opacity:0;transform:translateY(8px);transition:opacity .5s,transform .5s;pointer-events:none}
+.home.show{opacity:1;transform:none;pointer-events:auto}
+.home label{display:block;font-family:var(--serif);font-size:19px;margin-bottom:10px;color:var(--ink)}
+.home select{width:100%;height:42px;padding:0 10px;font:15px var(--sans);color:var(--ink);background:#fff;border:1px solid var(--ink);border-radius:0}
+.home-row{display:flex;align-items:center;gap:12px;margin-top:10px;font-size:13px;color:var(--muted)}
+.home button{background:none;border:none;padding:6px 0;font:13px var(--sans);color:var(--ink2);text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.scene .stage{z-index:0}
+
+/* save card */
+.save{background:var(--paper);padding:120px max(24px,env(safe-area-inset-right)) 120px max(24px,env(safe-area-inset-left))}
+.save-in{max-width:980px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.35fr);gap:20px 64px;border-top:2px solid var(--ink);padding-top:28px}
+.save .eyebrow{margin:0 0 6px;font-family:var(--serif);font-style:italic;font-size:22px;color:var(--deep)}
+.save h2{margin:0;font-family:var(--serif);font-weight:400;font-size:clamp(40px,4.4vw,56px);line-height:1.02;letter-spacing:-.015em}
+.save-steps{list-style:none;margin:0;padding:0}
+.save-steps li{display:grid;grid-template-columns:44px 1fr;gap:12px;padding:18px 0;border-bottom:1px solid var(--rule)}
+.save-steps li:first-child{padding-top:4px}
+.save-steps span{font-family:var(--serif);font-size:34px;line-height:1;color:var(--deep)}
+.save-steps p{margin:0;font-family:var(--serif);font-size:21px;line-height:1.4;color:var(--ink2)}
+.save-steps strong{font-weight:500;color:var(--ink)}
+.save-note{grid-column:2;margin:0;font-size:15px;line-height:1.5;color:var(--muted)}
+.save-actions{grid-column:2;display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:8px}
+.save-actions button{font:500 15px var(--sans);padding:12px 18px;border:1px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer}
+.save-actions button.primary{background:var(--ink);color:var(--paper)}
+.save-actions button:focus-visible,.home button:focus-visible,.home select:focus-visible{outline:2px solid var(--deep);outline-offset:2px}
+#saveMsg{font-size:14px;color:var(--deep)}
+@media (max-width:899px){
+  .step.left{padding-left:max(16px,env(safe-area-inset-left));align-items:center}
+  .step.low{padding-bottom:14vh}
+  .home{left:16px;right:16px;width:auto;bottom:16px}
+  .range{left:16px;right:auto;font-size:12px}
+  .save{padding:80px 16px}
+  .save-in{grid-template-columns:1fr}
+  .save-note,.save-actions{grid-column:1}
+}
+/* ch5 */
+.ph-main{background:linear-gradient(180deg,#4F5C78 0%,#8C8AA0 38%,#B49C93 52%,#2B2A2C 53%,#1E1D1F 100%)}
+.ph-table{background:radial-gradient(ellipse 40% 30% at 62% 30%,rgba(230,215,170,.35),transparent 70%),linear-gradient(180deg,#2A2A22 0%,#1D1D18 60%,#141411 100%)}
+.step.corner{justify-content:flex-end;align-items:center;padding:30vh max(56px,env(safe-area-inset-right)) 0 24px}
+.over.title.right{text-align:left}
+.over .lead{font-size:clamp(28px,3vw,38px);line-height:1.2;margin-bottom:6px}
+.clock{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:calc(var(--bar) + 40px) 24px 60px}
+.clock .in{max-width:620px}
+.clock h2{margin:0 0 20px;font-family:var(--serif);font-weight:400;font-size:clamp(36px,4.2vw,54px);line-height:1.08;letter-spacing:-.015em}
+.clock p{margin:0;font-family:var(--serif);font-size:clamp(20px,2vw,25px);line-height:1.45;color:var(--ink2)}
+.clock .marks{display:flex;flex-wrap:wrap;gap:10px;margin:28px 0 22px;min-height:14px}
+.clock .marks i{width:12px;height:12px;border-radius:50%;background:var(--deep);animation:pop .6s ease}
+.clock .marks i.part{background:none;border:1.5px solid var(--deep);box-sizing:border-box}
+@keyframes pop{from{transform:scale(0)}to{transform:scale(1)}}
+.fine{font-family:var(--sans)!important;font-size:13px!important;line-height:1.5!important;color:var(--muted)!important;margin-top:10px}
+.quiet.big .lead{font-size:clamp(34px,4vw,52px);line-height:1.15}
+.decade{padding:80px max(24px,env(safe-area-inset-right)) 120px max(24px,env(safe-area-inset-left))}
+.decade-in{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:minmax(0,340px) minmax(0,1fr);gap:56px;align-items:center}
+.decade-text p{margin:0;font-family:var(--serif);font-size:22px;line-height:1.45}
+.decade-text p+p{margin-top:14px}
+.decade-text .sub{color:var(--ink2);font-size:19px}
+.decade-text strong{font-weight:500;color:var(--deep)}
+#decadeChart{width:100%;height:auto;display:block;overflow:visible}
+#decadeChart text{font-family:var(--sans);font-size:13px;fill:var(--ink2)}
+#decadeChart .lab{font-family:var(--serif);font-size:15px;fill:var(--ink)}
+.yours{padding:110px max(24px,env(safe-area-inset-right)) 110px max(24px,env(safe-area-inset-left))}
+.yours h2{max-width:1200px;margin:0 auto 48px;font-family:var(--serif);font-weight:400;font-size:clamp(36px,4.4vw,58px);line-height:1.05;letter-spacing:-.015em}
+.yours-in{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:minmax(0,320px) minmax(0,1fr);gap:48px;align-items:start}
+.yours .k{display:block;font-size:13px;color:var(--muted);margin:0 0 6px}
+.yours select{width:100%;height:44px;padding:0 10px;font:15px var(--sans);color:var(--ink);background:#fff;border:1px solid var(--ink);border-radius:0;margin-bottom:28px}
+.yours h3{margin:0 0 12px;font-family:var(--serif);font-weight:400;font-size:46px;line-height:1}
+.yours-stat{margin:0 0 22px;font-family:var(--serif);font-size:19px;line-height:1.45;color:var(--ink2)}
+.yours-links{list-style:none;margin:0 0 18px;padding:16px 0 0;border-top:1px solid var(--rule);display:flex;flex-direction:column;gap:10px;font-size:15px}
+.yours-links a{color:var(--ink)}
+.yours-map svg{width:100%;height:auto;display:block}
+.st{fill:#E3DED3;stroke:#FBF9F4;stroke-width:.8;vector-effect:non-scaling-stroke;cursor:pointer;transition:opacity .3s,filter .2s}
+.st:hover{filter:brightness(.92)}
+.st.sel{stroke:#1F1D1A;stroke-width:1.2}
+.st.dim{opacity:.25}
+.od-key{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;margin:14px 0 0;font-size:13px;color:var(--ink2)}
+.od-key b{font-weight:500;color:var(--ink);width:100%}
+.od-key span{display:inline-flex;align-items:center;gap:6px}
+.od-key i{display:inline-block;width:14px;height:14px;border:1px solid rgba(31,29,26,.12)}
+.yours-stat strong{font-weight:500;color:var(--deep)}
+.st:focus,.co:focus{outline:none}
+.st:focus-visible,.co:focus-visible{stroke:var(--deep);stroke-width:2}
+.co{fill:rgba(255,255,255,0);stroke:rgba(31,29,26,.35);stroke-width:.5;vector-effect:non-scaling-stroke;cursor:pointer}
+.co:hover{fill:rgba(255,255,255,.4)}
+.co.sel{fill:rgba(255,255,255,.65);stroke:#1F1D1A;stroke-width:1.2}
+.linkish{background:none;border:none;padding:4px 0;font:15px var(--sans);color:var(--ink);text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.mark{padding:120px max(24px,env(safe-area-inset-right)) 100px max(24px,env(safe-area-inset-left))}
+.mark-in{max-width:640px;margin:0 auto}
+.mark h2{margin:0 0 20px;font-family:var(--serif);font-weight:400;font-size:clamp(38px,4.4vw,54px);line-height:1.05}
+.mark-in > p{margin:0 0 14px;font-family:var(--serif);font-size:20px;line-height:1.5;color:var(--ink2)}
+.story-form{margin-top:40px;display:flex;flex-direction:column}
+.story-form label{font-size:15px;color:var(--ink);margin:20px 0 6px}
+.story-form label span{color:var(--muted)}
+.story-form input,.story-form textarea,.send textarea{font:18px var(--serif);color:var(--ink);background:transparent;border:none;border-bottom:1px solid var(--ink);padding:8px 0;border-radius:0;resize:vertical}
+.story-form textarea{border:1px solid var(--ink);padding:12px;background:#FBF9F4}
+.story-form input:focus,.story-form textarea:focus,.send textarea:focus{outline:2px solid var(--deep);outline-offset:3px}
+.place-row{display:flex;gap:16px;align-items:center}
+.place-row input{flex:1;min-width:0}
+.pinned{margin:10px 0 0;font-size:14px;color:var(--deep)}
+.form-row{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:18px}
+.form-row button:not(.linkish),.close{font:500 15px var(--sans);padding:12px 18px;border:1px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer}
+.form-row .primary{background:var(--ink);color:var(--paper)}
+.form-row .primary:disabled{opacity:.4;cursor:default}
+.form-row span{font-size:14px;color:var(--deep)}
+.wall-preview{padding:40px max(24px,env(safe-area-inset-right)) 120px max(24px,env(safe-area-inset-left))}
+.wp-head{max-width:1100px;margin:0 auto 28px;display:flex;align-items:baseline;justify-content:space-between;gap:20px;border-top:2px solid var(--ink);padding-top:20px}
+.wp-head h2{margin:0;font-family:var(--serif);font-weight:400;font-size:34px}
+.wall-grid{max-width:1100px;margin:0 auto;columns:3 300px;column-gap:28px}
+.card-s{break-inside:avoid;background:#fff;padding:24px 24px 18px;margin:0 0 28px;box-shadow:0 1px 2px rgba(31,29,26,.06),0 14px 28px -20px rgba(31,29,26,.3)}
+.card-s:nth-child(3n+2){margin-top:44px}
+.card-s p.t{margin:0;font-family:var(--serif);font-size:19px;line-height:1.5;color:var(--ink);white-space:pre-line}
+.card-s.short p.t{font-size:26px;line-height:1.25}
+.card-s .who{margin:16px 0 0;font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center}
+.card-s .who button{background:none;border:none;padding:0;font:13px var(--sans);color:var(--deep);text-decoration:underline;text-underline-offset:2px;cursor:pointer}
+.card-s .rm{margin-left:auto;color:var(--muted)!important}
+.card-s.sample{background:#FBF9F4;box-shadow:none;border:1px dashed #C9C2B4}
+.card-s .tag{display:inline-block;margin:0 0 12px;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.wall-empty{max-width:1100px;margin:0 auto;text-align:center;font-family:var(--serif);font-style:italic;font-size:20px;color:var(--muted)}
+.closing{background:var(--white);padding:120px max(24px,env(safe-area-inset-right)) 120px max(24px,env(safe-area-inset-left));border-top:1px solid var(--rule)}
+.closing-in{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:72px}
+.closing-in > div:first-child{border-right:1px solid var(--rule);padding-right:72px}
+.closing h2{margin:0 0 22px;font-family:var(--serif);font-weight:400;font-size:clamp(32px,3.4vw,42px);line-height:1.1}
+.closing p{margin:0 0 14px;font-family:var(--serif);font-size:19px;line-height:1.5;color:var(--ink2)}
+.send textarea{width:100%;border:1px solid var(--ink);padding:14px;background:#FBF9F4;font-size:20px}
+.help{list-style:none;margin:28px 0 0;padding:18px 0 0;border-top:1px solid var(--rule);display:flex;flex-direction:column;gap:10px;font-size:15px;color:var(--ink2)}
+.help strong{font-weight:600;color:var(--ink);margin-right:8px}
+.quiet.final p{text-align:left;font-size:clamp(24px,2.6vw,32px);line-height:1.35;color:var(--ink)}
+.quiet.final .ded{margin-top:36px;font-style:italic;color:var(--ink2);font-size:clamp(20px,2vw,24px)}
+.foot{background:var(--paper);border-top:1px solid var(--rule);padding:56px max(24px,env(safe-area-inset-right)) 64px max(24px,env(safe-area-inset-left))}
+.foot-in{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.2fr 1.4fr 1fr;gap:40px;font-size:14px;line-height:1.6;color:var(--ink2)}
+.foot p{margin:0}
+.foot .brandf{font-family:var(--serif);font-size:26px;color:var(--ink);margin-bottom:4px}
+.foot .k{font-size:13px;color:var(--muted);margin-bottom:6px}
+.foot a{color:var(--ink)}
+.layer{position:fixed;inset:0;z-index:50;background:var(--paper);overflow-y:auto;padding:0 max(24px,env(safe-area-inset-right)) 60px max(24px,env(safe-area-inset-left))}
+.layer[hidden]{display:none}
+.layer-bar{position:sticky;top:0;z-index:2;background:var(--paper);display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 0;border-bottom:1px solid var(--rule);max-width:1100px;margin:0 auto}
+.layer-bar h2{margin:0;font-family:var(--serif);font-weight:400;font-size:30px}
+.layer-dek{max-width:1100px;margin:22px auto 34px;font-family:var(--serif);font-size:19px;color:var(--ink2)}
+#pinner{display:flex;flex-direction:column;overflow:hidden;padding-bottom:0}
+#pinner[hidden]{display:none}
+#pinner .layer-bar{width:100%}
+.crumbs{max-width:1100px;width:100%;margin:12px auto 0;font-size:14px;color:var(--muted)}
+.crumbs button{background:none;border:none;padding:0;font:14px var(--sans);color:var(--ink);text-decoration:underline;cursor:pointer}
+.pin-stage{flex:1;min-height:0;position:relative}
+#pinGlobe{position:absolute;inset:0;width:100%;height:100%;cursor:grab;touch-action:none}
+#pinGlobe .ctry{fill:#E3DED3;stroke:#FBF9F4;stroke-width:.6;cursor:pointer}
+#pinGlobe .ctry:hover{fill:#D3CDC1}
+#pinGlobe .ctry.sel{fill:#D3CDC1}
+#pinGlobe .sub{fill:#E3DED3;stroke:#FBF9F4;stroke-width:.6;cursor:pointer}
+#pinGlobe .sub:hover{fill:#D3CDC1}
+#pinGlobe .sub.sel{fill:var(--pale)}
+#pinGlobe .pin{fill:var(--deep);stroke:#fff;stroke-width:1.5}
+#pinGlobe .opin{fill:var(--deep);fill-opacity:.55;stroke:#fff;stroke-width:1}
+.pin-foot{max-width:1100px;width:100%;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0 22px;border-top:1px solid var(--rule)}
+.pin-foot p{margin:0;font-family:var(--serif);font-size:18px;color:var(--ink2)}
+.pin-foot .form-row{margin:0}
+body.locked{overflow:hidden}
+@media (max-width:899px){
+  .decade-in,.yours-in,.closing-in{grid-template-columns:1fr}
+  .closing-in > div:first-child{border-right:none;padding-right:0;border-bottom:1px solid var(--rule);padding-bottom:40px}
+  .foot-in{grid-template-columns:1fr}
+  .card-s:nth-child(3n+2){margin-top:0}
+  .step.corner{padding:0 16px 14vh}
+  .pin-foot{flex-direction:column;align-items:flex-start}
+}
+
+.mobile-only{display:none}
+.anno{position:absolute;inset:0;pointer-events:none;z-index:2;opacity:0;transition:opacity .4s}
+.anno-lines{position:absolute;inset:0;width:100%;height:100%}
+.anno .a{position:absolute;width:250px}
+.anno h4{margin:0 0 6px;font:600 14px var(--sans);color:var(--ink)}
+.anno p{margin:0;font-size:14px;line-height:1.5;color:var(--ink2)}
+.pill-zoom{position:absolute;z-index:3;display:none;gap:6px;transform:translateX(-50%);transition:opacity .4s}
+.pill-zoom.on{display:flex}
+.pill-zoom button{width:34px;height:34px;border:1px solid var(--rule);background:var(--white);color:var(--ink);font:500 17px var(--sans);line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.pill-zoom button:hover{border-color:var(--ink)}
+.pill-zoom button:focus-visible{outline:2px solid var(--deep);outline-offset:2px}
+.drag-hint{position:absolute;z-index:2;margin:0;font-size:13px;color:var(--muted);transform:translateX(-50%);white-space:nowrap;transition:opacity .4s;pointer-events:none}
+@media (max-width:899px){ .anno{display:none} .mobile-only{display:block} .card.mobile-only p{font-size:16px} .card.mobile-only p+p{margin-top:10px} }
+
+.peek{height:100vh;height:100svh;display:flex;justify-content:center;align-items:flex-start;padding-top:calc(var(--bar) + 16vh);text-align:center}
+.peek .ch{margin:0 0 6px;font-family:var(--serif);font-style:italic;font-size:24px;color:var(--muted)}
+.peek h2{margin:0;font-family:var(--serif);font-weight:400;font-size:clamp(46px,6vw,76px);line-height:1;letter-spacing:-.02em}
+/* night sequences: scenes dissolve through darkness instead of cutting */
+.night{background:#0E1013;color:#F4F1EA}
+.to-night{height:70vh;background:linear-gradient(180deg,var(--paper) 0%,#3A3833 45%,#0E1013 100%)}
+.to-day{height:80vh;background:linear-gradient(180deg,#0E1013 0%,#3A3833 55%,var(--paper) 100%)}
+.to-day.warm{background:linear-gradient(180deg,#0E1013 0%,#4A443B 55%,#EFE9DD 100%)}
+.fade-scene .stage{opacity:0}
+.film{position:relative;z-index:6;margin-top:-100vh;pointer-events:none}
+.film .home.show{pointer-events:auto}
+.film .stage{pointer-events:none}
+.film-base,.film-paper{position:absolute;inset:0}
+.film-base{background:#0E1013;opacity:0}
+.film-paper{background:var(--paper);opacity:0}
+.film .flayer{opacity:0}
+.film .flayer img,.film .flayer video{transform-origin:50% 50%;will-change:transform}
+.film canvas{opacity:0}
+.hold.enter{min-height:115vh}
+.hold.exit{min-height:160vh}
+.over.quiet-lines{max-width:640px;text-align:center}
+.over.quiet-lines p{font-size:clamp(24px,2.6vw,34px);line-height:1.4;color:#E3DED3}
+.over.quiet-lines p+p{margin-top:22px}
+.over.quiet-lines{max-width:860px}
+.over.quiet-lines p{text-wrap:balance;hanging-punctuation:first}
+.over.quiet-lines p:nth-child(1){font-size:clamp(19px,1.7vw,23px);font-style:italic;letter-spacing:.01em;color:#BDB6AA;margin:0 0 34px}
+.over.quiet-lines p:nth-child(1)::after{content:"";display:block;width:44px;height:1px;background:rgba(244,241,234,.45);margin:30px auto 0}
+.over.quiet-lines p:nth-child(2){font-size:clamp(36px,4.3vw,62px);line-height:1.1;letter-spacing:-.018em;color:#F4F1EA;margin:0}
+.over.quiet-lines p:nth-child(3){font-size:clamp(36px,4.3vw,62px);line-height:1.1;letter-spacing:-.018em;font-style:italic;color:#D9D1C3;margin:.45em 0 0}
+.clock-in{max-width:620px}
+.clock-in .kick{font-family:var(--sans)!important;font-size:13px!important;letter-spacing:.14em;text-transform:uppercase;color:#9A958C;margin:0 0 18px!important}
+.clock-in h2{margin:0 0 20px;font-family:var(--serif);font-weight:400;font-size:clamp(36px,4.2vw,54px);line-height:1.08;letter-spacing:-.015em;color:#F4F1EA}
+.clock-in p{color:#C9C2B4}
+.clock-in .marks{display:flex;flex-wrap:wrap;gap:10px;margin:28px 0 22px;min-height:14px}
+.clock-in .marks i{width:12px;height:12px;border-radius:50%;background:#E3DED3;animation:pop .6s ease}
+.clock-in .marks i.part{background:none;border:1.5px solid #E3DED3;box-sizing:border-box}
+.clock-in .fine{color:#8A857C!important;text-shadow:none}
+.save{padding-bottom:calc(120px + 25vh)}
+.mark.night{background:transparent;position:relative;margin-top:-55vh}
+.mark>*:not(.mark-dark){position:relative;z-index:1}
+/* the mark section overlaps the bottom of the map so the dark can fade in over it; let clicks pass through its empty parts */
+.mark.night{pointer-events:none}
+.mark.night .mark-line p,.mark.night .mark-in{pointer-events:auto}
+.mark-dark{position:fixed;inset:0;background:#0E1013;opacity:0;pointer-events:none;z-index:0;visibility:hidden}
+.mark-open{pointer-events:none}
+.mark-tail{height:150vh;pointer-events:none}
+.wall-invite{max-width:720px;margin:12vh auto 0;padding-top:28px;border-top:1px solid #3A3833;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.wall-invite p{margin:0;font-family:var(--serif);font-style:italic;font-size:22px;color:#D9D3C7}
+.wall-invite .ghost{font:500 17px var(--sans);padding:14px 22px;background:transparent;color:#F4F1EA;border:1px solid #F4F1EA;cursor:pointer}
+.wall-invite .ghost:hover{background:#F4F1EA;color:#14171C}
+.wall-invite .ghost:focus-visible{outline:2px solid #79ADC0;outline-offset:3px}
+.closing{background:transparent;border-top:none;margin-top:-85vh;position:relative;z-index:2}
+#wall.layer{background:#EFE9DD}
+#wall .layer-bar{background:#EFE9DD;border-bottom:none;justify-content:flex-end}
+#wall .wp-head{margin-top:8px}
+/* the Quiet Wall: an editorial wall of cards, varied in size and tone like a pinned-up newsroom board */
+#wall .wall-grid.full{columns:auto;column-rule:none;display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));grid-auto-flow:row dense;gap:26px;max-width:1160px;margin:24px auto 0;align-items:start}
+#wall .wall-grid.full .wall-empty{grid-column:1/-1;margin-bottom:0}
+#wall .card-s{margin:0;padding:28px 28px 22px;background:#FBF9F4;border:none;border-radius:2px;box-shadow:0 1px 2px rgba(31,29,26,.08),0 18px 32px -22px rgba(31,29,26,.35);transition:transform .25s ease,box-shadow .25s ease}
+#wall .card-s:hover{transform:translateY(-3px) rotate(0deg)!important;box-shadow:0 2px 4px rgba(31,29,26,.08),0 24px 40px -22px rgba(31,29,26,.45)}
+#wall .card-s:nth-child(odd){transform:rotate(-.5deg)}
+#wall .card-s:nth-child(even){transform:rotate(.45deg)}
+#wall .card-s p.t{font-size:19px;line-height:1.55;font-style:normal}
+#wall .card-s.short p.t{font-size:28px;line-height:1.22;font-style:italic;letter-spacing:-.01em}
+#wall .card-s .who{margin-top:18px;padding-top:12px;border-top:1px solid rgba(31,29,26,.14)}
+#wall .card-s .tag{display:block;margin:0 0 14px}
+#wall .card-s.lead{grid-column:span 2;grid-row:span 2;max-width:none;margin:0;padding:44px 44px 34px;text-align:left;border-bottom:none;background:#FBF9F4}
+#wall .card-s.lead p.t{font-size:clamp(28px,2.8vw,38px);line-height:1.25;font-style:italic}
+#wall .card-s.lead p.t::before{content:"\201C";display:block;font-size:110px;line-height:.55;color:var(--blue);font-style:normal;margin:6px 0 14px}
+#wall .card-s.lead .who{justify-content:flex-start}
+#wall .card-s:nth-child(4n+3):not(.lead){background:#1F1D1A}
+#wall .card-s:nth-child(4n+3):not(.lead) p.t{color:#F4F1EA}
+#wall .card-s:nth-child(4n+3):not(.lead) .who{color:#B3ADA2;border-top-color:rgba(244,241,234,.18)}
+#wall .card-s:nth-child(4n+3):not(.lead) .tag{color:#8A857C}
+#wall .card-s:nth-child(5n+5):not(.lead){background:#D8ECF1}
+@media (max-width:640px){ #wall .card-s.lead{grid-column:auto;grid-row:auto} #wall .card-s:nth-child(n){transform:none} }
+/* masthead: no rules, a big title beside a short intro */
+#wall .wall-mast{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);align-items:end;gap:56px;text-align:left;max-width:1160px;margin:20px auto 64px;padding:0}
+#wall .wall-mast h2{margin:0;font-family:var(--serif);font-weight:400;font-size:clamp(64px,8.2vw,124px);line-height:.9;letter-spacing:-.035em;color:var(--ink)}
+#wall .wall-mast h2 em{font-style:normal;letter-spacing:inherit;color:inherit}
+#wall .wall-mast .dek{margin:0 0 10px;font-family:var(--serif);font-style:normal;font-size:clamp(19px,1.6vw,22px);line-height:1.55;color:var(--ink2);max-width:440px;text-wrap:pretty}
+@media (max-width:760px){ #wall .wall-mast{grid-template-columns:1fr;gap:20px;margin-bottom:40px} }
+/* card type: warmer and quieter, no divider lines */
+#wall .card-s .who{border-top:none;padding-top:0;margin-top:16px;font-family:var(--serif);font-style:italic;font-size:17px;letter-spacing:0;text-transform:none;color:var(--ink2)}
+#wall .card-s:nth-child(4n+3):not(.lead) .who{color:#C9C2B4}
+#wall .card-s .who button{font-family:var(--sans);font-style:normal;font-size:13px}
+#wall .card-s .tag{font-family:var(--serif);font-style:italic;font-size:14px;letter-spacing:0;text-transform:none;color:#8A857C;margin:0 0 12px}
+#wall .card-s p.t{font-size:21px;line-height:1.5;letter-spacing:-.003em;text-wrap:pretty}
+#wall .card-s.short p.t{font-size:29px;line-height:1.2;letter-spacing:-.015em}
+#wall .card-s.lead p.t{font-size:clamp(30px,3vw,42px);line-height:1.18;letter-spacing:-.018em}
+#wall .card-s.lead .who{font-size:19px;margin-top:24px}
+#wall .wall-grid.full .wall-empty{font-size:18px;text-align:left;color:var(--muted);margin:0 0 6px}
+/* no lonely last words: balance short display lines, and keep body paragraphs from ending on a single word */
+h1,h2,h3,.bridge p,.beat p,.mark-line p,.quiet p,.over.title h2,.over.statement p,.over .lead,.clock-in h2,.card .big,.card-s.short p.t,.card-s.lead p.t,.wall-invite p{text-wrap:balance}
+p,li,.card p,.over p{text-wrap:pretty}
+.bridge p{max-width:16em}
+/* Save this: the most important thing on the page, set for every reader, including older eyes */
+.save .eyebrow{font-size:24px}
+.save h2{font-size:clamp(44px,4.8vw,64px)}
+.save-steps li{grid-template-columns:56px 1fr;gap:16px;padding:22px 0}
+.save-steps span{font-size:44px;line-height:1}
+.save-steps p{font-size:26px;line-height:1.45;color:var(--ink)}
+.save-steps strong{font-weight:600}
+.save-note{font-size:22px;line-height:1.5;color:var(--ink);background:#D8ECF1;padding:20px 24px;margin-top:6px}
+.save-note strong{font-weight:600}
+.save-actions{gap:14px;margin-top:14px}
+.save-actions button{font-size:19px;padding:16px 24px}
+#saveMsg{font-size:19px;color:var(--deep)}
+@media (max-width:899px){ .save-steps p{font-size:22px} .save-note{font-size:19px} .save-steps li{grid-template-columns:44px 1fr} .save-steps span{font-size:36px} }
+/* closing: a real hierarchy instead of five equal paragraphs */
+.closing-in{grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:104px;align-items:start}
+.closing-in > div:first-child{border-right:none;padding-right:0}
+.closing-in > div:first-child h2{font-size:clamp(46px,4.8vw,68px);line-height:1.02;letter-spacing:-.025em;margin:0 0 30px;text-wrap:balance;color:var(--ink)}
+.closing-in > div:first-child p{max-width:34em;text-wrap:pretty}
+.closing-in > div:first-child p:nth-of-type(1){font-size:clamp(22px,2vw,26px);line-height:1.45;color:var(--ink);margin-bottom:18px}
+.closing-in > div:first-child p:nth-of-type(2){font-size:21px;line-height:1.6;color:var(--ink2)}
+.closing-in > div:first-child p:nth-of-type(3){font-size:clamp(28px,2.6vw,36px);line-height:1.22;letter-spacing:-.012em;font-style:italic;color:var(--deep);margin:34px 0 32px;text-wrap:balance}
+.closing-in > div:first-child p:nth-of-type(4){font-size:23px;line-height:1.4;font-weight:500;color:var(--ink);margin-top:0}
+.send h2{font-size:clamp(28px,2.6vw,36px);line-height:1.1;letter-spacing:-.015em;margin-top:10px}
+@media (max-width:899px){ .closing-in{gap:48px} .closing-in > div:first-child{border-bottom:none;padding-bottom:0} }
+.fade-scene .media img,.fade-scene .media video{transform-origin:50% 50%;will-change:transform}
+.hold{min-height:70vh}
+.hold.long{min-height:110vh}
+.beat{min-height:130vh;display:flex;align-items:center;justify-content:center;padding:0 max(24px,env(safe-area-inset-right)) 0 max(24px,env(safe-area-inset-left));text-align:center}
+.beat p{margin:0 auto;max-width:640px;font-family:var(--serif);font-size:clamp(24px,2.6vw,34px);line-height:1.4;color:#E3DED3}
+.beat p+p{margin-top:22px}
+.beat .small{font-family:var(--sans);font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#9A958C}
+.reveal{opacity:0;will-change:opacity,transform}
+/* clock, at night */
+.night .clock{min-height:130vh}
+.night .clock .kick{font-family:var(--sans);font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#9A958C;margin:0 0 18px}
+.night .clock h2{color:#F4F1EA}
+.night .clock p{color:#C9C2B4}
+.night .clock .marks i{background:#E3DED3}
+.night .clock .marks i.part{background:none;border-color:#E3DED3}
+.night .clock .fine{color:#8A857C!important}
+/* the bridge into "here's yours" */
+.bridge{min-height:110vh;display:flex;align-items:center;justify-content:center;padding:0 24px;text-align:center}
+.bridge p{margin:0 auto;max-width:700px;font-family:var(--serif);font-size:clamp(26px,3vw,40px);line-height:1.3;color:var(--ink)}
+.bridge p+p{margin-top:20px;color:var(--ink2);font-size:clamp(20px,2vw,26px)}
+/* every story leaves a mark: an intimate, dark room */
+.mark.night{padding:0 max(24px,env(safe-area-inset-right)) 140px max(24px,env(safe-area-inset-left))}
+.mark-open{min-height:150vh;display:flex;align-items:center;justify-content:center;text-align:center}
+.mark-open h2{margin:0;font-family:var(--serif);font-weight:400;font-size:clamp(52px,7vw,104px);line-height:1;letter-spacing:-.02em;color:#F4F1EA}
+.mark-line{min-height:80vh;display:flex;align-items:center;justify-content:center;text-align:center}
+.mark-line p{margin:0 auto;max-width:620px;font-family:var(--serif);font-size:clamp(22px,2.3vw,30px);line-height:1.45;color:#D9D3C7}
+.mark.night .story-form{max-width:720px;margin:10vh auto 0}
+.mark.night .mark-in{max-width:720px}
+.mark.night .story-form label{font-size:20px;line-height:1.35;margin:34px 0 10px;font-weight:500;letter-spacing:.005em}
+.mark.night .story-form label span{font-weight:400}
+.mark.night .story-form input{font-size:24px;padding:12px 0;border-bottom-width:1.5px}
+.mark.night .story-form textarea{font-size:22px;line-height:1.5;padding:18px;min-height:200px;border-width:1.5px}
+.mark.night .story-form .fine{font-size:16px!important;line-height:1.55!important;margin-top:14px}
+.mark.night .story-form .linkish{font-size:17px}
+.mark.night .pinned{font-size:17px}
+.mark.night .form-row{margin-top:26px}
+.mark.night .form-row .primary{font-size:18px;padding:16px 26px}
+.mark.night .form-row span{font-size:17px}
+.mark.night .story-form label{color:#F4F1EA}
+.mark.night .story-form label span{color:#B3ADA2}
+.mark.night .story-form input{color:#F4F1EA;border-bottom-color:#B3ADA2}
+.mark.night .story-form textarea{color:#F4F1EA;background:#1A1D23;border-color:#8A857C}
+.mark.night .fine{color:#B3ADA2!important}
+.mark.night .linkish{color:#E3DED3}
+.mark.night .pinned,.mark.night .form-row span{color:#79ADC0}
+.mark.night .form-row .primary{background:#F4F1EA;color:#14171C;border-color:#F4F1EA}
+.mark.night input:focus,.mark.night textarea:focus{outline-color:#79ADC0}
+/* the Quiet Wall: an editorial letters page, not a card grid */
+.wall-preview{background:#EFE9DD;padding:40px max(24px,env(safe-area-inset-right)) 140px max(24px,env(safe-area-inset-left))}
+.wp-head{display:block;text-align:center;border-top:none;padding-top:0;max-width:1100px;margin:0 auto 56px}
+.wp-head .kicker{margin:0 0 14px;font-family:var(--sans);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.wp-head h2{margin:0;font-family:var(--serif);font-weight:400;font-size:clamp(48px,6vw,84px);letter-spacing:-.02em;line-height:1}
+.wp-head .dek{margin:14px 0 0;font-family:var(--serif);font-style:italic;font-size:20px;color:var(--ink2)}
+.wp-head .rule{margin:28px auto 0;height:6px;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);max-width:1100px}
+.wp-head .linkish{margin-top:18px;display:inline-block}
+.wall-grid{max-width:1100px;margin:0 auto;columns:3 280px;column-gap:56px;column-rule:1px solid #CFC7B8}
+.card-s{break-inside:avoid;background:none;box-shadow:none;padding:0 0 26px;margin:0 0 26px;border-bottom:1px solid #D8D0C1}
+.card-s:nth-child(3n+2){margin-top:0}
+.card-s p.t{font-size:19px;line-height:1.55}
+.card-s.short p.t{font-size:25px;line-height:1.3;font-style:italic}
+.card-s .who{margin:14px 0 0;font-family:var(--sans);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.card-s .who button{font-size:11.5px;letter-spacing:.06em;text-transform:none}
+.card-s.sample{background:none;border:none;border-bottom:1px solid #D8D0C1}
+.card-s .tag{font-size:10.5px;letter-spacing:.14em;color:#A39C8F;margin:0 0 10px}
+.card-s.lead{column-span:all;text-align:center;border-bottom:1px solid var(--ink);padding:0 0 44px;margin:0 auto 44px;max-width:860px}
+.card-s.lead p.t{font-size:clamp(28px,3.2vw,40px);line-height:1.3;font-style:italic}
+.card-s.lead p.t::before{content:"\201C";display:block;font-size:96px;line-height:.6;color:var(--blue);font-style:normal;margin-bottom:10px}
+.card-s.lead .who{justify-content:center}
+.layer .wall-grid{margin-top:20px}
+.final-note img{display:block;max-width:min(720px,100%);height:auto;margin:0 auto}
+@media (max-width:899px){ .wall-grid{column-rule:none} .mark-open{min-height:110vh} .beat{min-height:110vh} }
+@media (prefers-reduced-motion:reduce){*{transition:none!important} .reveal{opacity:1!important;transform:none!important} .fade-scene .stage{opacity:1}}
+/* ---------- legibility pass: larger type, darker small text, more contrast over photos ---------- */
+:root{--gray:#7D786F;--muted:#5E5950}
+.chapters a,.chapters span{font-size:15px}
+.chapters em{font-size:16px}
+.card{width:430px;padding:28px 30px 26px}
+.card p{font-size:22.5px;line-height:1.45}
+.card p.sub{font-size:20.5px;line-height:1.5}
+.card h2{font-size:50px}
+.card .big{font-size:32px}
+.card .hint{font-size:15px}
+.card.title{width:440px}
+.card.title p{font-size:24px}
+.opener p,.quiet p{font-size:clamp(22px,2.2vw,28px)}
+.over{text-shadow:0 1px 3px rgba(0,0,0,.6),0 2px 24px rgba(0,0,0,.6)}
+.over p{font-size:clamp(22px,2.3vw,28px);line-height:1.5}
+.step.left .over{max-width:500px}
+.media::after{background:rgba(8,9,12,.45)}
+.anno .a{width:340px}
+.anno h4{font-size:22px;margin-bottom:8px;font-family:var(--serif);font-weight:500;letter-spacing:-.005em}
+.anno p{font-size:18.5px;line-height:1.5;color:var(--ink)}
+.drag-hint{font-size:15px;color:var(--ink2)}
+.lbl{font-size:14px}
+.lbl.country{font-size:16px}
+.lbl.city{font-size:14px}
+.lbl.ocean{font-size:18px;fill:#7D786F}
+.hand{font-size:23px}
+.panel{width:340px;padding:20px 22px 18px}
+.panel .k{font-size:14.5px}
+.panel h3{font-size:30px}
+.panel p{font-size:16.5px;line-height:1.5}
+.panel .src{font-size:13px}
+.tip{font-size:15px;max-width:300px;padding:11px 13px}
+.range{font-size:16px;color:rgba(255,255,255,.88)}
+.home{width:340px;padding:18px 20px}
+.home label{font-size:21px}
+.home select{font-size:17px;height:46px}
+.home-row,.home button{font-size:15px}
+.fine{font-size:15px!important;color:var(--muted)!important}
+.save-steps p{font-size:23px}
+.save-steps span{font-size:38px}
+.save-note{font-size:17px;color:var(--ink2)}
+.save-actions button{font-size:16px}
+#saveMsg{font-size:16px}
+.clock-in p{font-size:clamp(22px,2.2vw,27px)}
+.clock-in .fine{font-size:15px!important;color:#A8A297!important}
+.clock-in .kick{font-size:14px!important;color:#A8A297}
+.decade-text p{font-size:24px}
+.decade-text .sub{font-size:21px}
+#decadeChart text{font-size:15px}
+#decadeChart .lab{font-size:17px}
+.bridge p+p{font-size:clamp(22px,2.2vw,28px)}
+.yours .k{font-size:15px}
+.yours h3{font-size:50px}
+.yours-stat{font-size:21px;line-height:1.5}
+.yours-links{font-size:17px}
+.yours select{font-size:17px;height:48px}
+.od-key{font-size:15px}
+.mark-line p{font-size:clamp(24px,2.5vw,32px)}
+.wall-invite p{font-size:24px}
+.closing p{font-size:21px;line-height:1.55}
+.send textarea{font-size:21px}
+.help{font-size:17px}
+.form-row button:not(.linkish),.close{font-size:16px}
+.form-row span{font-size:16px}
+.quiet.final p{font-size:clamp(26px,2.8vw,34px)}
+.foot-in{font-size:16px}
+.foot .k{font-size:14px}
+.linkish{font-size:16.5px}
+#wall .card-s p.t{font-size:20.5px}
+#wall .card-s .who{font-size:13px}
+#wall .card-s .tag{font-size:14.5px;color:#7D786F;margin:0 0 14px;line-height:1.3}
+/* lead card: hanging opening quote instead of a big mark floating between the label and the text */
+#wall .card-s.lead .tag{margin:0 0 24px}
+#wall .card-s.lead p.t{position:relative}
+#wall .card-s.lead p.t::before{content:"\201C";display:inline;position:absolute;left:-.42em;top:0;margin:0;font-size:1em;line-height:inherit;font-style:italic;color:var(--blue)}
+.wp-head .dek{font-size:22px}
+.wp-head .kicker{font-size:13px}
+.crumbs,.crumbs button{font-size:15.5px}
+.pin-foot p{font-size:20px}
+@media (max-width:899px){
+  .card,.card.title{width:100%}
+  .card p{font-size:19.5px}
+  .card p.sub{font-size:18px}
+  .card.mobile-only p{font-size:17.5px}
+  .over p{font-size:20px}
+}
+
+/* Final note: the page slowly turns to night after "Text someone tonight," then the last words arrive one at a time */
+.quiet.final.final-note{display:block;position:relative;height:280vh;min-height:0;padding:0;background:transparent}
+.final-note .dusk{position:absolute;inset:0;background:linear-gradient(to bottom,var(--paper) 0%,#E6E1D7 12%,#8E8B85 30%,#2B2E33 44%,#14171C 54%,#14171C 100%)}
+.quiet.final.final-note .in{position:sticky;top:0;height:100vh;height:100svh;max-width:none;margin:0 auto;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 max(24px,env(safe-area-inset-right)) 0 max(24px,env(safe-area-inset-left));text-align:center}
+.quiet.final.final-note p{max-width:18em;text-align:center;color:#EFEBE3;font-size:clamp(28px,3.2vw,44px);line-height:1.25;letter-spacing:-.01em;opacity:0;transform:translateY(14px);transition:none;will-change:opacity,transform;text-wrap:balance}
+.quiet.final.final-note p+p{margin-top:.9em}
+.quiet.final.final-note p.ded{max-width:20em;margin-top:.9em;font-style:normal;font-size:clamp(28px,3.2vw,44px);line-height:1.25;letter-spacing:-.01em;color:#EFEBE3}
+.final-note + .foot{background:#14171C;border-top:1px solid rgba(244,241,234,.1);color:#C9C2B4}
+.final-note + .foot .foot-in{color:#C9C2B4}
+.final-note + .foot .brandf{color:#F4F1EA}
+.final-note + .foot .k{color:#8E897F}
+.final-note + .foot a{color:#F4F1EA}
+@media (prefers-reduced-motion: reduce){ .quiet.final.final-note p{opacity:1;transform:none} }
+
+/* state history from NORC */
+.yours-in{grid-template-columns:minmax(0,380px) minmax(0,1fr)}
+.past{margin:4px 0 26px;padding-top:22px;border-top:1px solid var(--rule)}
+.past .k{margin-bottom:10px}
+.past-chart{position:relative}
+.past-chart svg{display:block;width:100%;height:auto;overflow:visible}
+.past-chart text{font-family:var(--sans);fill:var(--ink2)}
+.past-chart .tot{font-size:15px;font-weight:600;fill:var(--ink)}
+.past-chart .yr{font-size:13.5px;fill:var(--muted)}
+.past-chart .seg{cursor:default;transition:opacity .15s}
+.past-chart:hover .seg{opacity:.55}
+.past-chart .bar:hover .seg{opacity:1}
+.past-tip{position:absolute;pointer-events:none;background:var(--ink);color:#F4F1EA;font:14px/1.45 var(--sans);padding:9px 12px;border-radius:3px;white-space:nowrap;transform:translate(-50%,-100%);box-shadow:0 6px 18px -8px rgba(0,0,0,.4)}
+.past-tip b{font-weight:600}
+.past-key{display:flex;gap:18px;flex-wrap:wrap;margin:10px 0 16px;font:14.5px var(--sans);color:var(--ink2)}
+.past-key i{display:inline-block;width:12px;height:12px;border-radius:2px;margin-right:7px;vertical-align:-1px}
+.past-line{margin:0 0 12px;font-family:var(--serif);font-size:19px;line-height:1.5;color:var(--ink2)}
+.past-line strong{font-weight:500;color:var(--deep)}
+@media (max-width:899px){ .yours-in{grid-template-columns:1fr} }
+
+/* Quiet Wall, final: a calm remembrance wall. White cards, one upright serif for the words, one quiet sans for labels; no tilts, no dark or tinted cards, no italics. */
+#wall .card-s,#wall .card-s:nth-child(n),#wall .card-s.lead,#wall .card-s:nth-child(4n+3):not(.lead),#wall .card-s:nth-child(5n+5):not(.lead){background:#FFFFFF;transform:none;border:1px solid #E6E0D5;border-radius:4px;box-shadow:0 1px 2px rgba(31,29,26,.04),0 10px 24px -18px rgba(31,29,26,.22)}
+#wall .card-s:hover{transform:none!important;box-shadow:0 1px 2px rgba(31,29,26,.05),0 14px 28px -18px rgba(31,29,26,.28)}
+#wall .card-s{padding:30px 30px 26px;display:flex;flex-direction:column}
+#wall .card-s.lead{padding:44px 48px 40px}
+#wall .card-s p.t,#wall .card-s.short p.t,#wall .card-s.lead p.t,#wall .card-s:nth-child(4n+3):not(.lead) p.t{font-family:var(--serif);font-style:normal;color:var(--ink);letter-spacing:0;text-wrap:pretty}
+#wall .card-s p.t{font-size:21px;line-height:1.55}
+#wall .card-s.short p.t{font-size:25px;line-height:1.4}
+#wall .card-s.lead p.t{font-size:clamp(28px,2.6vw,36px);line-height:1.35}
+#wall .card-s.lead p.t::before{content:none}
+#wall .card-s .tag,#wall .card-s:nth-child(4n+3):not(.lead) .tag{order:-1;font-family:var(--sans);font-style:normal;font-size:14px;font-weight:500;letter-spacing:.02em;text-transform:none;color:#7D786F;margin:0 0 16px;line-height:1.3}
+#wall .card-s.lead .tag{margin-bottom:22px}
+#wall .card-s .who,#wall .card-s.lead .who,#wall .card-s:nth-child(4n+3):not(.lead) .who{margin-top:auto;padding-top:20px;border-top:none;font-family:var(--sans);font-style:normal;font-size:16px;letter-spacing:0;color:#5E5950}
+#wall .card-s.lead .who{font-size:18px;padding-top:28px}
+#wall .card-s .who button{font-family:var(--sans);font-style:normal;font-size:14px;color:#5E5950}
+</style>
+
+<header class="bar">
+  <a class="brand" href="#top">The Unmarked Mile</a>
+  <nav class="chapters" aria-label="Chapters">
+    <a href="#ch1" data-ch="1"><em>Ch. 1</em>What is it?</a>
+    <a href="#ch2" data-ch="2"><em>Ch. 2</em>How does it get here?</a>
+    <a href="#ch3" data-ch="3"><em>Ch. 3</em>How does it spread?</a>
+    <a href="#ch4" data-ch="4"><em>Ch. 4</em>What does it do?</a>
+    <a href="#ch5" data-ch="5"><em>Ch. 5</em>Who does it take?</a>
+    <a href="#wall" class="src" id="navWall">Quiet Wall</a>
+    <a href="sources.html">Sources</a>
+    <a href="../../index.html#work">← Portfolio</a>
+  </nav>
+</header>
+
+<main id="top">
+<!-- COVER -->
+<section class="cover" id="cover" data-media="media/highway" data-kind="video">
+  <div class="sky"></div>
+  <svg class="road" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <polygon points="700,684 740,684 1260,900 180,900" fill="#2A2E35"/>
+    <line x1="702" y1="684" x2="200" y2="900" stroke="#5E636B" stroke-width="2"/>
+    <line x1="738" y1="684" x2="1240" y2="900" stroke="#5E636B" stroke-width="2"/>
+    <line class="dash" x1="720" y1="684" x2="720" y2="900" stroke="#CDB88C" stroke-width="5" stroke-dasharray="14 22"/>
+    <g class="lights">
+      <circle r="2" fill="#FFF3D6"><animateMotion dur="11s" repeatCount="indefinite" path="M712,684 L470,900"/><animate attributeName="r" values="1.5;16" dur="11s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.1;.9;1" dur="11s" repeatCount="indefinite"/></circle>
+      <circle r="2" fill="#FFF3D6"><animateMotion dur="11s" repeatCount="indefinite" path="M716,684 L560,900"/><animate attributeName="r" values="1.5;16" dur="11s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.1;.9;1" dur="11s" repeatCount="indefinite"/></circle>
+      <circle r="2" fill="#E0614A" opacity=".9"><animateMotion dur="15s" begin="-6s" repeatCount="indefinite" path="M840,900 L728,684"/><animate attributeName="r" values="9;1" dur="15s" begin="-6s" repeatCount="indefinite"/></circle>
+    </g>
+  </svg>
+  <!-- When the highway video is ready: <video src="highway.mp4" autoplay muted loop playsinline></video> -->
+  <div class="shade"></div>
+  <div class="words" id="coverWords">
+    <h1>The Unmarked Mile</h1>
+    <p class="dek">How a few grains of powder reached every town in America</p>
+  </div>
+  <div class="cue" aria-hidden="true">Scroll to begin<i></i></div>
+  <div class="ph">Your highway video goes here (media/highway.mp4)</div>
+</section>
+
+<!-- CH 1 -->
+<section class="opener" id="ch1" data-ch="1">
+  <div class="in">
+    <p class="ch">Ch. 1</p>
+    <h2>What is it?</h2>
+    <p>It doesn't look dangerous. It looks like an ordinary pill, the kind someone takes for a bad back, or to stay awake through a shift. But it can hold two milligrams of fentanyl, about as much as 10 to 15 grains of table salt. You can't see it, taste it, or smell it. And it can stop someone's breathing.</p>
+  </div>
+</section>
+
+<div class="scrolly" id="pill" data-ch="1">
+  <div class="stage">
+    <div class="anno" id="anno" aria-hidden="true">
+      <svg class="anno-lines" id="annoLines"></svg>
+      <div class="a" data-k="mix"><h4>The uneven mix</h4><p>These are mixed in blenders or buckets, not sterile labs. The powder never blends evenly. Two people can split the same pill; one feels fine, the other gets a deadly dose.</p></div>
+      <div class="a" data-k="filler"><h4>The filler</h4><p>Almost the entire pill is filler, binder and dye. That's why you can't judge a pill by how heavy it is, what it smells like, or what it looks like.</p></div>
+      <div class="a" data-k="mg"><h4>Two milligrams</h4><p>About as much as 10 to 15 grains of salt. You can't see it inside the pill, but it's enough to stop someone's lungs from taking a breath.</p></div>
+      <div class="a" data-k="stamp"><h4>The fake stamp</h4><p>It's pressed to look exactly like a real pain pill from a pharmacy. The metal stamps that make these are sold online, cheaply.</p></div>
+    </div>
+    <p class="drag-hint" id="dragHint">Drag the pill to turn it over</p>
+    <div class="pill-zoom" id="pillZoom"><button type="button" data-z="in" aria-label="Zoom in on the pill">+</button><button type="button" data-z="out" aria-label="Zoom out">−</button><button type="button" data-z="reset" aria-label="Reset the pill">↺</button></div>
+    <canvas id="pcv" role="img" aria-label="A round blue pill. The view zooms inside it, showing mostly gray filler with blue grains of fentanyl scattered unevenly, and a tiny cluster of about two milligrams circled. Then ten pills: seven of them hold enough fentanyl to kill."></canvas>
+  </div>
+  <div class="steps" id="pillSteps">
+    <section class="step"><div class="card"><p>Inside that ordinary blue tablet can be something you'd never notice: a fleck of powder you could balance on the tip of a pencil.</p><p class="sub">It's mixed by hand, with no one measuring, so the line between relief and death comes down to fractions of a milligram.</p></div></section>
+    <section class="step tall"><div class="card mobile-only">
+      <p><strong>The uneven mix.</strong> These are mixed in blenders or buckets, not sterile labs. Two people can split the same pill; one feels fine, the other gets a deadly dose.</p>
+      <p><strong>The filler.</strong> Almost the entire pill is filler, binder and dye. You can't judge a pill by its weight, its smell, or how it looks.</p>
+      <p><strong>Two milligrams.</strong> You can't see it inside the pill, but it's enough to stop someone's breathing.</p>
+      <p><strong>The fake stamp.</strong> It's pressed to look exactly like a real pain pill from a pharmacy.</p>
+    </div></section>
+    <section class="step"><div class="card"><p>Pills like this aren't made in a lab with rules.</p></div></section>
+    <section class="step"><div class="card"><p>Look closer, and the fentanyl isn't spread evenly at all.</p><p class="sub">One pill can be weak. The next one, from the same batch, can kill. Nobody can tell which is which, not even the person selling it.</p></div></section>
+    <section class="step"><div class="card"><p>This tiny cluster is about <strong>two milligrams</strong>.</p><p class="sub">For most people, it's enough to stop their breathing.</p></div></section>
+    <section class="step"><div class="card"><p>When the DEA tested fake pills with fentanyl in them, <span class="num">7 out of every 10</span> had enough to kill someone.</p></div></section>
+    <section class="step tall"><div class="card"><p class="big">That's not a small risk. That's most of them.</p></div></section>
+  </div>
+</div>
+
+
+<!-- CH 2 + 3 : the globe -->
+<div class="scrolly" id="ch2" data-ch="2">
+  <div class="stage" id="stage">
+    <canvas id="cv" aria-hidden="true"></canvas>
+    <svg id="ov" role="img" aria-label="Map of the route fentanyl takes: chemicals from China and India to Mexico, across the U.S.–Mexico border at official crossings, and north along U.S. interstate highways to a small town."></svg>
+    <div class="loading" id="loading">Loading map…</div>
+    <div class="legend" id="legend" aria-hidden="true"></div>
+    <aside class="panel" id="panel" aria-live="polite">
+      <button type="button" id="pclose" aria-label="Close">×</button>
+      <div class="k" id="pk"></div>
+      <h3 id="pt"></h3>
+      <p id="pd"></p>
+      <p class="grp" id="pg"></p>
+      <p class="src">Totals for single crossings: U.S. Customs and Border Protection drug seizure statistics.</p>
+    </aside>
+  </div>
+
+  <div class="steps" id="steps">
+    <div class="peek"><div class="in"><p class="ch">Ch. 2</p><h2>How does it get here?</h2></div></div>
+    <section class="step tall"><div class="card">
+      <p>It never touched soil. Older drugs needed fields of poppies and a harvest. Fentanyl starts in chemical factories.</p>
+      <p class="sub">The raw ingredients are poured into industrial barrels and cross the Pacific on ordinary cargo ships.</p>
+    </div></section>
+
+    <section class="step"><div class="card">
+      <p>It starts as chemicals, not drugs. <strong>China</strong> is the main source of the chemicals used to make fentanyl, and of the machines that press it into pills.</p>
+    </div></section>
+
+    <section class="step"><div class="card">
+      <p><strong>India</strong> is a growing second source.</p>
+      <p class="sub">Many of these chemicals have ordinary, legal uses too, which makes them hard to track.</p>
+    </div></section>
+
+    <section class="step"><div class="card">
+      <p>They cross the Pacific by ship and by plane, often labeled as something else, and arrive at ports on Mexico's west coast.</p>
+    </div></section>
+
+    <section class="step"><div class="card">
+      <p>In <strong>Mexico</strong>, cartels turn those chemicals into fentanyl. Then they press it into pills made to look exactly like real medicine.</p>
+    </div></section>
+
+    <section class="step"><div class="card">
+      <p>Most of it doesn’t come across open land. It comes through the front door.</p>
+      <p>It’s hidden inside ordinary cars and trucks, waiting in line at official border crossings, in the same lanes commuters and families use every day.</p>
+    </div></section>
+
+    <section class="step"><div class="card">
+      <p class="big">In 2025, officers found <span class="num">11,486 pounds</span> of fentanyl at the U.S.–Mexico border.</p>
+      <p class="sub">86 percent of it was caught at official crossings. And 96 percent came through California and Arizona.</p>
+      <div class="hint"><i aria-hidden="true"></i>Tap a crossing on the map to learn about it.</div>
+    </div></section>
+
+    <section class="step"><div class="card">
+      <p class="big">That's only what they caught.</p>
+      <p class="sub">Nobody knows how much made it through.</p>
+    </div></section>
+
+    <section class="step tall" id="ch3" data-ch="3"><div class="card title">
+      <p class="kicker">Ch. 3</p>
+      <h2>The 70mph Pipeline</h2>
+      <p>Once it's across, it doesn't sneak. It drives, on the same highways you do.</p>
+    </div></section>
+
+    <section class="step" data-ch="3"><div class="card">
+      <p>From the crossings near San Diego, it heads north on <strong>I-5</strong> up the coast, and on <strong>I-15</strong> through Las Vegas toward Salt Lake City.</p>
+    </div></section>
+
+    <section class="step" data-ch="3"><div class="card">
+      <p>From Nogales, Arizona, <strong>I-19</strong> runs to Tucson. There it meets <strong>I-10</strong>, a highway that crosses the whole country, from Los Angeles to Florida.</p>
+    </div></section>
+
+    <section class="step" data-ch="3"><div class="card">
+      <p>From El Paso, <strong>I-25</strong> heads north to Denver. From Laredo, <strong>I-35</strong> runs straight up the middle of the country: Dallas, Oklahoma City, Kansas City, Minneapolis.</p>
+    </div></section>
+
+    <section class="step" data-ch="3"><div class="card">
+      <p>Where those highways cross the ones running east and west, it spreads out.</p>
+      <p>The same roads that bring groceries to your town bring this.</p>
+    </div></section>
+
+    <section class="step tall" data-ch="3"><div class="card">
+      <p>Somewhere along that road, there's an exit like any other, a few miles from a town like yours.</p>
+    </div></section>
+  </div>
+</div>
+
+<!-- CH 3 ending into CH 4: one continuous film. One sticky screen; each photo dissolves straight into the next. -->
+<div class="scrolly film" id="filmA">
+  <div class="stage">
+    <div class="film-base"></div>
+    <div class="media flayer ph-aerial" data-layer="aerial" data-slot="aerial-street video" data-media="media/aerial-street" data-kind="video">
+      <span class="ph-tag">Your aerial street video goes here (media/aerial-street.mp4)</span>
+    </div>
+    <div class="media flayer ph-street" data-layer="street" data-slot="streetlight photo" data-media="media/streetlight" data-kind="photo">
+      <span class="ph-tag">Your streetlight photo goes here (media/streetlight.jpg)</span>
+    </div>
+    <div class="media flayer ph-window" data-layer="window" data-slot="window photo" data-media="media/window" data-kind="photo">
+      <span class="ph-tag">Your window photo goes here (media/window.jpg)</span>
+    </div>
+    <canvas id="bcv" role="img" aria-label="A line showing breathing. It starts as a steady rhythm, slows and flattens as fentanyl takes effect, goes flat, then returns to a steady rhythm after naloxone."></canvas>
+    <p class="range" id="brange" style="opacity:0">Normal adult breathing: 12 to 20 breaths a minute</p>
+    <div class="film-paper"></div>
+  </div>
+  <div class="steps" id="bsteps">
+    <div class="hold enter" data-layer="aerial"></div>
+    <section class="step center tall" data-layer="aerial" data-ch="3"><div class="over">
+      <p>And then it takes an off-ramp. A town of 10,000 people, with a grain elevator, a high school football field, and quiet gravel roads.</p>
+      <p>Overdose deaths have finally started to fall across the country. But not everywhere, and not for everyone. When an interstate runs past your town, nowhere is truly far away.</p>
+    </div></section>
+    <div class="hold" data-layer="aerial"></div>
+    <section class="step center tall" id="homeStep" data-layer="street" data-ch="3"><div class="over statement">
+      <p>It could be any town.</p>
+      <p>It could be yours.</p>
+    </div></section>
+    <div class="hold" data-layer="street"></div>
+    <section class="step center tall" data-layer="window" data-ch="3"><div class="over quiet-lines">
+      <p>The streetlights stay on all night.</p><p>Behind one of those windows, someone is asleep.</p><p>Or seems to be.</p>
+    </div></section>
+    <section class="step center tall" id="ch4" data-layer="window" data-ch="4"><div class="over title"><p class="ch">Ch. 4</p><h2>What does it do?</h2></div></section>
+    <section class="step low" data-layer="window" data-ch="4" data-b="normal"><div class="over"><p>Breathing is something your body does without asking you. Fentanyl turns that switch off.</p></div></section>
+    <section class="step low" data-layer="window" data-ch="4" data-b="slow"><div class="over"><p>Within minutes, breathing slows and grows shallow.</p></div></section>
+    <section class="step low" data-layer="window" data-ch="4" data-b="sleep"><div class="over"><p>The person looks like they've simply drifted off to sleep. They might snore heavily, or make raspy, gurgling sounds.</p></div></section>
+    <section class="step low" data-layer="window" data-ch="4" data-b="quiet"><div class="over"><p>It isn't violent or loud. That's why it's so easy for someone in the next room to walk by, thinking they're just tired.</p></div></section>
+    <section class="step low" data-layer="window" data-ch="4" data-b="blue"><div class="over"><p>Their lips and fingertips turn a faint blue or gray. They won't wake up if you say their name or shake their shoulder.</p></div></section>
+    <section class="step low tall" data-layer="window" data-ch="4" data-b="flat"><div class="over"><p>Without oxygen, the brain can start to suffer damage in about four minutes.</p></div></section>
+    <section class="step low" data-layer="window" data-ch="4" data-b="narcan"><div class="over"><p>This is where naloxone, often known as Narcan, steps in. It works like a key, knocking fentanyl off the brain's receptors so the body remembers to breathe again.</p></div></section>
+    <section class="step low tall" data-layer="window" data-ch="4" data-b="normal2"><div class="over"><p>You don't need a medical degree or a prescription to keep it in your purse or your cabinet.</p></div></section>
+    <div class="hold exit" data-layer="window"></div>
+  </div>
+  <form class="home" id="home" onsubmit="return false">
+    <label for="homeState">Where's home for you?</label>
+    <select id="homeState"><option value="">Choose your state</option></select>
+    <div class="home-row"><button type="button" id="homeSkip">Skip for now</button><span id="homeSaved" aria-live="polite"></span></div>
+  </form>
+</div>
+
+<section class="save" data-ch="4" id="save">
+  <div class="save-in">
+    <div class="save-head">
+      <p class="eyebrow">Save this</p>
+      <h2>If someone won't wake up</h2>
+    </div>
+    <ol class="save-steps">
+      <li><span>1</span><p><strong>Call 911.</strong></p></li>
+      <li><span>2</span><p><strong>Spray naloxone into one nostril.</strong> Lay them on their side so their airway stays clear.</p></li>
+      <li><span>3</span><p><strong>Stay with them.</strong> Naloxone can wear off before fentanyl does.</p></li>
+      <li><span>4</span><p><strong>If they don't respond in 2 to 3 minutes,</strong> give a second dose in the other nostril.</p></li>
+    </ol>
+    <p class="save-note"><strong>Naloxone won’t harm someone who hasn’t taken opioids.</strong> If you’re not sure, give it.</p>
+    <div class="save-actions">
+      <button type="button" id="sendSteps" class="primary">Send these steps to someone</button>
+      <button type="button" id="copySteps">Copy</button>
+      <span id="saveMsg" aria-live="polite"></span>
+    </div>
+  </div>
+</section>
+
+<!-- CH 5: a second film. Main street, then darkness for the reading clock, then the kitchen table, then daylight. -->
+<div class="scrolly film" id="filmB">
+  <div class="stage">
+    <div class="film-base"></div>
+    <div class="media flayer ph-main" data-layer="main" data-slot="main street photo" data-media="media/main-street" data-kind="photo">
+      <span class="ph-tag">Your main street photo goes here (media/main-street.jpg)</span>
+    </div>
+    <div class="media flayer ph-table" data-layer="table" data-slot="kitchen table photo" data-media="media/table" data-kind="photo">
+      <span class="ph-tag">Your table photo goes here (media/table.jpg)</span>
+    </div>
+    <div class="film-paper"></div>
+  </div>
+  <div class="steps">
+    <div class="hold enter" data-layer="main"></div>
+    <section class="step corner tall" id="ch5" data-layer="main" data-ch="5"><div class="over title right"><p class="ch">Ch. 5</p><h2>Who does it take?</h2></div></section>
+    <section class="step corner" data-layer="main" data-ch="5"><div class="over"><p>Before the numbers, one more thing to notice.</p></div></section>
+    <div class="hold" data-layer="main"></div>
+    <section class="step center tall" data-layer="dark" data-ch="5"><div class="over clock-in" aria-live="polite">
+      <p class="kick">Since you started reading</p>
+      <h2 id="clockHead">You've been reading for a few minutes.</h2>
+      <p id="clockBody">On average, someone in America dies of an overdose every seven and a half minutes.</p>
+      <div class="marks" id="clockMarks" aria-hidden="true"></div>
+      <p class="fine">An average, not a live count. Based on about 70,000 overdose deaths in the U.S. in 2025 (CDC, provisional).</p>
+    </div></section>
+    <div class="hold" data-layer="dark"></div>
+    <section class="step left tall" data-layer="table" data-ch="5"><div class="over">
+      <p class="lead">They weren't statistics.</p>
+      <p>They were somebody's son, somebody's mom, the coworker who covered your shift, the kid you sat next to in homeroom. Most of them weren't trying to die. They were trying to feel okay.</p>
+      <p>And here's what often gets overlooked: people do come back. One in eleven American adults is living in recovery right now. That's about 23.5 million people, living full lives.</p>
+    </div></section>
+    <div class="hold exit" data-layer="table"></div>
+  </div>
+</div>
+
+<section class="quiet big" data-ch="5">
+  <div class="in reveal"><p class="lead">Here's the truth that rarely makes the evening news: we are turning the corner.</p></div>
+</section>
+
+<section class="decade" data-ch="5">
+  <div class="decade-in">
+    <div class="decade-text">
+      <p>In 2025, about <strong>38,000 fewer families</strong> lost someone than at the peak in 2022.</p>
+      <p class="sub">Because more everyday people carry naloxone, and more parents and friends know the warning signs, the tide is moving.</p>
+      <p class="fine">Each dot is 1,000 people who died of a drug overdose. CDC final data through 2023; 2024 and 2025 are provisional.</p>
+    </div>
+    <svg id="decadeChart" role="img" aria-label="Overdose deaths in the U.S. each year from 2015 to 2025. They rise from about 52,000 in 2015 to a peak of about 108,000 in 2022, then fall to about 70,000 in 2025."></svg>
+  </div>
+</section>
+
+<section class="bridge" data-ch="5">
+  <div class="reveal"><p>Every one of those dots was a thousand&nbsp;people.</p><p>And every one of them lived&nbsp;somewhere.</p></div>
+</section>
+<section class="bridge" data-ch="5">
+  <div class="reveal"><p>Remember the town at the end of the highway?</p></div>
+</section>
+
+<section class="yours" id="yours" data-ch="5">
+  <h2>Here's yours.</h2>
+  <div class="yours-in">
+    <div class="yours-panel">
+      <label for="yoursState" class="k">Your state</label>
+      <select id="yoursState"></select>
+      <p class="k" id="yoursLevel">Selected state</p>
+      <h3 id="yoursName">Kansas</h3>
+      <p class="yours-stat" id="yoursStat">Choose a state to see its overdose death rate.</p>
+      <div class="past" id="yoursPast" hidden>
+        <p class="k">Overdose deaths over time</p>
+        <div class="past-chart"><svg id="pastChart" viewBox="0 0 380 190" role="img"></svg><div class="past-tip" id="pastTip" hidden></div></div>
+        <p class="past-key"><span><i style="background:#2A6175"></i>Involved opioids</span><span><i style="background:#8DBBCB"></i>Other drugs</span></p>
+        <p class="past-line" id="pastLine1"></p>
+        <p class="past-line" id="pastLine2"></p>
+        <p class="fine">Deaths are totals for each four-year period. Source: NORC at the University of Chicago, Overdose Mapping Tool, using CDC National Center for Health Statistics death records (2010–2021) and SAMHSA treatment facility listings (March 2023).</p>
+      </div>
+      <ul class="yours-links">
+        <li><a href="https://findtreatment.gov" target="_blank" rel="noopener">Find treatment near you (FindTreatment.gov)</a></li>
+        <li><a href="https://www.samhsa.gov/find-help/helplines/national-helpline" target="_blank" rel="noopener">SAMHSA National Helpline: 1-800-662-4357</a></li>
+      </ul>
+      <button type="button" id="yoursBack" class="linkish" hidden>Back to the whole country</button>
+    </div>
+    <div class="yours-map">
+      <svg id="usMap" role="img" aria-label="Map of the United States, shaded by each state’s overdose death rate. Choose a state to see its numbers."></svg>
+      <div class="od-key" id="odKey" aria-hidden="true"></div>
+      <p class="fine">Drug overdose deaths per 100,000 people in 2023, age-adjusted so states with older or younger populations compare fairly. Source: CDC National Center for Health Statistics. Click a state to see its numbers.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Every story leaves a mark: the page darkens around the words, then lightens into the closing -->
+<section class="mark night" id="mark" data-ch="5">
+  <div class="mark-dark" aria-hidden="true"></div>
+  <div class="mark-open"><h2 class="reveal">Every story leaves a mark</h2></div>
+  <div class="mark-line"><p class="reveal">Whether you survived, lost someone, held someone's hand, or are fighting your way back today: this space is yours.</p></div>
+  <div class="mark-line"><p class="reveal">You don't need the right words, and you don't need a polished story.</p></div>
+  <div class="mark-line"><p class="reveal">Tell us about a person you miss, a moment that changed you, or simply what you wish more people understood.</p></div>
+  <div class="mark-in">
+    <form id="storyForm" class="story-form" novalidate>
+      <label for="sName">Your first name or initials <span>(or leave it blank)</span></label>
+      <input id="sName" maxlength="40" autocomplete="off">
+      <label for="sPlace">Where you're from <span>(town, state, or ZIP code)</span></label>
+      <div class="place-row"><input id="sPlace" maxlength="80" autocomplete="off"><button type="button" id="pinBtn" class="linkish">Or pin it on a map</button></div>
+      <p class="pinned" id="pinned" hidden></p>
+      <label for="sText">Your note or memory</label>
+      <textarea id="sText" rows="5" maxlength="1200"></textarea>
+      <p class="fine">Your words appear on the Quiet Wall for anyone who reads this story. Leave out last names and anything you'd want kept private.</p>
+      <div class="form-row"><button type="submit" class="primary">Add your voice to the Quiet Wall</button><span id="storyMsg" aria-live="polite"></span></div>
+    </form>
+    <div class="wall-invite">
+      <p>Others have already left something here.</p>
+      <button type="button" id="openWall" class="ghost">Read the Quiet Wall</button>
+    </div>
+  </div>
+  <div class="mark-tail" aria-hidden="true"></div>
+</section>
+
+<section class="closing" id="closing">
+  <div class="closing-in">
+    <div>
+      <h2>Check on the people you love.</h2>
+      <p>Most people who are struggling hide it, especially from the people closest to them. Shame keeps it quiet.</p>
+      <p>The signs can be small: pulling away, changes in sleep or money, missing things they used to show up for.</p>
+      <p>You don’t need the right words. “I’m here, no matter what” is enough.</p>
+      <p>Don’t wait for the perfect moment. Text someone tonight.</p>
+    </div>
+    <div class="send">
+      <h2>Send this to someone tonight</h2>
+      <textarea id="checkMsg" rows="3" aria-label="Message to send">Hey, I was thinking about you. No reason. I'm here, whenever.</textarea>
+      <div class="form-row"><button type="button" id="sendCheck" class="primary">Send message</button><button type="button" id="copyCheck">Copy</button><span id="checkStatus" aria-live="polite"></span></div>
+      <ul class="help">
+        <li><strong>988</strong> Call or text, any time</li>
+        <li><strong>1-800-662-4357</strong> SAMHSA National Helpline, free and confidential, 24/7</li>
+        <li><strong>877-696-1996</strong> Never Use Alone: someone stays on the line with you</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="quiet final final-note" id="finalNote">
+  <div class="dusk" aria-hidden="true"></div>
+  <div class="in">
+    <p>This is a story about fentanyl. But really, it’s about people.</p>
+    <p>The ones we’ve lost. The ones still struggling. And the ones who found their way back.</p>
+    <p class="ded">For everyone who’s still just trying to feel okay, and for the people who never stopped checking on them.</p>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="foot-in">
+    <div><p class="brandf">The Unmarked Mile</p><p>Designed by Lauren Wheeler, Rebecca Rice, and Kaden Gillam</p></div>
+    <div><p class="k">Sources</p><p>CDC National Center for Health Statistics; NORC at the University of Chicago; DEA; U.S. Customs and Border Protection; Office of the Director of National Intelligence; SAMHSA. <a href="sources.html">All sources</a></p></div>
+    <div><p class="k">Help</p><p>988: call or text, any time<br>1-800-662-4357: SAMHSA National Helpline<br>877-696-1996: Never Use Alone</p></div>
+  </div>
+</footer>
+
+<!-- full-screen layers -->
+<div class="layer" id="wall" role="dialog" aria-modal="true" aria-labelledby="wallTitle" hidden>
+  <div class="layer-bar"><button type="button" class="close" data-close="wall">Close</button></div>
+  <div class="wp-head wall-mast"><h2 id="wallTitle">The Quiet <em>Wall</em></h2><p class="dek">Notes left by readers, in memory and in recovery. Some are about people who are gone. Some are about people who came back. Tap a place to see where a story comes from.</p></div>
+  <div class="wall-grid full" id="wallFull"></div>
+</div>
+
+<div class="layer" id="pinner" role="dialog" aria-modal="true" aria-labelledby="pinTitle" hidden>
+  <div class="layer-bar"><h2 id="pinTitle">Pin where you're from</h2><button type="button" class="close" data-close="pinner">Close</button></div>
+  <p class="crumbs" id="crumbs"></p>
+  <div class="pin-stage"><svg id="pinGlobe" role="img" aria-label="Globe. Drag to turn it, scroll or pinch to zoom, and click a country to place your pin."></svg></div>
+  <div class="pin-foot"><p id="pinHint">Drag to turn the globe. Scroll or pinch to zoom in, then click your country.</p><div class="form-row"><button type="button" id="pinUp" class="linkish" hidden>Zoom out</button><button type="button" id="pinUse" class="primary" disabled>Use this pin</button></div></div>
+</div>
+
+
+</main>
+
+<script>
+/* photo + video slots: drop a file into media/ with the slot's name and it appears; until then the placeholder shows */
+(function(){
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const EXT={photo:['.jpg','.jpeg','.png','.webp'],video:['.mp4','.webm','.mov']};
+const vids=[];
+// if the browser held back autoplay, start the videos on the reader's first touch, click, scroll or key press
+const kick=()=>{ if(reduce) return; vids.forEach(v=>{ if(v.paused) v.play().catch(()=>{}); }); };
+['touchstart','pointerdown','scroll','keydown'].forEach(t=>addEventListener(t,kick,{passive:true}));
+document.addEventListener('visibilitychange',()=>{ if(!document.hidden) kick(); });
+document.querySelectorAll('[data-media]').forEach(slot=>{
+  const kind=slot.dataset.kind, exts=EXT[kind]; let i=0;
+  const show=el=>{ const before=slot.querySelector('.shade')||slot.firstChild; slot.insertBefore(el,before); const ph=slot.querySelector('.ph-tag,.ph'); if(ph) ph.remove(); };
+  (function next(){
+    if(i>=exts.length) return; const src=slot.dataset.media+exts[i++];
+    if(kind==='photo'){ const im=new Image(); im.alt=''; im.decoding='async'; im.onload=()=>show(im); im.onerror=next; im.src=src; }
+    else { const v=document.createElement('video'); v.muted=true; v.defaultMuted=true; v.setAttribute('muted',''); v.loop=true; v.playsInline=true; v.setAttribute('playsinline',''); v.preload='auto'; v.autoplay=!reduce;
+      // a still frame shows right away, even where autoplay is blocked (phone low-power mode, some browsers)
+      if(!slot._posterTried){ slot._posterTried=1; v.poster=slot.dataset.media+'-poster.jpg'; }
+      let shown=false; const reveal=()=>{ if(shown) return; shown=true; show(v); if(!reduce) v.play().catch(()=>{}); vids.push(v); };
+      v.addEventListener('loadedmetadata',reveal,{once:true}); v.addEventListener('loadeddata',reveal,{once:true});
+      v.addEventListener('error',()=>{ if(shown){ v.remove(); } next(); },{once:true}); v.src=src; v.load(); }
+  })();
+});
+})();
+</script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.149.0/build/three.min.js"></script>
+<script>
+/* slow dissolves: night scenes fade up from darkness and back down; quiet lines rise as they reach the middle of the screen */
+(function(){
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const scenes=[...document.querySelectorAll('.fade-scene')], reveals=[...document.querySelectorAll('.reveal')];
+const films=[...document.querySelectorAll('.film')].map(f=>({f,stage:f.querySelector('.stage'),base:f.querySelector('.film-base'),paper:f.querySelector('.film-paper'),
+  layers:Object.fromEntries([...f.querySelectorAll('.flayer')].map(l=>[l.dataset.layer,l])),items:[...f.querySelectorAll('.steps > [data-layer]')],canvas:f.querySelector('canvas')}));
+const mark=document.getElementById('mark'), markDark=mark&&mark.querySelector('.mark-dark');
+const cl=x=>Math.max(0,Math.min(1,x)), ez=x=>x*x*(3-2*x);
+let raf=0;
+function frame(){
+  raf=0; const H=innerHeight;
+  scenes.forEach(sc=>{
+    const r=sc.getBoundingClientRect(), stage=sc.querySelector('.stage'), run=Math.max(1,r.height-H);
+    if(r.bottom<-50||r.top>H+50){ stage.style.opacity=0; return; }
+    if(reduce){ stage.style.opacity=1; return; }
+    const y=-r.top, fin=ez(cl(y/(H*0.75))), fout=ez(cl((y-(run-H*0.85))/(H*0.85)));
+    stage.style.opacity=(fin*(1-fout)).toFixed(3);
+    const m=stage.querySelector('.media img,.media video'); if(m) m.style.transform='scale('+(1.07-0.07*cl(y/run)).toFixed(4)+')';
+  });
+  // films: one sticky screen; the photo under the words dissolves straight into the next one
+  films.forEach(F=>{
+    const r=F.f.getBoundingClientRect(); if(r.bottom<-50||r.top>H+50) return;
+    const y=-r.top, run=Math.max(1,r.height-H);
+    const enter=reduce?(y>-H*0.2?1:0):ez(cl(y/(H*0.9))), leave=reduce?(y>run-H*0.2?1:0):ez(cl((y-(run-H*0.95))/(H*0.95)));
+    F.base.style.opacity=enter.toFixed(3); F.paper.style.opacity=leave.toFixed(3);
+    // which layer belongs to the words at the middle of the screen, and how far into the next one we are
+    const cs=F.items.map(el=>{ const b=el.getBoundingClientRect(); return b.top+b.height/2; });
+    const op={}; for(const k in F.layers) op[k]=0;
+    let i=0; while(i<cs.length-2 && cs[i+1]<H/2) i++;
+    const A=F.items[i].dataset.layer, B=F.items[i+1]?F.items[i+1].dataset.layer:A;
+    const f=cs[0]>H/2?0:cl((H/2-cs[i])/((cs[i+1]-cs[i])||1)), e=reduce?(f<.5?0:1):ez(f);
+    if(A===B||!F.items[i+1]){ if(A in op) op[A]=1; } else { if(A in op) op[A]=1-e; if(B in op) op[B]=e; }
+    for(const k in F.layers){ const L=F.layers[k], o=op[k]*enter; L.style.opacity=o.toFixed(3);
+      const m=L.querySelector('img,video'); if(m&&!reduce) m.style.transform='scale('+(1.07-0.07*cl(y/run)).toFixed(4)+')'; }
+    if(F.canvas) F.canvas.style.opacity=((op.window||0)*enter).toFixed(3);
+    const rg=F.f.querySelector('.range'); if(rg) rg.style.visibility=(op.window||0)>.6?'visible':'hidden';
+  });
+  // every story leaves a mark: the room darkens around the words, then lightens into the closing
+  if(markDark){ const r=mark.getBoundingClientRect();
+    const din=ez(cl((H*0.4-r.top)/(H*0.75))), dout=ez(cl((H*1.9-r.bottom)/(H*0.9)));
+    const mo=reduce?(r.top<H*0.5&&r.bottom>H*1.4?1:0):din*(1-dout); markDark.style.opacity=mo.toFixed(3); markDark.style.visibility=mo>0.002?'visible':'hidden'; }
+  reveals.forEach(el=>{
+    if(reduce){ el.style.opacity=1; return; }
+    const r=el.getBoundingClientRect(), c=r.top+r.height/2, d=Math.abs(c-H/2)/(H*0.5);
+    const a=ez(cl(1.25-d*1.25)); el.style.opacity=a.toFixed(3); el.style.transform='translateY('+((1-a)*(c>H/2?18:-10)).toFixed(1)+'px)';
+  });
+}
+const req=()=>{ if(!raf) raf=requestAnimationFrame(frame); };
+addEventListener('scroll',req,{passive:true}); addEventListener('resize',req); addEventListener('load',req); req();
+// a handwritten final note: drop media/note.png (or .jpg) in and it replaces the typeset words
+const fin=document.getElementById('finalNote');
+if(fin){ const words=fin.querySelector('.in'); let i=0; const ex=['png','jpg','webp'];
+  (function next(){ if(i>=ex.length) return; const im=new Image(); im.onload=()=>{ im.alt=words.innerText.replace(/\s+/g,' ').trim(); words.hidden=true; const box=document.createElement('div'); box.className='in reveal'; box.appendChild(im); fin.appendChild(box); reveals.push(box); req(); }; im.onerror=next; im.src='media/note.'+ex[i++]; })(); }
+})();
+</script>
+<script>
+/* page chrome: nav state, cover fade, pill zoom */
+(function(){
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const body=document.body, cover=document.getElementById('cover'), words=document.getElementById('coverWords');
+const navItems=[...document.querySelectorAll('.chapters [data-ch]')];
+const chSecs=[...document.querySelectorAll('main [data-ch]')];
+if(reduce){ const s=cover.querySelector('svg'); s.pauseAnimations&&s.pauseAnimations(); }
+let cur=-1;
+function chrome(){
+  const H=innerHeight, y=scrollY;
+  body.classList.toggle('oncover', y < H*0.75);
+  words.style.opacity=Math.max(0,1-y/(H*0.45));
+  let c=0; const probe=y+H*0.45;
+  for(const s of chSecs){ if(s.getBoundingClientRect().top+y<=probe) c=+s.dataset.ch; }
+  if(c!==cur){ cur=c; navItems.forEach(a=>{ const on=+a.dataset.ch===c; a.classList.toggle('on',on); if(on) a.setAttribute('aria-current','true'); else a.removeAttribute('aria-current'); }); }
+}
+addEventListener('scroll',chrome,{passive:true}); addEventListener('resize',chrome); chrome();
+addEventListener('load',()=>dispatchEvent(new Event('resize')));
+
+/* ---------- pill zoom ---------- */
+const cv=document.getElementById('pcv'), ctx=cv.getContext('2d');
+const steps=[...document.querySelectorAll('#pillSteps .step')];
+const anno=document.getElementById('anno'), annoLines=document.getElementById('annoLines'), annoEls=[...anno.querySelectorAll('.a')], hint=document.getElementById('dragHint');
+const IMG={front:new Image(),back:new Image()}; IMG.front.src='media/pill-front.png'; IMG.back.src='media/pill-back.png';
+IMG.front.onload=IMG.back.onload=()=>req();
+let W,H,dpr,cxCol,cy,R0,mids=[],wide;
+let seed=11; const rnd=()=>{seed=(seed*16807)%2147483647; return (seed-1)/2147483646;};
+const gauss=()=>{let u=0; while(!u) u=rnd(); return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*rnd());};
+const FILL=['#D9D4CA','#CCC6BB','#E6E2D9','#C1BBB0','#EFECE5','#B6B0A5'];
+const G=[];
+for(let i=0;i<24000;i++){ let x,y; do{x=rnd()*2-1;y=rnd()*2-1;}while(x*x+y*y>1); G.push({x,y,r:.0035+rnd()*.0035,c:FILL[(rnd()*FILL.length)|0],s:rnd()}); }
+const CL={x:.3,y:-.16};
+const BL=[];
+[[CL.x,CL.y,.024,300],[-.38,.3,.07,120],[.08,.52,.05,70],[-.18,-.5,.08,60],[.6,.25,.06,45]].forEach(([x0,y0,s,n])=>{
+  for(let i=0;i<n;i++){ const x=x0+gauss()*s, y=y0+gauss()*s; if(x*x+y*y<.97) BL.push({x,y,r:.0035+rnd()*.0035,c:rnd()<.55?'#2A6175':'#79ADC0',s:rnd()}); } });
+for(let i=0;i<160;i++){ let x,y; do{x=rnd()*2-1;y=rnd()*2-1;}while(x*x+y*y>.95); BL.push({x,y,r:.0035+rnd()*.003,c:rnd()<.5?'#2A6175':'#79ADC0',s:rnd()}); }
+const MARK=[1,1,0,1,1,1,0,1,0,1];
+// annotation layout: angle on the pill (where the line touches) and box offset in pill radii
+const AN={mix:{a:Math.PI*1.02,bx:-2.75,by:-.45,side:'r'},filler:{a:-Math.PI*.3,bx:1.25,by:-1.55,side:'l'},mg:{a:Math.PI*.08,bx:1.7,by:.35,side:'l'},stamp:{a:Math.PI*.72,bx:-2.5,by:1.05,side:'r'}};
+
+const clamp=x=>Math.max(0,Math.min(1,x)), ramp=(t,a,b)=>clamp((t-a)/(b-a)), ease=x=>x*x*(3-2*x), lerp=(a,b,e)=>a+(b-a)*e;
+function resize(){
+  W=innerWidth; H=innerHeight; dpr=Math.min(2,devicePixelRatio||1); wide=W>=900;
+  const bar=wide?60:56, col=wide?460:0, mapW=W-col;
+  cxCol=col+mapW/2; cy=wide?bar+(H-bar)/2:bar+(H-bar)*.36;
+  R0=Math.min(mapW,wide?H-bar:(H-bar)*.6)*(wide?.21:.24);
+  cv.width=W*dpr; cv.height=H*dpr; ctx.setTransform(dpr,0,0,dpr,0,0);
+  mids=steps.map(el=>{const r=el.getBoundingClientRect(); return r.top+scrollY+r.height/2;});
+  req();
+}
+function scrollT(){ const y=scrollY+H*.5; if(y<=mids[0]) return 0; for(let i=0;i<mids.length-1;i++) if(y<mids[i+1]) return i+(y-mids[i])/(mids[i+1]-mids[i]); return mids.length-1; }
+// zoom camera runs on tz = t-1 (step 2 onward)
+function cam(tz){
+  const z1=Math.max(W,H)*.85/R0, z2=z1*2.1, z3=z2*1.15;
+  const K=[{f:[0,0],z:1},{f:[CL.x*.45,CL.y*.45],z:z1},{f:[CL.x*.75,CL.y*.75],z:z2},{f:[CL.x,CL.y],z:z3}];
+  if(tz>=3) return K[3];
+  const i=Math.floor(tz), f=tz-i, e=reduce?(f<.5?0:1):ease(clamp((f-.18)/.64)), a=K[i], b=K[i+1];
+  return {f:[lerp(a.f[0],b.f[0],e),lerp(a.f[1],b.f[1],e)], z:a.z*Math.pow(b.z/a.z,e)};
+}
+// drag to turn the pill over
+let flip=0, flipTarget=0, dragging=false, lastX=0, pillHit={x:0,y:0,r:0,on:false};
+// tilt 0..1: how far the camera looks down on the tablet (1 = resting on a table, edge showing)
+// a seamless speckle that matches the tablet's surface, for its side wall
+const WALL=(function(){ const c=document.createElement('canvas'); c.width=c.height=96; const x=c.getContext('2d');
+  x.fillStyle='#77A9BE'; x.fillRect(0,0,96,96);
+  const C=['#8DBCCD','#6496AC','#A6CCD9','#5A8BA1','#C9E1EA'];
+  for(let i=0;i<1400;i++){ x.fillStyle=C[(Math.random()*C.length)|0]; x.globalAlpha=.25+Math.random()*.45; x.fillRect((Math.random()*96)|0,(Math.random()*96)|0,1+(Math.random()*2|0),1+(Math.random()*2|0)); }
+  return c; })();
+let wallPat=null;
+function texture(){ return wallPat||(wallPat=ctx.createPattern(WALL,'repeat')); }
+function photo(x,y,r,ang,shadow,alpha,tilt){
+  tilt=tilt||0;
+  const sx=Math.cos(ang), back=sx<0, img=back?IMG.back:IMG.front, w=Math.max(.02,Math.abs(sx));
+  const k=1-.12*tilt, rx=r*w, ry=r*k;
+  // a thin wall: shows below when tilted, and to the side while turning over
+  const dx=(back?-1:1)*r*.13*(1-w), dy=r*.13*tilt, len=Math.hypot(dx,dy);
+  ctx.save(); ctx.globalAlpha=alpha;
+  if(shadow){
+    ctx.save(); ctx.shadowColor='rgba(31,29,26,.16)'; ctx.shadowBlur=r*.5; ctx.shadowOffsetY=r*.16;
+    ctx.beginPath(); ctx.ellipse(x+dx*.5,y+dy,rx+Math.abs(dx)*.5,ry,0,0,7); ctx.fillStyle='#6596AC'; ctx.fill(); ctx.restore();
+    ctx.save(); ctx.shadowColor='rgba(31,29,26,.28)'; ctx.shadowBlur=r*.12; ctx.shadowOffsetY=r*.04;
+    ctx.beginPath(); ctx.ellipse(x+dx*.5,y+dy,rx+Math.abs(dx)*.5,ry,0,0,7); ctx.fillStyle='#6596AC'; ctx.fill(); ctx.restore();
+  }
+  if(len>.5){
+    const n=Math.min(40,Math.ceil(len/1)), tex=texture();
+    for(let i=n;i>=1;i--){ const f=i/n, cx=x+dx*f, cy=y+dy*f;
+      ctx.beginPath(); ctx.ellipse(cx,cy,rx,ry,0,0,7);
+      ctx.fillStyle=tex; ctx.fill();
+      // rounded shoulder at the top catches light; the wall below falls into shade
+      const sh=f<.35 ? .1*(1-f/.35) : 0, dk=.12+.22*Math.min(1,f/.8);
+      if(sh){ ctx.fillStyle='rgba(255,255,255,'+sh.toFixed(3)+')'; ctx.fill(); }
+      ctx.fillStyle='rgba(16,34,60,'+dk.toFixed(3)+')'; ctx.fill();
+    }
+  }
+  // the face: matte and chalky, lit softly from the upper left
+  ctx.save(); ctx.translate(x,y); ctx.scale(w,k);
+  ctx.beginPath(); ctx.arc(0,0,r,0,7); ctx.clip();
+  if(img.complete&&img.naturalWidth){ ctx.drawImage(img,-r,-r,r*2,r*2); }
+  else { ctx.fillStyle='#79ADC0'; ctx.fillRect(-r,-r,r*2,r*2); }
+  const lt=ctx.createLinearGradient(-r*.7,-r*.7,r*.7,r*.7);
+  lt.addColorStop(0,'rgba(255,255,255,.12)'); lt.addColorStop(.5,'rgba(255,255,255,0)'); lt.addColorStop(1,'rgba(16,34,60,.12)');
+  ctx.fillStyle=lt; ctx.fillRect(-r,-r,r*2,r*2);
+  // the face curves down into the edge
+  const rim=ctx.createRadialGradient(0,0,r*.82,0,0,r);
+  rim.addColorStop(0,'rgba(16,34,60,0)'); rim.addColorStop(1,'rgba(16,34,60,.2)');
+  ctx.fillStyle=rim; ctx.fillRect(-r,-r,r*2,r*2);
+  if(w<1){ ctx.fillStyle='rgba(31,40,60,'+(.3*(1-w))+')'; ctx.fillRect(-r,-r,r*2,r*2); }
+  ctx.restore();
+  ctx.restore();
+}
+function grains(list,X,Y,R,alpha,minR){
+  if(alpha<=0) return; ctx.globalAlpha=alpha;
+  for(const g of list){ const px=X+g.x*R, py=Y+g.y*R, r=Math.max(minR,Math.min(g.r*R,wide?5.5:4));
+    if(px<-r||py<-r||px>W+r||py>H+r) continue;
+    ctx.fillStyle=g.c; ctx.beginPath();
+    const a=g.s*6.28; ctx.moveTo(px+Math.cos(a)*r,py+Math.sin(a)*r);
+    for(let k=1;k<5;k++){ const b=a+k*1.26, rr=r*(.7+((g.s*7*k)%1)*.4); ctx.lineTo(px+Math.cos(b)*rr,py+Math.sin(b)*rr); }
+    ctx.closePath(); ctx.fill(); }
+  ctx.globalAlpha=1;
+}
+const el0w=()=>annoEls[0]?annoEls[0].offsetWidth||340:340;
+function layoutAnno(X,Y,R,a){
+  anno.style.opacity=a; if(a<=0||!wide){ return; }
+  let lines='';
+  const AW=el0w(); annoEls.forEach(el=>{ const k=AN[el.dataset.k], bx=k.side==='r'?X-R*1.3-AW:X+k.bx*R, by=Y+k.by*R;
+    el.style.left=bx+'px'; el.style.top=by+'px';
+    const px=X+Math.cos(k.a)*R*.72, py=Y+Math.sin(k.a)*R*.72, ex=k.side==='r'?bx+AW+10:bx-10, ey=by+13;
+    lines+='<line x1="'+px.toFixed(1)+'" y1="'+py.toFixed(1)+'" x2="'+ex.toFixed(1)+'" y2="'+ey.toFixed(1)+'" stroke="#1F1D1A" stroke-width=".8"/><circle cx="'+px.toFixed(1)+'" cy="'+py.toFixed(1)+'" r="2.2" fill="#1F1D1A"/>'; });
+  annoLines.innerHTML=lines;
+}
+let raf=0; const req=()=>{ if(!raf) raf=requestAnimationFrame(draw); };
+function draw(){
+  raf=0; const t=scrollT(); ctx.clearRect(0,0,W,H);
+  // ease the flip
+  if(!dragging){ flip+= (flipTarget-flip)*.18; if(Math.abs(flipTarget-flip)>.002) req(); else flip=flipTarget; }
+  const tz=Math.max(0,t-1), c=cam(tz);
+  const cxp = wide ? lerp(cxCol, W/2, ease(ramp(t,.3,.9))) : W/2;
+  const R=R0*c.z, X=cxp-c.f[0]*R, Y=cy-c.f[1]*R;
+  const fieldA=1-ramp(tz,3.3,3.7);
+  pillHit={x:X,y:Y,r:R,on:tz<.25};
+  cv.style.cursor = pillHit.on ? (dragging?'grabbing':'grab') : 'default';
+  hint.style.left=X+'px'; hint.style.top=(Y+R+26)+'px'; hint.style.opacity = (1-ramp(t,.6,1.0));
+  layoutAnno(X,Y,R, ramp(t,.55,.95)*(1-ramp(t,1.3,1.6)));
+  if(fieldA>0){
+    const flipNow = tz>0 ? flip*(1-ramp(tz,0,.3)) : flip;
+    const tabA=1-.35*ramp(tz,.45,1)-.65*ramp(tz,1.2,1.9);
+    const a3 = P3 ? fieldA*(1-ramp(t,.9,1.02)) : 0;
+    if(P3 && P3.render(X,Y,R,t,a3)) req();
+    if(tz<.02){ if(!P3 || t>.85) photo(X,Y,R,P3?0:flipNow,true,fieldA,P3?0:1-ease(ramp(t,.7,1))); }
+    else {
+      ctx.save(); ctx.globalAlpha=fieldA; ctx.beginPath(); ctx.arc(X,Y,R*.995,0,7); ctx.clip();
+      ctx.fillStyle='#E9E5DD'; ctx.fillRect(0,0,W,H);
+      grains(G,X,Y,R,fieldA*ramp(tz,.3,1)*(.55+.45*(1-tabA)),.6);
+      if(tabA>0){ ctx.globalAlpha=fieldA*tabA*(tz<.45?1:.82); if(IMG.front.complete&&IMG.front.naturalWidth) ctx.drawImage(IMG.front,X-R,Y-R,R*2,R*2); else { ctx.fillStyle='#79ADC0'; ctx.fillRect(0,0,W,H);} }
+      grains(BL,X,Y,R,fieldA*ramp(tz,1.25,1.9),.6);
+      ctx.restore(); ctx.globalAlpha=1;
+    }
+    const ra=ramp(tz,2.45,2.95)*fieldA;
+    if(ra>0){
+      const px=X+CL.x*R, py=Y+CL.y*R, rr=.075*R;
+      ctx.globalAlpha=ra; ctx.strokeStyle='#1F1D1A'; ctx.lineWidth=1.6;
+      ctx.beginPath(); ctx.arc(px,py,rr,-1.6,-1.6+6.28*ra); ctx.stroke();
+      ctx.fillStyle='#1F1D1A'; ctx.font='italic '+(wide?26:20)+'px Newsreader,Georgia,serif'; ctx.textAlign=wide?'left':'center'; ctx.textBaseline='middle';
+      const tx=wide?px+rr*.78:px, ty=wide?py-rr*.9:py+rr+24;
+      ctx.save(); ctx.lineWidth=6; ctx.strokeStyle='rgba(233,229,221,.9)'; ctx.lineJoin='round'; ctx.strokeText('about 2 milligrams',tx,ty); ctx.restore(); ctx.fillText('about 2 milligrams',tx,ty);
+      ctx.globalAlpha=1;
+    }
+  }
+  const ta=ramp(tz,3.45,3.85);
+  if(ta>0){
+    const cols=5, rs=Math.min((wide?W-460:W)*.07,(H-60)*.075,54), gap=rs*2.8;
+    const ox=cxCol-gap*(cols-1)/2, oy=cy-gap*.55;
+    for(let i=0;i<10;i++){
+      const x=ox+(i%cols)*gap, y=oy+Math.floor(i/cols)*gap*1.1, rev=ramp(tz,3.85+i*.07,3.97+i*.07);
+      photo(x,y,rs,0,true,ta,.5);
+      if(rev>0){
+        ctx.globalAlpha=ta*rev; ctx.beginPath(); ctx.arc(x,y,rs*.8,0,7); ctx.fillStyle='#ECE8E0'; ctx.fill();
+        seed=100+i*7; const n=MARK[i]?26:3, sp=MARK[i]?rs*.2:rs*.45;
+        for(let k=0;k<n;k++){ const gx=x+gauss()*sp, gy=y+gauss()*sp; if(Math.hypot(gx-x,gy-y)>rs*.72) continue;
+          ctx.beginPath(); ctx.arc(gx,gy,rs*.055,0,7); ctx.fillStyle=MARK[i]?'#2A6175':'#79ADC0'; ctx.fill(); }
+        if(MARK[i]){ ctx.beginPath(); ctx.arc(x,y,rs*1.12,0,7); ctx.strokeStyle='#2A6175'; ctx.lineWidth=1.4; ctx.stroke(); }
+      }
+    }
+    const ka=ramp(tz,4.5,4.8)*ta;
+    if(ka>0){ ctx.globalAlpha=ka; const ly=oy+gap*1.1+rs*1.9; ctx.textAlign='center'; ctx.textBaseline='middle';
+      ctx.fillStyle='#1F1D1A'; ctx.font=(wide?22:17)+'px Newsreader,Georgia,serif'; ctx.fillText('Circled pills hold enough fentanyl to kill.',cxCol,ly); }
+    ctx.globalAlpha=1;
+  }
+}
+/* ---------- the real 3D pill (three.js); falls back to the flat drawing if WebGL or the library is missing ---------- */
+const P3=(function(){
+  if(!window.THREE) return null;
+  const T=THREE, el=document.createElement('canvas');
+  el.setAttribute('aria-hidden','true');
+  el.style.cssText='position:absolute;inset:0;width:100%;height:100%;z-index:1;touch-action:pan-y;opacity:0;pointer-events:none;transition:none';
+  cv.parentNode.insertBefore(el,cv.nextSibling);
+  let rd; try{ rd=new T.WebGLRenderer({canvas:el,antialias:true,alpha:true}); }catch(e){ el.remove(); return null; }
+  rd.outputEncoding=T.sRGBEncoding; rd.setClearColor(0x000000,0); rd.physicallyCorrectLights=false;
+  const scene=new T.Scene(), FOV=24, camera=new T.PerspectiveCamera(FOV,1,.05,200);
+  // the photos already carry their own light, so the scene lights stay soft: just enough to model the shape as it turns
+  scene.add(new T.HemisphereLight(0xffffff,0xC9C2B4,.32));
+  const key=new T.DirectionalLight(0xffffff,.42); key.position.set(-2.2,2.8,4); scene.add(key);
+  const fill=new T.DirectionalLight(0xffffff,.14); fill.position.set(3,-1.5,2); scene.add(fill);
+  const aniso=rd.capabilities.getMaxAnisotropy();
+  function texOf(img){ const t=new T.Texture(img); t.encoding=T.sRGBEncoding; t.anisotropy=aniso; t.generateMipmaps=true; t.minFilter=T.LinearMipmapLinearFilter; t.magFilter=T.LinearFilter;
+    const up=()=>{ t.needsUpdate=true; req(); }; if(img.complete&&img.naturalWidth) t.needsUpdate=true; else img.addEventListener('load',up); return t; }
+  const BV=.06, RF=1-BV, HT=.25, DOME=0; // a pressed tablet: flat faces, a short straight wall, a small rounded lip (half thickness .25 of the radius)
+  function cap(img,dir){
+    const g=new T.CircleGeometry(RF,256,0,Math.PI*2), p=g.attributes.position;
+    for(let i=0;i<p.count;i++){ const x=p.getX(i), y=p.getY(i); p.setZ(i,DOME*(1-(x*x+y*y)/(RF*RF))); }
+    // show the photo's face, cropped inside its own printed rim so the 3D edge does that job
+    const uv=g.attributes.uv, C=.488; // nearly the whole photo, its own pressed bevel included, so face-on it is the real pill for(let i=0;i<uv.count;i++){ uv.setXY(i,.5+(uv.getX(i)-.5)*C/.5,.5+(uv.getY(i)-.5)*C/.5); }
+    g.computeVertexNormals();
+    // emissive = the photo itself, so face-on it shows the real pill's color; the lights only add shape
+    const map=texOf(img), m=new T.MeshStandardMaterial({map,emissiveMap:map,emissive:0xffffff,emissiveIntensity:.6,bumpMap:map,bumpScale:.01,roughness:.95,metalness:0});
+    const mesh=new T.Mesh(g,m); if(dir<0) mesh.rotation.y=Math.PI; mesh.position.z=dir*HT; return mesh;
+  }
+  const pts=[]; // the rounded side wall, from the top face's edge down to the bottom face's edge
+  for(let i=0;i<=10;i++){ const a=Math.PI/2*(1-i/10); pts.push(new T.Vector2(RF+BV*Math.cos(a), HT-BV+BV*Math.sin(a))); }
+  for(let i=0;i<=10;i++){ const a=-Math.PI/2*(i/10); pts.push(new T.Vector2(RF+BV*Math.cos(a), -HT+BV+BV*Math.sin(a))); }
+  const sg=new T.LatheGeometry(pts,256);
+  { // spread the texture by real distance along the edge, so the flat middle band isn't stretched
+    const cum=[0]; for(let j=1;j<pts.length;j++) cum.push(cum[j-1]+pts[j].distanceTo(pts[j-1]));
+    const L=cum[cum.length-1], uv=sg.attributes.uv, n=pts.length;
+    for(let i=0;i<uv.count;i++) uv.setY(i,cum[i%n]/L); uv.needsUpdate=true; }
+  sg.rotateX(Math.PI/2);
+  // the side wall wears the real pill's surface (media/pill-side.jpg: patches of the photo stitched into one seamless strip, at the face's own grain size)
+  const sideMat=new T.MeshStandardMaterial({color:0xffffff,emissive:0xffffff,emissiveIntensity:.6,roughness:.97,metalness:0,side:T.DoubleSide});
+  const edgeImg=new Image(); edgeImg.onload=()=>{ const t=new T.Texture(edgeImg); t.encoding=T.sRGBEncoding; t.anisotropy=aniso;
+    t.wrapS=T.RepeatWrapping; t.wrapT=T.ClampToEdgeWrapping; t.repeat.set(1,1); t.needsUpdate=true;
+    sideMat.map=t; sideMat.emissiveMap=t; sideMat.color.set(0xffffff); sideMat.needsUpdate=true; req(); };
+  edgeImg.onerror=()=>{ sideMat.color.set(0x6E9FB4); sideMat.emissive.set(0x000000); sideMat.needsUpdate=true; };
+  sideMat.color.set(0x74A6BB); edgeImg.src='media/pill-side.jpg';
+  const side=new T.Mesh(sg,sideMat);
+  const pill=new T.Group(); pill.add(cap(IMG.front,1),cap(IMG.back,-1),side); scene.add(pill);
+  // a soft shadow on the page behind it
+  const sc=document.createElement('canvas'); sc.width=sc.height=128; const sx=sc.getContext('2d'), gr=sx.createRadialGradient(64,64,0,64,64,64);
+  gr.addColorStop(0,'rgba(31,29,26,.32)'); gr.addColorStop(.55,'rgba(31,29,26,.12)'); gr.addColorStop(1,'rgba(31,29,26,0)'); sx.fillStyle=gr; sx.fillRect(0,0,128,128);
+  const shadow=new T.Mesh(new T.PlaneGeometry(2.7,2.7),new T.MeshBasicMaterial({map:new T.CanvasTexture(sc),transparent:true,depthWrite:false}));
+  shadow.position.set(.08,-.2,-.9); scene.add(shadow);
+
+  // pose: resting at a slight angle, turned by dragging; zoom by pinch, ctrl/⌘ + wheel, or the buttons
+  const qRest=new T.Quaternion().setFromEuler(new T.Euler(-.62,.32,0,'XYZ'));
+  const qUser=qRest.clone(), qGoal=qRest.clone(), qShow=new T.Quaternion(), qFace=new T.Quaternion();
+  const ax=new T.Vector3(), qt=new T.Quaternion();
+  let zoom=1, zGoal=1, touched=false, w0=0, h0=0, d0=0, last=performance.now(), sway=0, active=false, rect=null;
+  const ptrs=new Map(); let pinch0=0, z0=1, lastP=null;
+  function spin(dx,dy){ const k=2.4/Math.max(120,rect.r*2);
+    qt.setFromAxisAngle(ax.set(0,1,0),dx*k); qGoal.premultiply(qt); qt.setFromAxisAngle(ax.set(1,0,0),dy*k); qGoal.premultiply(qt); qGoal.normalize(); }
+  const near=e=>{ if(!rect) return false; const b=el.getBoundingClientRect(); return Math.hypot(e.clientX-b.left-rect.x,e.clientY-b.top-rect.y)<rect.r*zoom*1.25; };
+  el.addEventListener('pointerdown',e=>{ if(!active||(!ptrs.size&&!near(e))) return; ptrs.set(e.pointerId,{x:e.clientX,y:e.clientY}); el.setPointerCapture(e.pointerId); touched=true;
+    if(ptrs.size===2){ const [a,b]=[...ptrs.values()]; pinch0=Math.hypot(a.x-b.x,a.y-b.y); z0=zGoal; } lastP={x:e.clientX,y:e.clientY}; el.style.cursor='grabbing'; e.preventDefault(); req(); });
+  el.addEventListener('pointermove',e=>{ if(!ptrs.has(e.pointerId)){ if(active) el.style.cursor=near(e)?'grab':'default'; return; }
+    ptrs.set(e.pointerId,{x:e.clientX,y:e.clientY});
+    if(ptrs.size>=2){ const [a,b]=[...ptrs.values()]; zGoal=Math.max(1,Math.min(4.5,z0*Math.hypot(a.x-b.x,a.y-b.y)/(pinch0||1))); }
+    else { spin(e.clientX-lastP.x,e.clientY-lastP.y); lastP={x:e.clientX,y:e.clientY}; }
+    req(); });
+  const up=e=>{ ptrs.delete(e.pointerId); const r=[...ptrs.values()][0]; lastP=r?{x:r.x,y:r.y}:null; if(!ptrs.size) el.style.cursor='grab'; req(); };
+  el.addEventListener('pointerup',up); el.addEventListener('pointercancel',up);
+  el.addEventListener('dblclick',e=>{ if(!near(e)) return; qt.setFromAxisAngle(ax.set(0,1,0),Math.PI); qGoal.premultiply(qt); touched=true; req(); });
+  el.addEventListener('wheel',e=>{ if(!active||!(e.ctrlKey||e.metaKey)) return; e.preventDefault(); touched=true; zGoal=Math.max(1,Math.min(4.5,zGoal*Math.exp(-e.deltaY*.01))); req(); },{passive:false});
+  const zb=document.getElementById('pillZoom');
+  zb.addEventListener('click',e=>{ const b=e.target.closest('button'); if(!b) return; touched=true;
+    if(b.dataset.z==='in') zGoal=Math.min(4.5,zGoal*1.45); else if(b.dataset.z==='out') zGoal=Math.max(1,zGoal/1.45); else { zGoal=1; qGoal.copy(qRest); touched=false; }
+    req(); });
+  zb.classList.add('on'); hint.textContent='Drag to turn it. Pinch, or use + and −, to zoom in.';
+
+  function render(X,Y,Rp,t,alpha){
+    rect={x:X,y:Y,r:Rp}; active=alpha>.5;
+    el.style.opacity=alpha; el.style.pointerEvents=active?'auto':'none';
+    if(zoom>1.12) hint.style.opacity=0; zb.style.left=X+'px'; zb.style.top=(Y+Rp*Math.max(1,zoom)*.0+Rp+56)+'px'; zb.style.opacity=alpha*(1-ramp(t,.6,1)); zb.style.pointerEvents=alpha>.5&&t<.8?'auto':'none';
+    if(alpha<=0) return false;
+    const dpr=Math.min(3,devicePixelRatio||1);
+    if(W!==w0||H!==h0||dpr!==d0){ w0=W; h0=H; d0=dpr; rd.setPixelRatio(dpr); rd.setSize(W,H,false); camera.aspect=W/H; }
+    const now=performance.now(), dt=Math.min(.05,(now-last)/1000); last=now;
+    let busy=false;
+    // a gentle sway until someone touches it
+    if(!touched&&!reduce){ sway+=dt; qt.setFromAxisAngle(ax.set(0,1,0),Math.sin(sway*.9)*.22); qGoal.copy(qRest).premultiply(qt); busy=true; }
+    qUser.slerp(qGoal,1-Math.pow(.0005,dt)); zoom+=(zGoal-zoom)*(1-Math.pow(.002,dt));
+    if(qUser.angleTo(qGoal)>.001||Math.abs(zGoal-zoom)>.002) busy=true;
+    // as the story scrolls on, settle face-on and full size so it hands off to the flat zoom
+    const hand=ease(ramp(t,.62,.95));
+    qShow.copy(qUser).slerp(qFace,hand); pill.quaternion.copy(qShow);
+    const z=zoom+(1-zoom)*hand;
+    const dist=H/(2*Rp*z*Math.tan(FOV*Math.PI/360));
+    camera.position.set(0,0,dist); camera.near=Math.max(.05,dist-3); camera.far=dist+5;
+    camera.setViewOffset(W,H,W/2-X,H/2-Y,W,H); camera.updateProjectionMatrix();
+    rd.render(scene,camera);
+    const r=el.getBoundingClientRect(); return busy && r.bottom>0 && r.top<innerHeight;
+  }
+  return {render};
+})();
+function overPill(e){ const r=cv.getBoundingClientRect(), x=e.clientX-r.left, y=e.clientY-r.top; return pillHit.on && Math.hypot(x-pillHit.x,y-pillHit.y)<pillHit.r; }
+cv.addEventListener('pointerdown',e=>{ if(!overPill(e)) return; dragging=true; lastX=e.clientX; cv.setPointerCapture(e.pointerId); e.preventDefault(); req(); });
+cv.addEventListener('pointermove',e=>{ if(!dragging){ return; } flip+=(e.clientX-lastX)/(pillHit.r*1.6); lastX=e.clientX; req(); });
+const endDrag=()=>{ if(!dragging) return; dragging=false; flipTarget=Math.round(flip/Math.PI)*Math.PI; req(); };
+cv.addEventListener('pointerup',endDrag); cv.addEventListener('pointercancel',endDrag);
+cv.addEventListener('dblclick',e=>{ if(overPill(e)){ flipTarget=(Math.round(flip/Math.PI)+1)*Math.PI; req(); } });
+cv.style.touchAction='pan-y';
+addEventListener('scroll',req,{passive:true}); addEventListener('resize',resize);
+if(document.fonts&&document.fonts.ready) document.fonts.ready.then(resize);
+resize();
+})();
+</script>
+
+<div class="tip" id="tip" role="tooltip"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
+<script>
+(function(){
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const $ = (id)=>document.getElementById(id);
+const cv=$('cv'), ctx=cv.getContext('2d'), svg=d3.select('#ov');
+
+/* ---------- places (lon, lat) ---------- */
+const C={
+SanDiego:[-117.16,32.72],LA:[-118.24,34.05],Bakersfield:[-119.02,35.37],Stockton:[-121.29,37.95],Sacramento:[-121.49,38.58],Redding:[-122.39,40.59],Medford:[-122.87,42.33],Eugene:[-123.09,44.05],Portland:[-122.68,45.52],Seattle:[-122.33,47.61],Blaine:[-122.75,49.0],
+Temecula:[-117.15,33.49],Barstow:[-117.02,34.9],LasVegas:[-115.14,36.17],StGeorge:[-113.58,37.1],CoveFort:[-112.58,38.6],Provo:[-111.66,40.23],SLC:[-111.89,40.76],Ogden:[-111.97,41.22],Pocatello:[-112.45,42.87],IdahoFalls:[-112.03,43.49],Butte:[-112.53,46.0],Helena:[-112.04,46.59],GreatFalls:[-111.3,47.5],Sweetgrass:[-111.96,49.0],
+Nogales:[-110.94,31.34],Tucson:[-110.97,32.22],
+SantaMonica:[-118.49,34.02],SanBernardino:[-117.29,34.1],Indio:[-116.22,33.72],Blythe:[-114.6,33.61],Phoenix:[-112.07,33.45],CasaGrande:[-111.76,32.88],LasCruces:[-106.78,32.31],ElPaso:[-106.49,31.76],VanHorn:[-104.83,31.04],KentTX:[-104.2,31.06],FortStockton:[-102.88,30.89],SanAntonio:[-98.49,29.42],Houston:[-95.37,29.76],Beaumont:[-94.1,30.08],BatonRouge:[-91.15,30.45],NewOrleans:[-90.07,29.95],Mobile:[-88.04,30.69],Tallahassee:[-84.28,30.44],Jacksonville:[-81.66,30.33],
+Albuquerque:[-106.65,35.08],SantaFe:[-105.94,35.69],Raton:[-104.44,36.9],Pueblo:[-104.61,38.25],Denver:[-104.99,39.74],Cheyenne:[-104.82,41.14],Casper:[-106.31,42.87],BuffaloWY:[-106.7,44.35],
+Laredo:[-99.51,27.51],Austin:[-97.74,30.27],Waco:[-97.15,31.55],Dallas:[-96.8,32.78],FortWorth:[-97.33,32.75],OKC:[-97.52,35.47],Wichita:[-97.34,37.69],Emporia:[-96.18,38.4],KC:[-94.58,39.1],DesMoines:[-93.62,41.59],Minneapolis:[-93.27,44.98],Duluth:[-92.1,46.79],
+ElCentro:[-115.56,32.79],Yuma:[-114.62,32.69],GilaBend:[-112.72,32.95],
+Midland:[-102.08,31.99],Abilene:[-99.73,32.45],Shreveport:[-93.75,32.5],JacksonMS:[-90.18,32.3],Meridian:[-88.7,32.36],Hattiesburg:[-89.29,31.33],Birmingham:[-86.8,33.52],Atlanta:[-84.39,33.75],Augusta:[-81.97,33.47],ColumbiaSC:[-81.03,34.0],Florence:[-79.76,34.2],
+Texarkana:[-94.05,33.43],LittleRock:[-92.29,34.75],
+Needles:[-114.61,34.84],Kingman:[-114.05,35.19],Flagstaff:[-111.65,35.2],Gallup:[-108.74,35.53],Tucumcari:[-103.72,35.17],Amarillo:[-101.83,35.22],Lubbock:[-101.86,33.58],FortSmith:[-94.4,35.39],Memphis:[-90.05,35.15],Nashville:[-86.78,36.16],Knoxville:[-83.92,35.96],Asheville:[-82.55,35.6],Greensboro:[-79.79,36.07],Raleigh:[-78.64,35.78],Wilmington:[-77.94,34.23],
+WichitaFalls:[-98.49,33.91],Tulsa:[-95.99,36.15],Joplin:[-94.51,37.08],Springfield:[-93.29,37.21],StLouis:[-90.2,38.63],Galveston:[-94.8,29.3],SpringfieldIL:[-89.65,39.78],Chicago:[-87.63,41.88],
+Louisville:[-85.76,38.25],Lexington:[-84.5,38.04],CharlestonWV:[-81.63,38.35],Richmond:[-77.44,37.54],Norfolk:[-76.29,36.85],Montgomery:[-86.3,32.38],Indianapolis:[-86.16,39.77],Gary:[-87.34,41.6],
+GreenRiver:[-110.16,38.99],GrandJunction:[-108.55,39.06],Limon:[-103.69,39.26],Salina:[-97.61,38.84],Topeka:[-95.68,39.05],ColumbiaMO:[-92.33,38.95],Columbus:[-83.0,39.96],Wheeling:[-80.72,40.06],Breezewood:[-78.24,39.99],Baltimore:[-76.61,39.29],
+Miami:[-80.19,25.77],Naples:[-81.79,26.14],Tampa:[-82.46,27.95],Ocala:[-82.14,29.19],Valdosta:[-83.28,30.83],Macon:[-83.63,32.84],Chattanooga:[-85.31,35.05],Cincinnati:[-84.51,39.1],Dayton:[-84.19,39.76],Toledo:[-83.54,41.65],Detroit:[-83.05,42.33],Saginaw:[-83.95,43.42],SaultSteMarie:[-84.35,46.5],
+SanFrancisco:[-122.27,37.8],Reno:[-119.81,39.53],Winnemucca:[-117.74,40.97],Elko:[-115.76,40.83],RockSprings:[-109.2,41.59],NorthPlatte:[-100.77,41.12],Lincoln:[-96.7,40.81],Omaha:[-95.94,41.26],Davenport:[-90.58,41.52],Cleveland:[-81.69,41.5],Youngstown:[-80.65,41.1],Hazleton:[-75.97,40.96],NYC:[-74.0,40.71],
+Bristol:[-82.19,36.6],Roanoke:[-79.94,37.27],Hagerstown:[-77.72,39.64],Harrisburg:[-76.88,40.27],Scranton:[-75.66,41.41],Binghamton:[-75.91,42.1],Syracuse:[-76.15,43.05],
+Pendleton:[-118.79,45.67],Boise:[-116.2,43.62],TwinFalls:[-114.46,42.56],GreenvilleSC:[-82.4,34.85],Charlotte:[-80.84,35.23],Durham:[-78.9,35.99],Petersburg:[-77.4,37.23],
+Spokane:[-117.43,47.66],Missoula:[-113.99,46.87],Billings:[-108.5,45.78],Gillette:[-105.5,44.29],RapidCity:[-103.23,44.08],SiouxFalls:[-96.73,43.55],LaCrosse:[-91.24,43.8],Madison:[-89.4,43.07],Rockford:[-89.09,42.27],Erie:[-80.09,42.13],BuffaloNY:[-78.88,42.89],Rochester:[-77.61,43.16],Albany:[-73.75,42.65],SpringfieldMA:[-72.59,42.1],Boston:[-71.06,42.36],
+Bismarck:[-100.78,46.81],Fargo:[-96.79,46.88],StCloud:[-94.16,45.56],EauClaire:[-91.5,44.81],Milwaukee:[-87.91,43.04],Kalamazoo:[-85.59,42.29],
+Savannah:[-81.09,32.08],Fayetteville:[-78.88,35.05],Washington:[-77.04,38.9],Philadelphia:[-75.17,39.95],NewHaven:[-72.92,41.31],Providence:[-71.41,41.82],PortlandME:[-70.26,43.66],Bangor:[-68.77,44.8],
+StJoseph:[-94.85,39.77],SiouxCity:[-96.4,42.5],GrandForks:[-97.03,47.93]
+};
+const R={
+I5:'SanDiego LA Bakersfield Stockton Sacramento Redding Medford Eugene Portland Seattle Blaine',
+I8:'SanDiego ElCentro Yuma GilaBend CasaGrande',
+I15:'SanDiego Temecula Barstow LasVegas StGeorge CoveFort Provo SLC Ogden Pocatello IdahoFalls Butte Helena GreatFalls Sweetgrass',
+I19:'Nogales Tucson',
+I10:'SantaMonica LA SanBernardino Indio Blythe Phoenix CasaGrande Tucson LasCruces ElPaso VanHorn KentTX FortStockton SanAntonio Houston Beaumont BatonRouge NewOrleans Mobile Tallahassee Jacksonville',
+I25:'LasCruces Albuquerque SantaFe Raton Pueblo Denver Cheyenne Casper BuffaloWY',
+I35:'Laredo SanAntonio Austin Waco Dallas OKC Wichita Emporia KC DesMoines Minneapolis Duluth',
+I17:'Phoenix Flagstaff',
+I20:'KentTX Midland Abilene FortWorth Dallas Shreveport JacksonMS Meridian Birmingham Atlanta Augusta ColumbiaSC Florence',
+I27:'Lubbock Amarillo', I30:'Dallas Texarkana LittleRock',
+I40:'Barstow Needles Kingman Flagstaff Gallup Albuquerque Tucumcari Amarillo OKC FortSmith LittleRock Memphis Nashville Knoxville Asheville Greensboro Raleigh Wilmington',
+I44:'WichitaFalls OKC Tulsa Joplin Springfield StLouis', I45:'Galveston Houston Dallas',
+I55:'NewOrleans JacksonMS Memphis StLouis SpringfieldIL Chicago',
+I59:'NewOrleans Hattiesburg Meridian Birmingham Chattanooga',
+I64:'StLouis Louisville Lexington CharlestonWV Richmond Norfolk',
+I65:'Mobile Montgomery Birmingham Nashville Louisville Indianapolis Gary',
+I70:'CoveFort GreenRiver GrandJunction Denver Limon Salina Topeka KC ColumbiaMO StLouis Indianapolis Columbus Wheeling Breezewood Baltimore',
+I71:'Louisville Cincinnati Columbus Cleveland', I77:'ColumbiaSC Charlotte CharlestonWV Cleveland',
+I75:'Miami Naples Tampa Ocala Valdosta Macon Atlanta Chattanooga Knoxville Lexington Cincinnati Dayton Toledo Detroit Saginaw SaultSteMarie',
+I80:'SanFrancisco Sacramento Reno Winnemucca Elko SLC RockSprings Cheyenne NorthPlatte Lincoln Omaha DesMoines Davenport Gary Toledo Cleveland Youngstown Hazleton NYC',
+I81:'Knoxville Bristol Roanoke Hagerstown Harrisburg Scranton Binghamton Syracuse',
+I84:'Portland Pendleton Boise TwinFalls Ogden',
+I85:'Montgomery Atlanta GreenvilleSC Charlotte Greensboro Durham Petersburg',
+I90:'Seattle Spokane Missoula Butte Billings BuffaloWY Gillette RapidCity SiouxFalls LaCrosse Madison Rockford Chicago Gary Toledo Cleveland Erie BuffaloNY Rochester Syracuse Albany SpringfieldMA Boston',
+I94:'Billings Bismarck Fargo StCloud Minneapolis EauClaire Madison Milwaukee Chicago Kalamazoo Detroit',
+I95:'Miami Jacksonville Savannah Florence Fayetteville Petersburg Richmond Washington Baltimore Philadelphia NYC NewHaven Providence Boston PortlandME Bangor',
+I29:'KC StJoseph Omaha SiouxCity SiouxFalls Fargo GrandForks'
+};
+const routeCities={}; for(const k in R) routeCities[k]=R[k].split(' ');
+
+/* ---------- geometry helpers ---------- */
+function densify(pts, step){ // great-circle densify, returns {c:[...], d:[cum]}
+  step=step||0.4; const out=[pts[0]];
+  for(let i=1;i<pts.length;i++){
+    const a=pts[i-1], b=pts[i], deg=d3.geoDistance(a,b)*180/Math.PI, n=Math.max(1,Math.ceil(deg/step)), f=d3.geoInterpolate(a,b);
+    for(let j=1;j<=n;j++) out.push(f(j/n));
+  }
+  return withLen(out);
+}
+function withLen(c){ const d=[0]; for(let i=1;i<c.length;i++) d.push(d[i-1]+d3.geoDistance(c[i-1],c[i])); return {c,d,L:d[d.length-1]}; }
+function bezier(a,b,bend){ // curved line in lon/lat space
+  const mx=(a[0]+b[0])/2, my=(a[1]+b[1])/2, dx=b[0]-a[0], dy=b[1]-a[1];
+  const cx=mx-dy*bend, cy=my+dx*bend, out=[];
+  for(let i=0;i<=48;i++){const t=i/48,u=1-t; out.push([u*u*a[0]+2*u*t*cx+t*t*b[0], u*u*a[1]+2*u*t*cy+t*t*b[1]]);}
+  return withLen(out);
+}
+function partial(line,p){
+  if(p<=0) return null; if(p>=1) return {type:'LineString',coordinates:line.c};
+  const target=p*line.L; let i=1; while(i<line.d.length && line.d[i]<target) i++;
+  const seg=line.d[i]-line.d[i-1]||1, f=(target-line.d[i-1])/seg;
+  const pt=d3.geoInterpolate(line.c[i-1],line.c[i])(f);
+  return {type:'LineString',coordinates:line.c.slice(0,i).concat([pt])};
+}
+const clamp=(x)=>Math.max(0,Math.min(1,x));
+const ramp=(t,a,b)=>clamp((t-a)/(b-a));
+const ease=(x)=>x*x*(3-2*x);
+
+/* ---------- story data ---------- */
+const P={Shanghai:[121.47,31.23],Mumbai:[72.88,19.08],Manzanillo:[-104.32,19.05],Lazaro:[-102.2,17.96],Culiacan:[-107.39,24.8]};
+const china=densify([P.Shanghai,P.Manzanillo],0.6);
+const india=densify([P.Mumbai,[80.5,5.6],[101.5,2.6],[128,14],P.Lazaro],0.6);
+const toLab=[bezier(P.Manzanillo,P.Culiacan,.22), bezier(P.Lazaro,P.Culiacan,.22)];
+const PORTS=[
+ {n:'San Ysidro',s:'California',c:[-117.03,32.542],g:'w',lx:-9,ly:4,anchor:'end',d:'The busiest land crossing in the Western Hemisphere. Mostly cars, and people on foot.'},
+ {n:'Otay Mesa',s:'California',c:[-116.94,32.551],g:'w',d:'A few miles east of San Ysidro. One of the busiest crossings for cargo trucks.',nolabel:1},
+ {n:'Calexico',s:'California',c:[-115.499,32.665],g:'w',lx:0,ly:-10,d:'Two crossings in California’s Imperial Valley: one downtown for cars, one for trucks.'},
+ {n:'Lukeville',s:'Arizona',c:[-112.817,31.88],g:'w',d:'A small crossing in the desert, on the road to beaches on Mexico’s Gulf of California.'},
+ {n:'Nogales',s:'Arizona',c:[-110.94,31.333],g:'w',lx:-4,ly:17,anchor:'end',d:'One of the biggest crossings for produce trucks. A lot of the winter fruit and vegetables in U.S. stores comes through here.'},
+ {n:'Douglas',s:'Arizona',c:[-109.56,31.334],g:'w',lx:4,ly:17,anchor:'start',d:'A smaller crossing in the far southeast corner of Arizona.'},
+ {n:'Santa Teresa',s:'New Mexico',c:[-106.68,31.78],g:'e',d:'New Mexico’s busiest crossing for cargo, just west of El Paso.',lx:-9,ly:-6,anchor:'end'},
+ {n:'El Paso',s:'Texas',c:[-106.45,31.76],g:'e',d:'Several bridges connect El Paso and Ciudad Juárez, one of the largest metro areas on the border.',lx:9,ly:-6,anchor:'start'},
+ {n:'Del Rio',s:'Texas',c:[-100.9,29.36],g:'e',lx:9,ly:4,anchor:'start',d:'A smaller Texas crossing on the Rio Grande.'},
+ {n:'Eagle Pass',s:'Texas',c:[-100.5,28.71],g:'e',lx:9,ly:4,anchor:'start',d:'A smaller Texas crossing on the Rio Grande, south of Del Rio.'},
+ {n:'Laredo',s:'Texas',c:[-99.51,27.50],g:'e',lx:9,ly:4,anchor:'start',d:'The busiest port for trade in the United States. Thousands of trucks cross here every day.'},
+ {n:'Hidalgo',s:'Texas',c:[-98.27,26.10],g:'e',lx:-9,ly:4,anchor:'end',d:'A major crossing for produce in the Rio Grande Valley.'},
+ {n:'Brownsville',s:'Texas',c:[-97.50,25.90],g:'e',lx:9,ly:4,anchor:'start',d:'The crossing farthest east, near the Gulf of Mexico.'}
+];
+PORTS.forEach(p=>{ p.arc=bezier(P.Culiacan,p.c,p.g==='w'?.18:-.12); });
+const GROUP={w:'California + Arizona crossings: 96% of the fentanyl caught at the border in 2025.',e:'New Mexico + Texas crossings: about 4% of the fentanyl caught at the border in 2025.'};
+
+const routeLine={}; for(const k in routeCities) routeLine[k]=densify(routeCities[k].map(n=>C[n]),0.5);
+function sub(k,from,to){ const cs=routeCities[k]; let a=cs.indexOf(from), b=cs.indexOf(to); const arr=a<=b?cs.slice(a,b+1):cs.slice(b,a+1).reverse(); return densify(arr.map(n=>C[n]),0.3); }
+const CORR=[
+ {id:'I-5',line:sub('I5','SanDiego','Blaine'),r:[8.35,9.05],main:1,lab:C.Sacramento},
+ {id:'I-15',line:sub('I15','SanDiego','Sweetgrass'),r:[8.35,9.05],main:1,lab:C.StGeorge},
+ {id:'I-8',line:sub('I8','SanDiego','CasaGrande'),r:[8.45,9.05],main:0,lab:C.Yuma},
+ {id:'I-19',line:sub('I19','Nogales','Tucson'),r:[9.3,9.6],main:1,lab:null},
+ {id:'I-10',line:sub('I10','Tucson','SantaMonica'),r:[9.5,10.05],main:1,lab:C.Blythe},
+ {id:'I-10 ',line:sub('I10','Tucson','Jacksonville'),r:[9.5,10.1],main:1,lab:C.FortStockton},
+ {id:'I-25',line:sub('I25','LasCruces','BuffaloWY'),r:[10.35,11.05],main:1,lab:C.Raton},
+ {id:'I-35',line:sub('I35','Laredo','Duluth'),r:[10.35,11.05],main:1,lab:C.Waco}
+];
+// junctions
+const cnt={}; for(const k in routeCities) routeCities[k].forEach(n=>cnt[n]=(cnt[n]||0)+1);
+const NODES=Object.keys(cnt).filter(n=>cnt[n]>=2).map(n=>({c:C[n],k:cnt[n]}));
+const allRoutes={type:'MultiLineString',coordinates:Object.values(routeLine).map(l=>l.c)};
+
+const TOWN=[-95.78,38.27];
+const spur=bezier(C.Emporia,TOWN,.25);
+
+/* ---------- camera keyframes, one per step ---------- */
+const K=[
+ {c:[98,24],k:1.0},      // 0 ch2 title
+ {c:[112,27],k:1.08},    // 1 China
+ {c:[96,20],k:1.08},     // 2 India
+ {c:[-172,24],k:1.05},   // 3 Pacific
+ {c:[-103,23.5],k:4.0},  // 4 Mexico
+ {c:[-107.3,29.6],k:6.4},// 5 border
+ {c:[-107.3,29.6],k:6.4},// 6 stats
+ {c:[-106.5,30.5],k:5.6},// 7 only what they caught
+ {c:[-106,31.2],k:5.4},  // 8 ch3 title: closer on the crossings
+ {c:[-115,37.5],k:3.9},  // 9 I-5 / I-15
+ {c:[-104.5,32.6],k:4.4},// 10 I-19 / I-10
+ {c:[-99.5,36.5],k:3.1}, // 11 I-25 / I-35
+ {c:[-96.5,38],k:2.7},   // 12 network
+ {c:[-96.3,38.55],k:15}  // 13 town
+];
+const N=K.length;
+
+/* ---------- labels ---------- */
+const LABELS=[
+ {t:'China',c:[104,35],r:[-1,3.6],cls:'country'},
+ {t:'India',c:[78.5,22.5],r:[-1,3.2],cls:'country'},
+ {t:'Pacific Ocean',c:[-160,12],r:[2.4,3.8],cls:'ocean'},
+ {t:'Mexico',c:[-101.5,22.6],r:[3.3,4.9],cls:'country'},
+ {t:'United States',c:[-99,40.5],r:[2.6,4.6],cls:'country'},
+ {t:'Where most of it is made',c:[-106.6,26.9],r:[3.6,4.8],cls:'city'},
+ {t:'Mexico',c:[-104.5,27.4],r:[4.8,7.9],cls:'country'},
+ {t:'United States',c:[-108.5,33.6],r:[4.8,7.9],cls:'country'},
+ {t:'San Diego',c:C.SanDiego,r:[8.3,9.8],cls:'city',dx:-8,anchor:'end'},
+ {t:'Las Vegas',c:C.LasVegas,r:[8.6,9.8],cls:'city',dx:8},
+ {t:'Salt Lake City',c:C.SLC,r:[8.6,9.8],cls:'city',dx:8},
+ {t:'Seattle',c:C.Seattle,r:[8.8,9.8],cls:'city',dx:8},
+ {t:'Nogales',c:C.Nogales,r:[9.2,10.8],cls:'city',dx:8,dy:12},
+ {t:'Tucson',c:C.Tucson,r:[9.2,10.8],cls:'city',dx:8},
+ {t:'Los Angeles',c:C.LA,r:[9.4,10.8],cls:'city',dx:-8,anchor:'end'},
+ {t:'Houston',c:C.Houston,r:[9.6,10.8],cls:'city',dx:8,dy:12},
+ {t:'El Paso',c:C.ElPaso,r:[10.2,11.8],cls:'city',dx:-8,anchor:'end',dy:12},
+ {t:'Denver',c:C.Denver,r:[10.4,11.8],cls:'city',dx:8},
+ {t:'Laredo',c:C.Laredo,r:[10.2,11.8],cls:'city',dx:-8,anchor:'end'},
+ {t:'Dallas',c:C.Dallas,r:[10.5,11.8],cls:'city',dx:8},
+ {t:'Kansas City',c:C.KC,r:[10.6,11.8],cls:'city',dx:8},
+ {t:'Minneapolis',c:C.Minneapolis,r:[10.7,11.8],cls:'city',dx:8},
+ {t:'I-35',c:[-96.9,37.95],r:[12.6,14],cls:'route',dx:8},
+ {t:'I-70',c:[-96.6,39.05],r:[12.6,14],cls:'route',dy:-8}
+];
+
+/* ---------- tooltips ---------- */
+const TIPS={
+ china:['From China','The main source of the chemicals used to make fentanyl, plus pill-press machines. Shipped mostly by sea and air cargo.'],
+ india:['From India','A growing second source of the chemicals.'],
+ mex:['Mexico to the U.S.','Cartels turn the chemicals into fentanyl and press it into fake pills, then smuggle it north through border crossings.']
+};
+const tip=$('tip');
+function showTip(e,key){const t=TIPS[key]; tip.innerHTML='<b>'+t[0]+'</b>'+t[1]; moveTip(e); tip.style.opacity=1;}
+function moveTip(e){const x=Math.min(e.clientX+14, innerWidth-280); tip.style.left=x+'px'; tip.style.top=(e.clientY+14)+'px';}
+function hideTip(){tip.style.opacity=0;}
+
+/* ---------- svg scaffold ---------- */
+const gGlow=svg.append('g'), gAsia=svg.append('g'), gLab=svg.append('g'), gHalo=svg.append('g'), gBorder=svg.append('g'),
+      gCorr=svg.append('g'), gTown=svg.append('g'), gPorts=svg.append('g'), gLabels=svg.append('g'), gHand=svg.append('g');
+const pChina=gAsia.append('path').attr('class','route-main'), pIndia=gAsia.append('path').attr('class','route-sec');
+const hChina=gAsia.append('path').attr('class','hit'), hIndia=gAsia.append('path').attr('class','hit');
+[[hChina,'china'],[hIndia,'india']].forEach(([h,k])=>h.on('mouseenter',e=>showTip(e,k)).on('mousemove',moveTip).on('mouseleave',hideTip));
+const srcDots=gAsia.selectAll('circle').data([P.Shanghai,P.Mumbai]).join('circle').attr('r',4.5).attr('fill','#2A6175').attr('stroke','#FBFAF6').attr('stroke-width',2);
+const pLab=gLab.selectAll('path').data(toLab).join('path').attr('class','route-sec');
+const halos=[{c:[-114.6,32.4],v:11027},{c:[-101.6,29.6],v:459}];
+const RAD0=2.9; halos.forEach(h=>h.r=RAD0*Math.sqrt(h.v/11027));
+const pHalo=gHalo.selectAll('path').data(halos).join('path').attr('class','halo');
+const pBorder=gBorder.selectAll('path.b').data(PORTS).join('path').attr('class',d=>'b '+(d.g==='w'?'route-main':'route-sec'));
+const hBorder=gBorder.selectAll('path.hit').data(PORTS).join('path').attr('class','hit')
+  .on('mouseenter',e=>showTip(e,'mex')).on('mousemove',moveTip).on('mouseleave',hideTip);
+const corrGlow=gGlow.selectAll('path').data(CORR).join('path').attr('class','route-glow');
+const corrP=gCorr.selectAll('path').data(CORR).join('path').attr('class',d=>d.main?'route-main':'route-sec');
+const corrL=gLabels.selectAll('text.rl').data(CORR.filter(d=>d.lab)).join('text').attr('class','lbl route rl').text(d=>d.id.trim()).attr('dx',8);
+const spurP=gTown.append('path').attr('class','route-main').attr('stroke-dasharray','1.5 3.5');
+const townG=gTown.append('g');
+townG.append('circle').attr('r',4).attr('fill','#1F1D1A').attr('stroke','#FBFAF6').attr('stroke-width',1.2);
+const townT=townG.append('text').attr('class','hand').attr('x',16).attr('y',-14).text('a town like yours');
+const portG=gPorts.selectAll('g').data(PORTS).join('g').attr('class','port').attr('tabindex',0).attr('role','button')
+  .attr('aria-label',d=>d.n+', '+d.s+'. Open details.');
+portG.append('circle').attr('class','ring').attr('r',9);
+portG.append('circle').attr('class','dot').attr('r',3.2);
+portG.filter(d=>!d.nolabel).append('text').attr('class','lbl city')
+  .attr('x',d=>d.lx||0).attr('y',d=>d.ly==null?17:d.ly).attr('text-anchor',d=>d.anchor||'middle')
+  .text(d=>d.n==='San Ysidro'?'San Ysidro & Otay Mesa':d.n);
+portG.on('click',(e,d)=>openPanel(d)).on('keydown',(e,d)=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openPanel(d);}});
+const labT=gLabels.selectAll('text.pl').data(LABELS).join('text').attr('class',d=>'lbl pl '+d.cls)
+  .attr('text-anchor',d=>d.anchor||(d.dx?'start':'middle')).text(d=>d.t);
+const hand=gHand.append('text').attr('class','hand').text('96% came through here');
+
+/* ---------- port panel ---------- */
+const panel=$('panel'); let selPort=null;
+function openPanel(d){
+  selPort=d; portG.classed('sel',p=>p===d);
+  $('pk').textContent=d.s; $('pt').textContent=d.n; $('pd').textContent=d.d; $('pg').textContent=GROUP[d.g];
+  panel.classList.add('open'); $('pclose').focus({preventScroll:true});
+}
+function closePanel(){ panel.classList.remove('open'); if(selPort){ const n=portG.filter(p=>p===selPort).node(); selPort=null; portG.classed('sel',false); n&&n.focus({preventScroll:true}); } }
+$('pclose').addEventListener('click',closePanel);
+document.addEventListener('keydown',e=>{if(e.key==='Escape') closePanel();});
+
+/* ---------- legend ---------- */
+const legend=$('legend'); let legendMode=-1;
+const sw=(w,c,dash)=>'<svg viewBox="0 0 30 10"><line x1="1" y1="5" x2="29" y2="5" stroke="'+c+'" stroke-width="'+w+'" stroke-linecap="round"'+(dash?' stroke-dasharray="'+dash+'"':'')+'/></svg>';
+const LEG=[
+ '<div class="row">'+sw(1.6,'#2A6175')+'Main source of the chemicals</div><div class="row">'+sw(.8,'#2A6175')+'Second source</div><div class="note">Routes simplified. Line thickness shows main vs. secondary routes, not exact amounts.</div>',
+ '<div class="row">'+sw(1.6,'#2A6175')+'Main routes to the border</div><div class="row">'+sw(.8,'#2A6175')+'Secondary routes</div><div class="row"><svg viewBox="0 0 30 10"><circle cx="15" cy="5" r="4" fill="#1F1D1A"/></svg>Official border crossing</div><div class="note">Routes simplified. Thickness shows main vs. secondary, not exact amounts.</div>',
+ '<div class="row">'+sw(1.6,'#2A6175')+'Main highway routes north</div><div class="row">'+sw(.8,'#B3AC9F')+'Other interstate highways</div><div class="note">Simplified from U.S. law-enforcement reports.</div>',
+ '<div class="row">'+sw(1,'#79ADC0')+'Interstate highways</div><div class="row"><svg viewBox="0 0 30 10"><circle cx="15" cy="5" r="4" fill="#2A6175"/></svg>Where highways meet</div><div class="note">Simplified.</div>'
+];
+function setLegend(t){
+  const m = t<4.3?0 : t<7.9?1 : t<11.6?2 : 3;
+  if(m!==legendMode){ legendMode=m; legend.innerHTML=LEG[m]; }
+  legend.style.opacity = (t>12.6||t<-0.15) ? 0 : 1;
+}
+
+/* ---------- chapter nav ---------- */
+function setCh(){}
+
+/* ---------- layout ---------- */
+let W,H,cx,cy,base,dpr;
+const proj=d3.geoOrthographic().clipAngle(90).precision(0.4);
+const cpath=d3.geoPath(proj,ctx), spath=d3.geoPath(proj);
+function resize(){
+  W=innerWidth; H=innerHeight; dpr=Math.min(2,devicePixelRatio||1);
+  const wide=W>=900, bar=wide?60:56, col=wide?460:0, mapW=W-col;
+  cx = col + mapW/2; cy = wide ? bar+(H-bar)/2 : bar+(H-bar)*0.36;
+  base = Math.min(mapW, (wide?H-bar:(H-bar)*0.62))*0.46;
+  cv.width=W*dpr; cv.height=H*dpr; ctx.setTransform(dpr,0,0,dpr,0,0);
+  measure(); requestRender();
+}
+let mids=[];
+const stepEls=[...document.querySelectorAll('#steps .step')];
+function measure(){ mids=stepEls.map(el=>{const r=el.getBoundingClientRect(); return r.top+scrollY+r.height/2;}); }
+function scrollT(){
+  const y=scrollY+H*0.5;
+  if(y<=mids[0]) return -Math.min(1,(mids[0]-y)/(H*1.15));
+  for(let i=0;i<mids.length-1;i++){ if(y<mids[i+1]) return i+(y-mids[i])/(mids[i+1]-mids[i]); }
+  return N-1;
+}
+function camera(t){
+  if(t<0){ const p=reduce?(t<-.5?1:0):ease(-t); return {c:K[0].c,k:K[0].k*(1+p*0.55),dy:p}; }
+  const i=Math.min(N-1,Math.floor(t)), f=t-i;
+  if(i>=N-1){ const z=K[N-1]; return W<900?{c:z.c,k:3.5+(z.k-3.5)*0.72}:z; }
+  let e = reduce ? (f<0.5?0:1) : ease(clamp((f-0.18)/0.64));
+  const a=K[i], b=K[i+1];
+  const kk=a.k*Math.pow(b.k/a.k,e); return {c:d3.geoInterpolate(a.c,b.c)(e), k: W<900&&kk>3.5 ? 3.5+(kk-3.5)*0.72 : kk};
+}
+
+/* ---------- data ---------- */
+let land110,land50,borders110,stMesh,nation,grat=d3.geoGraticule10(),ready=false;
+Promise.all(['land-110m.json','land-50m.json','countries-110m.json','states-10m.json'].map(u=>d3.json(u))).then(([l1,l5,c1,st])=>{
+  land110=topojson.feature(l1,l1.objects.land); land50=topojson.feature(l5,l5.objects.land);
+  borders110=topojson.mesh(c1,c1.objects.countries,(a,b)=>a!==b);
+  stMesh=topojson.mesh(st,st.objects.states,(a,b)=>a!==b); nation=topojson.feature(st,st.objects.nation);
+  ready=true; $('loading').remove(); requestRender();
+}).catch(()=>{ $('loading').textContent='The map could not load. Try refreshing.'; });
+
+/* ---------- render ---------- */
+let raf=0; function requestRender(){ if(!raf) raf=requestAnimationFrame(render); }
+function vis(c,cam){ return d3.geoDistance(c,cam.c) < 1.42; }
+function render(){
+  raf=0; if(!ready) return;
+  const t=scrollT(), cam=camera(t), k=cam.k;
+  const pk=cam.dy||0; proj.rotate([-cam.c[0],-cam.c[1]]).scale(base*k).translate([cx+(W/2-cx)*pk, cy+pk*(H*0.36+base*k*0.5)]);
+  setCh(t); setLegend(t);
+
+  /* canvas */
+  ctx.clearRect(0,0,W,H);
+  ctx.save(); ctx.beginPath(); cpath({type:'Sphere'});
+  ctx.fillStyle='#FBFAF6'; ctx.shadowColor='rgba(31,29,26,.16)'; ctx.shadowBlur=50; ctx.shadowOffsetY=16; ctx.fill(); ctx.restore();
+  ctx.beginPath(); cpath(grat); ctx.strokeStyle='rgba(154,149,140,.2)'; ctx.lineWidth=.5; ctx.stroke();
+  ctx.beginPath(); cpath(k>1.8?land50:land110); ctx.fillStyle='#E3DED3'; ctx.fill(); ctx.strokeStyle='rgba(150,142,128,.55)'; ctx.lineWidth=.5; ctx.stroke();
+  if(k<3){ ctx.beginPath(); cpath(borders110); ctx.strokeStyle='rgba(176,168,154,'+(1-ramp(k,2,3))+')'; ctx.lineWidth=.7; ctx.stroke(); }
+  if(k>1.6){ const a=ramp(k,1.6,2.4);
+    ctx.beginPath(); cpath(stMesh); ctx.strokeStyle='rgba(190,183,170,'+a+')'; ctx.lineWidth=.5; ctx.stroke();
+    ctx.beginPath(); cpath(nation); ctx.strokeStyle='rgba(160,152,138,'+a+')'; ctx.lineWidth=.6; ctx.stroke(); }
+  const grayOp=ramp(t,7.5,8.2), blueOp=ramp(t,11.45,12.0);
+  if(grayOp>0){
+    ctx.lineJoin='round'; ctx.lineCap='round';
+    if(blueOp<1){ ctx.beginPath(); cpath(allRoutes); ctx.strokeStyle='rgba(179,172,159,'+(grayOp*(1-blueOp))+')'; ctx.lineWidth=k>8?.9:.6; ctx.stroke(); }
+    if(blueOp>0){
+      ctx.beginPath(); cpath(allRoutes);
+      ctx.strokeStyle='rgba(121,173,192,'+blueOp+')'; ctx.lineWidth=k>8?1.2:.8; ctx.stroke();
+      const nOp=ramp(t,11.6,12.1)*(1-ramp(t,12.6,13.2)*.6);
+      NODES.forEach(n=>{ if(!vis(n.c,cam)) return; const p=proj(n.c); const r=(.8+n.k*.55)*Math.min(1.5,Math.sqrt(k/2.7));
+        ctx.beginPath(); ctx.arc(p[0],p[1],r,0,7); ctx.fillStyle='rgba(42,97,117,'+nOp+')'; ctx.fill(); });
+    }
+  }
+  ctx.beginPath(); cpath({type:'Sphere'}); ctx.strokeStyle='#D5CFC3'; ctx.lineWidth=1; ctx.stroke();
+
+  /* svg */
+  const dOf=(g)=>g?(spath(g)||''):'';
+  // Asia arcs
+  const pc = ramp(t,0.45,1.0)*0.28 + ramp(t,2.15,3.0)*0.72;
+  const pi = ramp(t,1.45,2.0)*0.28 + ramp(t,2.15,3.0)*0.72;
+  const asiaOp = 1-ramp(t,3.9,4.5);
+  gAsia.style('opacity',asiaOp).style('display',asiaOp>0?null:'none');
+  if(asiaOp>0){
+    const gc=dOf(partial(china,pc)), gi=dOf(partial(india,pi));
+    pChina.attr('d',gc); pIndia.attr('d',gi); hChina.attr('d',gc); hIndia.attr('d',gi);
+    srcDots.attr('transform',d=>{const p=proj(d); return 'translate('+p[0]+','+p[1]+')';}).style('display',d=>vis(d,cam)?null:'none');
+  }
+  // ports -> labs
+  const labOp=ramp(t,3.4,3.9)*(1-ramp(t,7.2,8.0));
+  gLab.style('opacity',labOp).style('display',labOp>0?null:'none');
+  if(labOp>0){ const pl=ramp(t,3.3,4.0); pLab.attr('d',d=>dOf(partial(d,pl))); }
+  // border arcs
+  const bOp=1-ramp(t,9.0,9.6), pb=ramp(t,4.35,5.0);
+  gBorder.style('opacity',bOp).style('display',(pb>0&&bOp>0)?null:'none');
+  if(pb>0&&bOp>0){ pBorder.attr('d',d=>dOf(partial(d.arc,pb))); hBorder.attr('d',d=>dOf(partial(d.arc,pb))).style('pointer-events',pb>.9?'stroke':'none'); }
+  // halos
+  const hOp=ramp(t,5.5,6.0)*(1-ramp(t,6.6,7.2)*.55)*(1-ramp(t,7.6,8.1));
+  gHalo.style('opacity',hOp).style('display',hOp>0?null:'none');
+  if(hOp>0) pHalo.attr('d',d=>dOf(d3.geoCircle().center(d.c).radius(d.r)()));
+  const handOp=ramp(t,5.6,6.0)*(1-ramp(t,6.5,6.9));
+  gHand.style('opacity',handOp).style('display',handOp>0?null:'none');
+  if(handOp>0){ const p=proj(W<600?[-114.2,34.9]:[-118.6,35.6]); hand.attr('x',p[0]).attr('y',p[1]).attr('text-anchor',W<600?'start':'middle'); }
+  // ports
+  const pOp=ramp(t,4.6,5.0)*(1-ramp(t,10.6,11.2));
+  gPorts.style('opacity',pOp).style('display',pOp>0?null:'none');
+  portG.style('pointer-events',pOp>.6?'all':'none').attr('tabindex',pOp>.6?0:-1);
+  if(pOp>0) portG.attr('transform',d=>{const p=proj(d.c); return 'translate('+p[0]+','+p[1]+')';});
+  if(pOp<.6 && panel.classList.contains('open')) closePanel();
+  // corridors
+  const cOp=1-ramp(t,12.0,12.5)*.75;
+  const anyC=t>8.3;
+  gCorr.style('display',anyC?null:'none').style('opacity',cOp); gGlow.style('display',anyC?null:'none').style('opacity',cOp*(1-ramp(t,11.5,12)));
+  if(anyC){
+    const ds=CORR.map(d=>dOf(partial(d.line,ramp(t,d.r[0],d.r[1]))));
+    corrP.attr('d',(d,i)=>ds[i]); corrGlow.attr('d',(d,i)=>ds[i]);
+  }
+  const clOp=1-ramp(t,11.6,12.0);
+  corrL.each(function(d){ const p=ramp(t,d.r[0]+.3,d.r[1]+.1)*clOp; const s=d3.select(this);
+    if(p<=0||!vis(d.lab,cam)){s.style('display','none');return;} const q=proj(d.lab); s.style('display',null).style('opacity',p).attr('x',q[0]).attr('y',q[1]+4); });
+  // town
+  const tOp=ramp(t,12.45,12.95);
+  gTown.style('opacity',tOp).style('display',tOp>0?null:'none');
+  if(tOp>0){ spurP.attr('d',dOf(partial(spur,ramp(t,12.5,13.0)))); const p=proj(TOWN); townG.attr('transform','translate('+p[0]+','+p[1]+')');
+    townT.attr('x',W<600?-12:16).attr('text-anchor',W<600?'end':'start'); }
+  // labels
+  labT.each(function(d){ const s=d3.select(this); const a=Math.min(ramp(t,d.r[0],d.r[0]+.35),1-ramp(t,d.r[1]-.35,d.r[1]));
+    if(a<=0||!vis(d.c,cam)){s.style('display','none');return;} const p=proj(d.c);
+    s.style('display',null).style('opacity',a).attr('x',p[0]+(d.dx||0)).attr('y',p[1]+(d.dy||4)); });
+}
+addEventListener('scroll',requestRender,{passive:true});
+addEventListener('resize',resize);
+if(document.fonts&&document.fonts.ready) document.fonts.ready.then(()=>{measure();requestRender();});
+resize();
+})();
+</script>
+<script>
+/* Ch. 3 ending: home state picker */
+(function(){
+const STATES=['Alabama','Alaska','Arizona','Arkansas','California','Colorado','Connecticut','Delaware','District of Columbia','Florida','Georgia','Hawaii','Idaho','Illinois','Indiana','Iowa','Kansas','Kentucky','Louisiana','Maine','Maryland','Massachusetts','Michigan','Minnesota','Mississippi','Missouri','Montana','Nebraska','Nevada','New Hampshire','New Jersey','New Mexico','New York','North Carolina','North Dakota','Ohio','Oklahoma','Oregon','Pennsylvania','Rhode Island','South Carolina','South Dakota','Tennessee','Texas','Utah','Vermont','Virginia','Washington','West Virginia','Wisconsin','Wyoming'];
+const sel=document.getElementById('homeState'), saved=document.getElementById('homeSaved'), form=document.getElementById('home');
+STATES.forEach(n=>{const o=document.createElement('option'); o.textContent=n; o.value=n; sel.appendChild(o);});
+window.homeState='Kansas';
+function set(v,skipped){ window.homeState=v; saved.textContent=skipped?'We’ll use Kansas as an example.':'Saved: '+v; try{localStorage.setItem('homeState',v);}catch(e){} }
+try{ const v=localStorage.getItem('homeState'); if(v&&STATES.includes(v)){ sel.value=v; window.homeState=v; saved.textContent='Saved: '+v; } }catch(e){}
+sel.addEventListener('change',()=>{ if(sel.value) set(sel.value); });
+document.getElementById('homeSkip').addEventListener('click',()=>{ sel.value=''; set('Kansas',true); });
+const scene=form.closest('.film'), step=document.getElementById('homeStep');
+function vis(){ const r=step.getBoundingClientRect(), H=innerHeight; form.classList.toggle('show', r.top < H*0.35 && r.bottom > H*0.6); }
+addEventListener('scroll',vis,{passive:true}); addEventListener('resize',vis); vis();
+})();
+
+/* Ch. 4: the breathing line */
+(function(){
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const cv=document.getElementById('bcv'), ctx=cv.getContext('2d'), range=document.getElementById('brange');
+const steps=[...document.querySelectorAll('#bsteps .step')];
+// freq = breaths per second on screen (sped up for reading), amp = depth, jit = irregularity, tint = 0 white .. 1 blue
+const S={
+ title:{freq:1.1,amp:.9,jit:0,tint:0,alpha:0},
+ normal:{freq:1.1,amp:1,jit:0,tint:0,alpha:1},
+ slow:{freq:.6,amp:.6,jit:.05,tint:.5,alpha:1},
+ sleep:{freq:.42,amp:.4,jit:.35,tint:.8,alpha:1},
+ quiet:{freq:.3,amp:.28,jit:.3,tint:1,alpha:1},
+ blue:{freq:.18,amp:.14,jit:.25,tint:1,alpha:1},
+ flat:{freq:.06,amp:0,jit:0,tint:1,alpha:1},
+ narcan:{freq:.9,amp:.85,jit:.08,tint:.2,alpha:1},
+ normal2:{freq:1.1,amp:1,jit:0,tint:0,alpha:1}
+};
+const cur={freq:1.1,amp:.9,jit:0,tint:0,alpha:0}; let target=S.title, key='title';
+let W,H,dpr,STEP=2,buf=[],phase=0,period=1,acc=0,last=performance.now(),running=false;
+function shape(p){ // a breath: smooth rise and fall, then a rest on the baseline
+  const up=.45; if(p>up) return 0; const x=p/up; return Math.pow(Math.sin(Math.PI*x),1.6); }
+function sample(dt){
+  phase+=cur.freq*dt*period; if(phase>=1){ phase-=1; period=1+(Math.random()*2-1)*cur.jit; }
+  return cur.amp*shape(phase);
+}
+function resize(){
+  W=innerWidth; H=innerHeight; dpr=Math.min(2,devicePixelRatio||1);
+  cv.width=W*dpr; cv.height=H*dpr; ctx.setTransform(dpr,0,0,dpr,0,0);
+  const n=Math.ceil(W/STEP)+2; while(buf.length<n) buf.unshift(0); buf=buf.slice(-n);
+  if(reduce) fillStatic(); draw();
+}
+function fillStatic(){ Object.assign(cur,target); phase=0; period=1; buf=buf.map(()=>sample(STEP/240)); }
+function lerp(a,b,k){return a+(b-a)*k;}
+function draw(){
+  ctx.clearRect(0,0,W,H);
+  const base=H*(W<900?.48:.5), A=Math.min(H*.12,90);
+  const r=Math.round(lerp(255,140,cur.tint)), g=Math.round(lerp(255,196,cur.tint)), b=Math.round(lerp(255,212,cur.tint));
+  ctx.strokeStyle='rgba('+r+','+g+','+b+','+cur.alpha+')'; ctx.lineWidth=1.6; ctx.lineJoin='round'; ctx.lineCap='round';
+  ctx.beginPath(); const n=buf.length;
+  for(let i=0;i<n;i++){ const x=W-(n-1-i)*STEP, y=base-buf[i]*A; i?ctx.lineTo(x,y):ctx.moveTo(x,y); }
+  ctx.stroke();
+}
+function tick(now){
+  const dt=Math.min(.05,(now-last)/1000); last=now;
+  const k=1-Math.pow(.18,dt); // ease slowly toward target, so every change in breathing is gradual
+  for(const p in cur) cur[p]=lerp(cur[p],target[p],p==='amp'?k*.8:k);
+  acc+=dt*240; // pixels per second the line travels
+  while(acc>=STEP){ acc-=STEP; buf.push(sample(STEP/240)); buf.shift(); }
+  draw();
+  if(running) requestAnimationFrame(tick);
+}
+function pick(){
+  const H=innerHeight; let best=0,bd=1e9;
+  const cs=steps.map(el=>{ const r=el.getBoundingClientRect(); return r.top+r.height/2; });
+  cs.forEach((c,i)=>{ const d=Math.abs(c-H/2); if(d<bd){bd=d;best=i;} });
+  const k=steps[best].dataset.b||'title';
+  // blend between the two nearest states: each holds while its words are centred, then eases into the next
+  let i=0; while(i<cs.length-2 && cs[i+1]<H/2) i++;
+  const f=Math.max(0,Math.min(1,(H/2-cs[i])/((cs[i+1]-cs[i])||1))), e=(x=>x*x*(3-2*x))(Math.max(0,Math.min(1,(f-.3)/.4)));
+  const A=S[steps[i].dataset.b||'title'], B=S[steps[i+1].dataset.b||'title'], blend={};
+  for(const p in A) blend[p]=A[p]+(B[p]-A[p])*e;
+  target=blend;
+  if(k!==key){ key=k; if(reduce){ fillStatic(); draw(); } }
+  range.style.opacity=(k==='title'||k==='flat'||k==='blue')?0:1;
+  // only animate while Ch. 4 is on screen
+  const box=document.getElementById('filmA').getBoundingClientRect(), on=box.top<H&&box.bottom>0;
+  if(on&&!running&&!reduce){ running=true; last=performance.now(); requestAnimationFrame(tick); }
+  if(!on) running=false;
+}
+addEventListener('scroll',pick,{passive:true}); addEventListener('resize',()=>{resize();pick();});
+resize(); pick();
+})();
+
+/* save + send the steps */
+(function(){
+const text='If someone won’t wake up:\n1. Call 911.\n2. Spray naloxone (Narcan) into one nostril. Lay them on their side so their airway stays clear.\n3. Stay with them. Naloxone can wear off before fentanyl does.\n4. If they don’t respond in 2 to 3 minutes, give a second dose in the other nostril.\nNaloxone won’t harm someone who hasn’t taken opioids. If you’re not sure, give it.';
+const msg=document.getElementById('saveMsg');
+async function copy(){ try{ await navigator.clipboard.writeText(text); msg.textContent='Copied. Paste it into a text to someone you love.'; }catch(e){ msg.textContent='Couldn’t copy here. Try a screenshot instead.'; } }
+document.getElementById('copySteps').addEventListener('click',copy);
+document.getElementById('sendSteps').addEventListener('click',async()=>{
+  if(navigator.share){ try{ await navigator.share({title:'If someone won’t wake up',text}); msg.textContent='Sent.'; return; }catch(e){ if(e&&e.name==='AbortError') return; } }
+  copy();
+});
+})();
+</script>
+<script>
+(function(){
+const $=id=>document.getElementById(id);
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const WORDS=['zero','one','two','three','four','five','six','seven','eight','nine','ten'];
+const num=n=>n<=10?WORDS[n]:String(n);
+
+/* ---------- reading clock ---------- */
+const t0=performance.now();
+function clock(){
+  const ms=performance.now()-t0, m=Math.floor(ms/60000), people=ms/450000, n=Math.floor(people);
+  $('clockHead').textContent = m<1 ? 'You’ve been reading for less than a minute.' : 'You’ve been reading for '+num(m)+' minute'+(m===1?'':'s')+'.';
+  const tail = n===0 ? 'In the time you’ve been here, that’s almost one person.' : n===1 ? 'In the time you’ve been here, that’s about one person.' : 'In the time you’ve been here, that’s about '+num(n)+' people.';
+  $('clockBody').textContent='On average, someone in America dies of an overdose every seven and a half minutes. '+tail;
+  const box=$('clockMarks'); const want=n+1;
+  if(box.children.length!==want){ box.innerHTML=''; for(let i=0;i<want;i++){ const d=document.createElement('i'); if(i===n) d.className='part'; box.appendChild(d);} }
+}
+clock(); setInterval(clock,10000);
+
+/* ---------- decade chart ---------- */
+const DATA=[[2015,52404],[2016,63632],[2017,70237],[2018,67367],[2019,70630],[2020,91799],[2021,106699],[2022,107941],[2023,105007],[2024,81313],[2025,69973]];
+(function(){
+  const svg=d3.select('#decadeChart'), COLS=4, SP=8, R=2.9, CW=COLS*SP, GAP=20, TOP=46, MAXR=Math.ceil(108/COLS), H=TOP+MAXR*SP;
+  const W=DATA.length*CW+(DATA.length-1)*GAP;
+  svg.attr('viewBox','-4 0 '+(W+8)+' '+(H+34));
+  const peak=DATA[7][1], dots=[];
+  DATA.forEach((d,i)=>{
+    const n=Math.round(d[1]/1000), x0=i*(CW+GAP), hl=d[0]===2022||d[0]===2025;
+    for(let k=0;k<n;k++){ const c=k%COLS, r=Math.floor(k/COLS); dots.push({x:x0+c*SP+SP/2,y:H-r*SP-SP/2,f:hl?'#79ADC0':'#D2CCC0',r}); }
+    svg.append('text').attr('x',x0+CW/2).attr('y',H+22).attr('text-anchor','middle').text(d[0]);
+  });
+  const g=svg.append('g');
+  const cs=g.selectAll('circle').data(dots).join('circle').attr('cx',d=>d.x).attr('cy',d=>d.y).attr('r',R).attr('fill',d=>d.f).style('opacity',reduce?1:0);
+  const i22=7,i25=10, x22=i22*(CW+GAP), x25=i25*(CW+GAP);
+  const h=v=>Math.ceil(Math.round(v/1000)/COLS)*SP;
+  svg.append('text').attr('class','lab').attr('x',x22+CW/2).attr('y',H-h(peak)-10).attr('text-anchor','middle').text('107,941');
+  svg.append('rect').attr('x',x25-1).attr('y',H-h(peak)).attr('width',CW+2).attr('height',h(peak)-h(DATA[10][1])-2).attr('fill','none').attr('stroke','#1F1D1A').attr('stroke-dasharray','3 3');
+  svg.append('text').attr('class','lab').attr('x',x25+CW+4).attr('y',H-h(peak)-24).attr('text-anchor','end').text('about 38,000');
+  svg.append('text').attr('class','lab').attr('x',x25+CW+4).attr('y',H-h(peak)-8).attr('text-anchor','end').text('fewer');
+  svg.append('line').attr('x1',-4).attr('x2',W+4).attr('y1',H+.5).attr('y2',H+.5).attr('stroke','#1F1D1A');
+  if(!reduce){ const io=new IntersectionObserver(es=>{ if(es[0].isIntersecting){ cs.transition().delay(d=>d.r*45).duration(300).style('opacity',1); io.disconnect(); } },{threshold:.3}); io.observe(svg.node()); }
+})();
+
+/* ---------- shared map data ---------- */
+let usTopo=null; const usReady=d3.json('counties-10m.json').then(t=>usTopo=t);
+const worldReady=d3.json('countries-110m.json');
+const STATES=['Alabama','Alaska','Arizona','Arkansas','California','Colorado','Connecticut','Delaware','District of Columbia','Florida','Georgia','Hawaii','Idaho','Illinois','Indiana','Iowa','Kansas','Kentucky','Louisiana','Maine','Maryland','Massachusetts','Michigan','Minnesota','Mississippi','Missouri','Montana','Nebraska','Nevada','New Hampshire','New Jersey','New Mexico','New York','North Carolina','North Dakota','Ohio','Oklahoma','Oregon','Pennsylvania','Rhode Island','South Carolina','South Dakota','Tennessee','Texas','Utah','Vermont','Virginia','Washington','West Virginia','Wisconsin','Wyoming'];
+
+/* ---------- your state + counties ---------- */
+(function(){
+  const svg=d3.select('#usMap').attr('viewBox','0 0 975 610'), g=svg.append('g'), gs=g.append('g'), gc=g.append('g');
+  const proj=d3.geoAlbersUsa().scale(1300).translate([487.5,305]), path=d3.geoPath(proj);
+  const sel=$('yoursState'); STATES.forEach(n=>{const o=document.createElement('option');o.value=o.textContent=n;sel.appendChild(o);});
+  let states=[], counties=[], cur=null;
+  const OD={'Alabama':[31.5,33.9,'u'],'Alaska':[34.3,49.4,'u'],'Arizona':[37.2,36.1,'s'],'Arkansas':[21.7,17.7,'d'],'California':[26.9,27.9,'u'],'Colorado':[29.8,30.6,'s'],'Connecticut':[40.3,35.2,'d'],'Delaware':[55.3,53.0,'s'],'District of Columbia':[64.3,60.7,'s'],'Florida':[35.2,31.7,'d'],'Georgia':[24.9,23.6,'d'],'Hawaii':[18.6,21.4,'s'],'Idaho':[20.7,20.5,'s'],'Illinois':[30.0,27.3,'d'],'Indiana':[41.0,34.2,'d'],'Iowa':[15.3,14.9,'s'],'Kansas':[26.5,22.8,'d'],'Kentucky':[53.2,48.0,'d'],'Louisiana':[54.5,50.6,'d'],'Maine':[54.3,44.9,'d'],'Maryland':[40.3,39.3,'s'],'Massachusetts':[37.4,33.6,'d'],'Michigan':[30.7,28.9,'d'],'Minnesota':[24.8,23.6,'s'],'Mississippi':[27.6,25.3,'s'],'Missouri':[36.9,33.5,'d'],'Montana':[19.4,17.1,'s'],'Nebraska':[11.8,9.0,'d'],'Nevada':[30.3,38.1,'u'],'New Hampshire':[36.0,32.7,'s'],'New Jersey':[31.6,28.3,'d'],'New Mexico':[50.3,48.9,'s'],'New York':[31.4,31.1,'s'],'North Carolina':[41.8,33.7,'d'],'North Dakota':[19.8,16.4,'s'],'Ohio':[45.6,41.6,'d'],'Oklahoma':[30.7,32.4,'s'],'Oregon':[31.1,40.8,'u'],'Pennsylvania':[40.9,37.1,'d'],'Rhode Island':[38.1,37.5,'s'],'South Carolina':[44.7,41.3,'d'],'South Dakota':[11.3,11.2,'s'],'Tennessee':[56.0,52.3,'d'],'Texas':[18.2,18.5,'s'],'Utah':[19.8,21.4,'s'],'Vermont':[45.9,42.3,'s'],'Virginia':[28.8,28.5,'s'],'Washington':[33.7,42.4,'u'],'West Virginia':[80.9,81.9,'s'],'Wisconsin':[31.8,30.6,'s'],'Wyoming':[21.9,23.7,'s']};
+  const US23=31.3, BINS=[20,30,40,50], COLS=['#D8ECF1','#AFD3DE','#79ADC0','#4F8EA5','#2A6175'];
+  const colorOf=r=>COLS[BINS.filter(b=>r>=b).length];
+  const ranked=Object.keys(OD).sort((a,b)=>OD[b][1]-OD[a][1]);
+  const ord=n=>{const s=['th','st','nd','rd'],v=n%100;return n+(s[(v-20)%10]||s[v]||s[0]);};
+  $('odKey').innerHTML='<b>Deaths per 100,000 people, 2023</b>'+COLS.map((c,i)=>'<span><i style="background:'+c+'"></i>'+(i===0?'Under 20':i===4?'50 or more':BINS[i-1]+'–'+BINS[i])+'</span>').join('');
+  function stateText(name){
+    const d=OD[name]; if(!d) return 'No CDC overdose data for '+name+'.';
+    const [r22,r23,tr]=d, rank=ranked.indexOf(name)+1;
+    const vs = Math.abs(r23-US23)<1 ? 'about the same as' : r23>US23 ? 'higher than' : 'lower than';
+    const trend = tr==='u' ? 'That’s a real increase from '+r22+' in 2022.' : tr==='d' ? 'That’s down from '+r22+' in 2022, a real decrease.' : 'That’s about the same as 2022 ('+r22+').';
+    return 'In 2023, about <strong>'+Math.round(r23)+' out of every 100,000 people</strong> in '+name+' died of a drug overdose. '+trend+' It’s '+vs+' the national rate of '+US23+', and the '+ord(rank)+' highest of the 50 states and D.C.';
+  }
+  // NORC Overdose Mapping Tool, state rows: d = overdose deaths, o = opioid-involved deaths, per 4-year period (2010-13, 2014-17, 2018-21); f = SUD treatment facilities (Mar 2023); p = population (ACS 2017-21)
+  const NORC={"US":{"d":[156623,220819,315256],"o":[89056,145834,234130],"f":12582,"p":329725481},"Alabama":{"d":[2136,2903,3781],"o":[672,1283,2304],"f":130,"p":4997675},"Alaska":{"d":[413,500,630],"o":[272,342,444],"f":69,"p":735951},"Arizona":{"d":[4260,4958,8258],"o":[2153,2747,5954],"f":348,"p":7079203},"Arkansas":{"d":[1307,1496,1886],"o":[663,693,1031],"f":129,"p":3006309},"California":{"d":[15428,16817,28412],"o":[7056,7525,17025],"f":1159,"p":39455353},"Colorado":{"d":[2930,3490,5030],"o":[1470,2011,3259],"f":291,"p":5723176},"Connecticut":{"d":[1701,3317,4897],"o":[1051,2937,4475],"f":161,"p":3605330},"Delaware":{"d":[587,980,1715],"o":[401,648,1544],"f":43,"p":981892},"District of Columbia":{"d":[319,712,1206],"o":[179,544,930],"f":28,"p":683154},"Florida":{"d":[10385,14734,23559],"o":[5612,8882,17596],"f":525,"p":21339762},"Georgia":{"d":[4022,5099,6739],"o":[2060,3362,4592],"f":265,"p":10625615},"Hawaii":{"d":[597,650,850],"o":[265,220,244],"f":112,"p":1453498},"Idaho":{"d":[725,835,1034],"o":[280,363,599],"f":96,"p":1811617},"Illinois":{"d":[5683,8377,12060],"o":[3921,6551,9859],"f":583,"p":12821813},"Indiana":{"d":[3822,5582,8057],"o":[1353,2890,6236],"f":375,"p":6751340},"Iowa":{"d":[974,1156,1426],"o":[647,694,749],"f":174,"p":3179090},"Kansas":{"d":[1141,1216,1780],"o":[527,581,985],"f":144,"p":2932099},"Kentucky":{"d":[4008,5156,6862],"o":[2534,3680,5439],"f":398,"p":4494141},"Louisiana":{"d":[2435,3594,6456],"o":[650,1276,3155],"f":161,"p":4657305},"Maine":{"d":[570,1206,1749],"o":[385,1044,1527],"f":134,"p":1357046},"Maryland":{"d":[2955,6379,9559],"o":[2407,5650,8654],"f":344,"p":6148545},"Massachusetts":{"d":[3396,7194,8892],"o":[2731,6476,8001],"f":378,"p":6991852},"Michigan":{"d":[5399,8336,10042],"o":[2926,5924,7999],"f":394,"p":10062512},"Minnesota":{"d":[1816,2366,3598],"o":[1073,1424,2328],"f":348,"p":5670472},"Mississippi":{"d":[1199,1305,1950],"o":[380,604,1316],"f":86,"p":2967023},"Missouri":{"d":[3768,4673,6826],"o":[2301,3150,4965],"f":254,"p":6141534},"Montana":{"d":[474,463,575],"o":[227,168,316],"f":100,"p":1077978},"Nebraska":{"d":[481,487,680],"o":[196,204,323],"f":111,"p":1951480},"Nevada":{"d":[2250,2271,2778],"o":[1637,1458,1713],"f":70,"p":3059238},"New Hampshire":{"d":[709,1656,1628],"o":[548,1513,1465],"f":96,"p":1372175},"New Jersey":{"d":[4205,7186,11010],"o":[2053,4857,9875],"f":305,"p":9234024},"New Mexico":{"d":[1866,1930,2766],"o":[1029,1362,1904],"f":102,"p":2109366},"New York":{"d":[7485,11957,16871],"o":[5467,9770,14268],"f":574,"p":20114745},"North Carolina":{"d":[4717,6943,11152],"o":[3191,5449,9316],"f":525,"p":10367022},"North Dakota":{"d":[72,238,378],"o":[47,148,217],"f":60,"p":773344},"Ohio":{"d":[8043,15008,17989],"o":[5272,12440,14985],"f":476,"p":11769923},"Oklahoma":{"d":[2827,2903,2831],"o":[1965,1660,1276],"f":164,"p":3948136},"Oregon":{"d":[1842,1857,2805],"o":[1323,1226,1799],"f":170,"p":4207177},"Pennsylvania":{"d":[8655,15444,18426],"o":[3100,7067,13361],"f":494,"p":12970650},"Rhode Island":{"d":[761,1151,1371],"o":[569,981,1172],"f":55,"p":1091949},"South Carolina":{"d":[2338,3134,5773],"o":[966,2343,4624],"f":96,"p":5078903},"South Dakota":{"d":[192,253,305],"o":[121,129,150],"f":47,"p":881785},"Tennessee":{"d":[4246,5777,10272],"o":[2674,4196,8039],"f":285,"p":6859497},"Texas":{"d":[9395,10343,14142],"o":[4325,5010,7387],"f":432,"p":28862581},"Utah":{"d":[2055,2413,2294],"o":[1528,1752,1611],"f":280,"p":3231370},"Vermont":{"d":[288,415,690],"o":[214,343,600],"f":32,"p":641637},"Virginia":{"d":[2802,4718,7456],"o":[2093,3838,6337],"f":199,"p":8582479},"Washington":{"d":[3648,4006,5878],"o":[2541,2621,4076],"f":340,"p":7617364},"West Virginia":{"d":[2206,3115,4357],"o":[1920,2685,3638],"f":87,"p":1801049},"Wisconsin":{"d":[2742,3775,5264],"o":[1905,2927,4277],"f":227,"p":5871661},"Wyoming":{"d":[348,345,311],"o":[176,186,191],"f":54,"p":576641}};
+  const PER=['2010–13','2014–17','2018–21'], fmt=d3.format(',');
+  function past(name){
+    const d=NORC[name], box=$('yoursPast'); if(!d){ box.hidden=true; return; } box.hidden=false;
+    const svg=d3.select('#pastChart'), W=380, H=190, top=26, bot=28, bw=78, gap=(W-bw*3)/3;
+    const y=d3.scaleLinear().domain([0,d3.max(d.d)]).range([0,H-top-bot]);
+    svg.attr('aria-label','Overdose deaths in '+name+': '+PER.map((p,i)=>p+', '+fmt(d.d[i])+' deaths, '+fmt(d.o[i])+' involving opioids').join('; ')+'.');
+    svg.selectAll('*').remove();
+    svg.append('line').attr('x1',0).attr('x2',W).attr('y1',H-bot+.5).attr('y2',H-bot+.5).attr('stroke','#D5CFC3');
+    const tip=$('pastTip');
+    PER.forEach((p,i)=>{
+      const x=gap/2+i*(bw+gap), ho=y(d.o[i]), hr=y(d.d[i]-d.o[i]), base=H-bot;
+      const g=svg.append('g').attr('class','bar');
+      // opioid segment sits on the baseline; other drugs above it, with a 2px surface gap
+      g.append('path').attr('class','seg').attr('fill','#2A6175').attr('d', hr>2 ? `M${x},${base}V${base-ho}H${x+bw}V${base}Z` : `M${x},${base}V${base-ho+4}q0,-4 4,-4H${x+bw-4}q4,0 4,4V${base}Z`);
+      if(hr>2) g.append('path').attr('class','seg').attr('fill','#8DBBCB').attr('d',`M${x},${base-ho-2}V${base-ho-hr+4}q0,-4 4,-4H${x+bw-4}q4,0 4,4V${base-ho-2}Z`);
+      g.append('text').attr('class','tot').attr('x',x+bw/2).attr('y',base-ho-hr-(hr>2?2:0)-8).attr('text-anchor','middle').text(fmt(d.d[i]));
+      g.append('text').attr('class','yr').attr('x',x+bw/2).attr('y',H-6).attr('text-anchor','middle').text(p);
+      g.append('rect').attr('x',x-gap/2).attr('y',0).attr('width',bw+gap).attr('height',H).attr('fill','transparent')
+        .on('mousemove',e=>{ const r=$('pastChart').getBoundingClientRect(), k=r.width/W; tip.hidden=false; tip.style.left=((x+bw/2)*k)+'px'; tip.style.top=((base-ho-hr-30)*k)+'px';
+          tip.innerHTML='<b>'+p.replace('–','–20')+'</b><br>'+fmt(d.d[i])+' overdose deaths<br>'+fmt(d.o[i])+' involved opioids ('+Math.round(100*d.o[i]/d.d[i])+'%)'; })
+        .on('mouseleave',()=>{ tip.hidden=true; });
+    });
+    const ch=(d.d[2]-d.d[0])/d.d[0], pct=Math.round(100*d.o[2]/d.d[2]);
+    const trend=Math.abs(ch)<.05?'about the same as':Math.round(Math.abs(ch)*100)+'% '+(ch>0?'more than':'fewer than');
+    $('pastLine1').innerHTML='From 2018 to 2021, <strong>'+fmt(d.d[2])+' people</strong> in '+name+' died of drug overdoses, '+trend+' in 2010 to 2013. '+pct+'% of those deaths involved opioids.';
+    const per=d.f/d.p*1e5, us=NORC.US.f/NORC.US.p*1e5;
+    $('pastLine2').innerHTML=name+' has <strong>'+fmt(d.f)+' places to get treatment</strong> for substance use, about '+per.toFixed(1)+' for every 100,000 people. The U.S. average is '+us.toFixed(1)+'.';
+  }
+  function zoomTo(f){
+    let t=d3.zoomIdentity;
+    if(f){ const [[x0,y0],[x1,y1]]=path.bounds(f), k=Math.min(8,.86/Math.max((x1-x0)/975,(y1-y0)/610)); t=d3.zoomIdentity.translate(487.5,305).scale(k).translate(-(x0+x1)/2,-(y0+y1)/2); }
+    g.transition().duration(reduce?0:750).attr('transform',t.toString());
+  }
+  function pick(name,zoom){
+    const f=states.find(s=>s.properties.name===name); if(!f) return; cur=f;
+    sel.value=name; $('yoursName').textContent=name; $('yoursLevel').textContent='Selected state';
+    $('yoursStat').innerHTML=stateText(name); past(name);
+    gs.selectAll('path').classed('sel',d=>d===f).classed('dim',false);
+    gc.selectAll('path').remove();
+    window.homeState=name; try{localStorage.setItem('homeState',name);}catch(e){}
+  }
+  $('yoursBack').addEventListener('click',()=>{ gc.selectAll('path').remove(); gs.selectAll('path').classed('dim',false); $('yoursBack').hidden=true; zoomTo(null); if(cur) pick(cur.properties.name,false); });
+  sel.addEventListener('change',()=>pick(sel.value,true));
+  usReady.then(t=>{
+    states=topojson.feature(t,t.objects.states).features.filter(f=>STATES.includes(f.properties.name));
+    counties=topojson.feature(t,t.objects.counties).features;
+    gs.selectAll('path').data(states).join('path').attr('class','st').attr('d',path).style('fill',d=>OD[d.properties.name]?colorOf(OD[d.properties.name][1]):null)
+      .attr('tabindex',0).attr('role','button').attr('aria-label',d=>d.properties.name+(OD[d.properties.name]?', '+OD[d.properties.name][1]+' overdose deaths per 100,000 in 2023':''))
+      .on('click',(e,d)=>{ pick(d.properties.name,true); if(innerWidth<900) $('yoursName').scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'}); }).on('keydown',(e,d)=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();pick(d.properties.name,true);}})
+      .append('title').text(d=>d.properties.name);
+    pick(window.homeState||'Kansas',false);
+  });
+  // follow the state chosen earlier in Ch. 3
+  new IntersectionObserver(es=>{ if(es[0].isIntersecting && states.length && $('yoursBack').hidden) pick(window.homeState||'Kansas',false); },{threshold:.2}).observe($('yours'));
+})();
+
+/* ---------- layers ---------- */
+let lastFocus=null;
+function openLayer(id){ lastFocus=document.activeElement; $(id).hidden=false; document.body.classList.add('locked'); $(id).querySelector('.close').focus(); if(id==='pinner') pinner.resize(); }
+function closeLayer(id){ $(id).hidden=true; if(!document.querySelector('.layer:not([hidden])')) document.body.classList.remove('locked'); if(location.hash==='#'+id) history.replaceState(null,'',location.pathname+location.search); lastFocus&&lastFocus.focus&&lastFocus.focus({preventScroll:true}); }
+document.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click',()=>closeLayer(b.dataset.close)));
+document.addEventListener('keydown',e=>{ if(e.key==='Escape'){ const l=[...document.querySelectorAll('.layer:not([hidden])')].pop(); if(l) closeLayer(l.id);} });
+function hash(){ if(location.hash==='#wall') openLayer('wall'); }
+addEventListener('hashchange',hash);
+
+/* ---------- pin globe ---------- */
+const pinner=(function(){
+  const svg=d3.select('#pinGlobe'), proj=d3.geoOrthographic().clipAngle(90).precision(.5), path=d3.geoPath(proj);
+  proj.rotate([96,-32]);
+  const gSphere=svg.append('path').attr('fill','#FBFAF6').attr('stroke','#D5CFC3');
+  const gGrat=svg.append('path').attr('fill','none').attr('stroke','rgba(154,149,140,.25)').attr('stroke-width',.5);
+  const gC=svg.append('g'), gS=svg.append('g'), gP=svg.append('g'), gMe=svg.append('g');
+  let W=800,H=600,base=280, world=[], usStates=[], usCounties=[], level=0, ctry=null, st=null, pin=null, mode='pick', others=[];
+  const grat=d3.geoGraticule10();
+  const LOWER=f=>f.id!=='02'&&f.id!=='15';
+  function resize(){ const r=svg.node().getBoundingClientRect(); W=r.width||800; H=r.height||600; base=Math.min(W,H)*.44; if(level===0&&!anim) proj.scale(base); proj.translate([W/2,H/2]); draw(); }
+  let anim=null;
+  function fly(rot,scale){ const r0=proj.rotate(), s0=proj.scale(), ir=d3.interpolate(r0,rot), is=d3.interpolate(s0,scale);
+    if(anim) anim.stop(); if(reduce){ proj.rotate(rot).scale(scale); draw(); return; }
+    anim=d3.timer(el=>{ const t=Math.min(1,el/750), e=d3.easeCubicInOut(t); proj.rotate(ir(e)).scale(is(e)); draw(); if(t>=1){anim.stop();anim=null;} }); }
+  function fit(f){ const c=d3.geoCentroid(f), p=d3.geoOrthographic().rotate([-c[0],-c[1]]).fitExtent([[60,60],[W-60,H-60]],f); return [[-c[0],-c[1]],Math.max(base,p.scale())]; }
+  function draw(){
+    gSphere.attr('d',path({type:'Sphere'})); gGrat.attr('d',path(grat));
+    gC.selectAll('path').attr('d',path);
+    gS.selectAll('path').attr('d',path);
+    const vis=c=>d3.geoDistance(c,[-proj.rotate()[0],-proj.rotate()[1]])<1.5;
+    gP.selectAll('circle').attr('transform',d=>{const p=proj([d.lon,d.lat]);return p?'translate('+p+')':null;}).style('display',d=>vis([d.lon,d.lat])?null:'none');
+    gMe.selectAll('circle').attr('transform',d=>{const p=proj([d.lon,d.lat]);return p?'translate('+p+')':null;}).style('display',d=>vis([d.lon,d.lat])?null:'none');
+  }
+  function crumbs(){
+    const c=$('crumbs'); c.innerHTML='';
+    const add=(t,fn)=>{ if(c.childNodes.length) c.append(' › '); if(fn){const b=document.createElement('button');b.type='button';b.textContent=t;b.onclick=fn;c.append(b);} else c.append(t); };
+    add('World', level>0?()=>up(0):null);
+    if(ctry) add(ctry.properties.name==='United States of America'?'United States':ctry.properties.name, level>1?()=>up(1):null);
+    if(st) add(st.properties.name,null);
+    $('pinUp').hidden=level===0||mode==='view';
+  }
+  function setPin(lonlat,label){ pin={lon:lonlat[0],lat:lonlat[1],label}; gMe.selectAll('circle').data([pin]).join('circle').attr('class','pin').attr('r',7); draw(); $('pinHint').textContent='Pinned: '+label; $('pinUse').disabled=false; }
+  function showSubs(list,cls,onClick){
+    gS.selectAll('path').data(list,d=>d.id).join('path').attr('class',cls).attr('d',path).on('click',function(e,d){ if(moved) return; onClick(e,d,this); }).selectAll('title').data(d=>[d]).join('title').text(d=>d.properties.name);
+  }
+  function up(to){
+    if(to===0){ level=0; ctry=null; st=null; gS.selectAll('path').remove(); gC.selectAll('path').classed('sel',false); fly(proj.rotate(),base); $('pinHint').textContent=pin?'Pinned: '+pin.label:'Drag to turn the globe. Scroll or pinch to zoom in, then click your country.'; }
+    if(to===1){ level=1; st=null; enterCountry(ctry); }
+    crumbs();
+  }
+  function enterCountry(f){
+    ctry=f; level=1; gC.selectAll('path').classed('sel',d=>d===f);
+    const isUS=f.properties.name==='United States of America';
+    if(isUS){ const lower={type:'FeatureCollection',features:usStates.filter(LOWER)}; if(!zoomedIn(lower)){ const [r,s]=fit(lower); fly(r,s); }
+      showSubs(usStates,'sub',(e,d)=>enterState(d)); $('pinHint').textContent='Click your state.'; }
+    else { gS.selectAll('path').remove(); if(!zoomedIn(f)){ const [r,s]=fit(f); fly(r,s); } $('pinHint').textContent='Click to drop your pin in '+f.properties.name+'.'; }
+    crumbs();
+  }
+  function enterState(f){
+    st=f; level=2; if(!zoomedIn(f)){ const [r,s]=fit(f); fly(r,s); }
+    showSubs(usCounties.filter(c=>c.id.slice(0,2)===f.id),'sub',(e,d,el)=>{ gS.selectAll('path').classed('sel',x=>x===d); const ll=proj.invert(d3.pointer(e,svg.node())); setPin(ll,d.properties.name+' County, '+f.properties.name); });
+    $('pinHint').textContent='Click your county, or anywhere in '+f.properties.name+'.'; crumbs();
+  }
+  // Free navigation: drag to turn, scroll / pinch / trackpad to zoom (no buttons needed)
+  let moved=false, prev=null, travel=0;
+  const MINS=()=>base*.9, MAXS=()=>base*60;
+  const zoom=d3.zoom().scaleExtent([1e-6,1e6]).clickDistance(4)
+    .on('start',e=>{ prev=e.transform; travel=0; if(anim){anim.stop();anim=null;} if(e.sourceEvent&&e.sourceEvent.type!=='wheel') svg.style('cursor','grabbing'); })
+    .on('zoom',e=>{ const t=e.transform, ratio=t.k/prev.k, dx=t.x-prev.x*ratio, dy=t.y-prev.y*ratio; prev=t;
+      const se=e.sourceEvent;
+      if(Math.abs(ratio-1)>1e-4){
+        // zoom toward the cursor: keep the point under the pointer fixed
+        const pt=se?d3.pointer(se.touches?se.touches[0]:se,svg.node()):[W/2,H/2], before=proj.invert(pt);
+        proj.scale(Math.max(MINS(),Math.min(MAXS(),proj.scale()*ratio)));
+        const after=proj.invert(pt);
+        if(before&&after&&!(se&&se.touches)){ const r=proj.rotate(); proj.rotate([r[0]+(after[0]-before[0]),Math.max(-85,Math.min(85,r[1]+(after[1]-before[1])))]); }
+        moved=true;
+      } else {
+        travel+=Math.hypot(dx,dy); if(travel>4) moved=true;
+        const r=proj.rotate(), k=70/proj.scale(); proj.rotate([r[0]+dx*k,Math.max(-85,Math.min(85,r[1]-dy*k))]);
+      }
+      draw(); })
+    .on('end',()=>{ svg.style('cursor','grab'); setTimeout(()=>moved=false,0); });
+  svg.call(zoom).on('dblclick.zoom',null);
+  const zoomedIn=f=>{ const [,sc]=fit(f); return proj.scale()>=sc*.8; };
+  worldReady.then(w=>{ world=topojson.feature(w,w.objects.countries).features;
+    gC.selectAll('path').data(world).join('path').attr('class','ctry').attr('d',path)
+      .on('click',(e,d)=>{ if(moved||mode==='view') return;
+        if(level===0){ if(d.properties.name!=='United States of America'&&zoomedIn(d)){ enterCountry(d); setPin(proj.invert(d3.pointer(e,svg.node())),d.properties.name); } else enterCountry(d); }
+        else if(level===1 && d===ctry && d.properties.name!=='United States of America'){ setPin(proj.invert(d3.pointer(e,svg.node())),d.properties.name); }
+        else if(level>=1 && d!==ctry){ st=null; enterCountry(d); } })
+      .append('title').text(d=>d.properties.name);
+    draw(); });
+  usReady.then(t=>{ usStates=topojson.feature(t,t.objects.states).features; usCounties=topojson.feature(t,t.objects.counties).features; });
+  $('pinUp').addEventListener('click',()=>up(level-1));
+  $('pinUse').addEventListener('click',()=>{ if(!pin) return; story.pin=pin; $('pinned').hidden=false; $('pinned').textContent='Pinned: '+pin.label; if(!$('sPlace').value) $('sPlace').value=pin.label; closeLayer('pinner'); });
+  return {
+    resize,
+    openPick(){ mode='pick'; $('pinTitle').textContent='Pin where you’re from'; $('pinUse').hidden=false; gP.selectAll('circle').remove(); crumbs(); openLayer('pinner'); },
+    openView(target,all){ mode='view'; level=0; ctry=null; st=null; gS.selectAll('path').remove(); gMe.selectAll('circle').remove(); gC.selectAll('path').classed('sel',false);
+      $('pinTitle').textContent='Where the stories come from'; $('pinUse').hidden=true; $('pinHint').textContent=target?target.label:'Every dot is someone who shared a story.';
+      gP.selectAll('circle').data(all.filter(d=>typeof d.lat==='number')).join('circle').attr('class','opin').attr('r',5);
+      if(target) gMe.selectAll('circle').data([target]).join('circle').attr('class','pin').attr('r',8);
+      crumbs(); openLayer('pinner'); if(target) fly([-target.lon,-target.lat],base*5); else draw(); }
+  };
+})();
+$('pinBtn').addEventListener('click',()=>pinner.openPick());
+addEventListener('resize',()=>{ if(!$('pinner').hidden) pinner.resize(); });
+
+/* ---------- stories (shared) ---------- */
+const story={pin:null};
+// Clearly labeled example cards. They fill the wall until real stories arrive, and are never saved.
+const SAMPLES=[
+ {name:'M.',place:'Kansas',text:'My brother was the funny one. He thought he was buying something for his back. I wish someone had told him a pill could look exactly right and still be wrong.'},
+ {name:'Dana',place:'Missouri',text:'Four years in recovery this spring. I still keep naloxone in my glovebox. I used it once, on a stranger at a gas station.'},
+ {name:'',place:'Oklahoma',text:'Text your friends. Even the ones who seem fine.'},
+ {name:'J.R.',place:'Nebraska',text:'I coached her in middle school softball. Our whole town showed up for the funeral, and nobody said the word out loud. I want us to start saying it.'},
+ {name:'Aunt Lou',place:'Iowa',text:'He came back. It took three tries and a lot of patience, but he came back. He’s a dad now.'},
+ {name:'',place:'Colorado',text:'If you are reading this and you use: please don’t use alone.'}
+];
+let db=null, user=null, uid=null, isOwner=false, stories=[];
+function cardFor(d){
+  const el=document.createElement('article'); el.className='card-s'+((d.text||'').length<90?' short':'')+(d.sample?' sample':'');
+  if(d.sample){ const tg=document.createElement('p'); tg.className='tag'; tg.textContent='Example story'; el.appendChild(tg); }
+  const p=document.createElement('p'); p.className='t'; p.textContent=d.text; el.appendChild(p);
+  const who=document.createElement('p'); who.className='who';
+  const name=document.createElement('span'); name.textContent='— '+(d.name||'Someone')+(d.place?', '+d.place:''); who.appendChild(name);
+  if(typeof d.lat==='number'){ const b=document.createElement('button'); b.type='button'; b.textContent=Math.abs(d.lat).toFixed(1)+'°'+(d.lat>=0?'N':'S')+', '+Math.abs(d.lon).toFixed(1)+'°'+(d.lon>=0?'E':'W'); b.setAttribute('aria-label','See '+(d.place||'this place')+' on the globe');
+    b.onclick=()=>pinner.openView({lon:d.lon,lat:d.lat,label:(d.name||'Someone')+(d.place?', '+d.place:'')},stories); who.appendChild(b); }
+  if(isOwner&&!d.sample){ const r=document.createElement('button'); r.type='button'; r.className='rm'; r.textContent='Remove'; r.onclick=async()=>{ if(!confirmRemove(r)) return; try{ await db.doc('stories/'+d.id).delete(); }catch(e){ r.textContent='Couldn’t remove'; } }; who.appendChild(r); }
+  el.appendChild(who); return el;
+}
+function confirmRemove(btn){ if(btn.dataset.armed) return true; btn.dataset.armed='1'; btn.textContent='Tap again to remove'; setTimeout(()=>{delete btn.dataset.armed; btn.textContent='Remove';},4000); return false; }
+function renderWall(note){
+  const full=$('wallFull'); full.innerHTML='';
+  if(note){ const e=document.createElement('p'); e.className='wall-empty'; e.textContent=note; e.style.marginBottom='28px'; e.style.columnSpan='all'; full.appendChild(e); }
+  const fill=stories.length<6 ? SAMPLES.slice(0,6-stories.length).map(d=>Object.assign({sample:true},d)) : [];
+  const list=stories.concat(fill);
+  list.forEach((d,i)=>{ const c=cardFor(d); if(i===0) c.classList.add('lead'); full.appendChild(c); });
+}
+renderWall('Loading stories…');
+$('openWall').addEventListener('click',e=>{ e.preventDefault(); openLayer('wall'); });
+$('navWall').addEventListener('click',e=>{ e.preventDefault(); openLayer('wall'); });
+(async function(){
+  if(typeof claude==='undefined'){ renderWall(); return; } // standalone copy (e.g. a public website): show the example notes, no claude.ai message
+  const timer=setTimeout(()=>{ if(!db) renderWall('The Quiet Wall opens when this story is viewed on claude.ai while signed in.'); },10000);
+  try{ db=await claude.use('db'); user=await claude.use('user'); }catch(e){}
+  if(!db){ clearTimeout(timer); renderWall('The Quiet Wall opens when this story is viewed on claude.ai while signed in.'); return; }
+  try{ isOwner=user?await user.isOwner():false; uid=user?await user.id():null; }catch(e){}
+  db.collection('stories').orderBy('createdAt','desc').limit(300).onSnapshot(snap=>{ clearTimeout(timer);
+    stories=snap.docs.map(s=>Object.assign({id:s.id},s.data())).filter(d=>d.text);
+    renderWall();
+  },()=>{ clearTimeout(timer); renderWall('The Quiet Wall couldn’t load right now.'); });
+  if(uid){ try{ const mine=await db.doc('stories/'+uid).get(); if(mine.exists){ const d=mine.data(); $('sName').value=d.name||''; $('sPlace').value=d.place||''; $('sText').value=d.text||''; if(typeof d.lat==='number'){ story.pin={lat:d.lat,lon:d.lon,label:d.place||''}; } $('storyMsg').textContent='This is the story you shared. You can change it any time.'; } }catch(e){} }
+})();
+let saving=false;
+$('storyForm').addEventListener('submit',async e=>{
+  e.preventDefault(); const msg=$('storyMsg'); if(saving) return;
+  const text=$('sText').value.trim(); if(!text){ msg.textContent='Write a few words first.'; $('sText').focus(); return; }
+  if(!db||!uid){ msg.textContent= typeof claude==='undefined' ? 'Thank you for writing this. Sharing to the wall isn’t turned on for this version of the site yet.' : 'Stories can be shared when this page is open on claude.ai while signed in.'; return; }
+  saving=true; msg.textContent='Saving…';
+  const ref=db.doc('stories/'+uid);
+  try{
+    let created=new Date().toISOString(); try{ const old=await ref.get(); if(old.exists&&old.data().createdAt) created=old.data().createdAt; }catch(_){}
+    const body={name:$('sName').value.trim().slice(0,40),place:$('sPlace').value.trim().slice(0,80),text:text.slice(0,1200),createdAt:created,updatedAt:new Date().toISOString()};
+    if(story.pin){ body.lat=+story.pin.lat.toFixed(3); body.lon=+story.pin.lon.toFixed(3); }
+    await ref.set(body);
+    msg.textContent='Thank you. Your words are on the Quiet Wall.'; const ow=$('openWall'); if(ow){ ow.textContent='See your words on the Quiet Wall'; }
+  }catch(err){
+    msg.textContent = (err&&(err.code==='permission_denied'||err.code==='not_granted')) ? 'This copy of the story is view-only, so it can’t save stories. Ask the person who shared it for contributor access.' : 'That didn’t save. Please try again in a moment.';
+  }
+  saving=false;
+});
+
+/* ---------- closing message ---------- */
+async function copyCheck(){ try{ await navigator.clipboard.writeText($('checkMsg').value); $('checkStatus').textContent='Copied. Paste it to someone you love.'; }catch(e){ $('checkStatus').textContent='Couldn’t copy here. Select the text and copy it.'; } }
+$('copyCheck').addEventListener('click',copyCheck);
+$('sendCheck').addEventListener('click',async()=>{ const text=$('checkMsg').value; if(navigator.share){ try{ await navigator.share({text}); $('checkStatus').textContent='Sent.'; return; }catch(e){ if(e&&e.name==='AbortError') return; } } copyCheck(); });
+
+hash();
+})();
+
+/* final note reveal */
+(function(){ const sec=document.getElementById('finalNote'); if(!sec) return; const ps=[...sec.querySelectorAll('.in p')];
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const st=[.40,.52,.68]; let tick=false;
+  function upd(){ tick=false; const r=sec.getBoundingClientRect(), vh=innerHeight, prog=Math.max(0,Math.min(1,-r.top/(r.height-vh)));
+    ps.forEach((p,i)=>{ const a=Math.max(0,Math.min(1,(prog-(st[i]??.7))/.1)), e=a*a*(3-2*a); p.style.opacity=e; p.style.transform='translateY('+(14*(1-e)).toFixed(1)+'px)'; }); }
+  addEventListener('scroll',()=>{ if(!tick){tick=true;requestAnimationFrame(upd);} },{passive:true}); addEventListener('resize',upd); upd();
+})();
+</script>
+
+</body></html>
