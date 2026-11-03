@@ -16,7 +16,10 @@
   <a class="skip-link" href="#work">Skip to work</a>
 
   <header class="hero">
-    <img class="hero__shapes" src="assets/img/hero-shapes.svg" alt="">
+    <picture>
+      <source media="(max-width: 800px)" srcset="assets/img/hero-shapes-mobile.svg">
+      <img class="hero__shapes" src="assets/img/hero-shapes.svg" alt="">
+    </picture>
     <nav class="nav" aria-label="Main">
       <a class="logo" href="index.html">Rebecca</a>
       <button class="nav__toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
