@@ -4,11 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Ecological Dashboard | Rebecca Rice</title>
-  <meta name="description" content="Ecological Dashboard: a year of environmental data, made readable for a busy decision-maker.">
+  <meta name="description" content="Ecological Dashboard: a year of environmental data for eight cities, made readable for a busy decision-maker. A UX/UI and data viz case study by Rebecca Rice.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400;1,9..40,500&family=Space+Mono:ital@0;1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100,400;100,700&family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400;1,9..40,500&family=Inter:wght@700&family=Space+Mono:ital@0;1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/pokestop.css">
+  <link rel="stylesheet" href="../css/rewired.css">
+  <link rel="stylesheet" href="../css/dashboard.css">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -24,11 +27,184 @@
   </nav>
   <div class="back"><a href="../index.html#work">← All work</a></div>
 
-  <main id="main" class="case">
-    <h1 class="sr-only" style="position:absolute;left:-9999px">Ecological Dashboard</h1>
-    <div class="case__body">
-      <img src="../assets/img/case-dashboard.jpg" alt="Ecological Dashboard case study: research, design process and final dashboard" width="586" height="4096">
+  <main id="main" class="ps rw ed">
+    <!-- Hero -->
+    <header class="ps-hero">
+      <p class="eyebrow-ps">UX/UI CASE STUDY - 2026</p>
+      <h1>Ecological Dashboard</h1>
+      <p class="tag">A year of environmental data, made readable for a decision-maker with no time.</p>
+    </header>
+    <div class="rw-hero__img"><img src="../assets/img/dashboard/hero.png" alt="The final Ecological Dashboard: a welcome screen with a Quality of Life theme and trend lines for eight cities" width="1860" height="960"></div>
+    <div class="ps-facts">
+      <dl class="ps-facts__inner">
+        <div><dt>Role</dt><dd>Design Lead</dd></div>
+        <div><dt>Team</dt><dd>3 designers</dd></div>
+        <div><dt>Tools</dt><dd>Figma</dd></div>
+        <div><dt>Timeline</dt><dd>Fall 2026</dd></div>
+      </dl>
     </div>
+
+    <!-- 01 -->
+    <section class="ps-sec">
+      <p class="ps-label">01 - The problem</p>
+      <h2 class="ps-h2">A year of data. A reader with no time.</h2>
+      <p class="ps-text">We had a year of environmental data for eight cities: emissions, waste, recycling, transit, water, rainfall and air quality. The brief was to build a dashboard for one specific audience. Ours was a politician who needs a strong case fast, and isn't comfortable with complex tech.</p>
+    </section>
+
+    <!-- 02 -->
+    <section class="ps-sec">
+      <p class="ps-label">02 - My role</p>
+      <h2 class="ps-h2">Leading a team of three.</h2>
+      <p class="ps-text">I was the design lead. I organized the raw data, built the user personas, set the team's goals before each class, led sketching and prototyping, and built the final prototype. The final layout came from my sketch; Aderyn Millhollen and Caleigh Schlichte turned it into the dashboard while I was out sick.</p>
+      <ul class="rw-chips tags" style="margin-top:32px">
+        <li class="ps-chip">Data cleanup</li><li class="ps-chip">User personas</li><li class="ps-chip">Team goals</li>
+        <li class="ps-chip">Sketches</li><li class="ps-chip">Final prototype</li><li class="ps-chip">Presentation</li>
+      </ul>
+    </section>
+
+    <!-- 03 -->
+    <section class="ps-sec">
+      <p class="ps-label">03 - Meet the users</p>
+      <h2 class="ps-h2">Who it's for, and who it's from.</h2>
+      <p class="ps-text">Two personas shaped every decision: the person reading the dashboard, and the person whose data it presents.</p>
+      <div class="rw-two">
+        <div class="rw-card">
+          <p class="k">THE AUDIENCE</p>
+          <h3>The Governor</h3>
+          <p class="sub">62 · State governor</p>
+          <p class="body">Needs a strong, clear argument before acting on a big idea. Has little time and isn't comfortable with complex tech, so the data has to be easy to digest.</p>
+          <div class="ps-chips"><span class="ps-chip">Short on time</span><span class="ps-chip">Needs proof</span><span class="ps-chip">Not tech-savvy</span></div>
+        </div>
+        <div class="rw-card">
+          <p class="k">THE CREATOR</p>
+          <h3>Chelsea, the Scientist</h3>
+          <p class="sub">28 · Environmental scientist · Seattle, WA</p>
+          <p class="body">Studies how people's actions affect the environment and wants to prove it to the government. She brings the data; the dashboard has to make her case.</p>
+          <div class="ps-chips"><span class="ps-chip">Passionate</span><span class="ps-chip">Data-driven</span><span class="ps-chip">Wants policy change</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 -->
+    <section class="ps-sec">
+      <p class="ps-label">04 - The data</p>
+      <h2 class="ps-h2">Eight questions, four themes.</h2>
+      <p class="ps-text">We listed ten questions and narrowed them to eight, like how population relates to CO2 emissions, and whether people skip public transit in bad weather. Grouping them into four themes made the data manageable, and the themes became the dashboard's navigation.</p>
+      <div class="ed-stats">
+        <div class="ed-stat"><b>2</b><h3>Quality of Life</h3><p>questions</p></div>
+        <div class="ed-stat"><b>3</b><h3>Water</h3><p>questions</p></div>
+        <div class="ed-stat"><b>2</b><h3>Transit</h3><p>questions</p></div>
+        <div class="ed-stat"><b>1</b><h3>Waste</h3><p>question</p></div>
+      </div>
+    </section>
+
+    <!-- 05 -->
+    <section class="ps-sec">
+      <p class="ps-label">05 - From sketch to screen</p>
+      <h2 class="ps-h2">From sketch to dashboard.</h2>
+      <p class="ps-text">I sketched layout options, the team compared them, and my final sketch became the dashboard's structure: theme navigation on the left, charts in the middle, and plain-language takeaways beside them.</p>
+      <div class="ed-three">
+        <figure><img src="../assets/img/dashboard/sketches.jpg" alt="Hand-drawn layout sketches for the dashboard" loading="lazy"><figcaption>A - Sketches</figcaption></figure>
+        <figure><img src="../assets/img/dashboard/wireframes.png" alt="Low-fidelity wireframe of the dashboard layout" loading="lazy"><figcaption>B - Wireframes</figcaption></figure>
+        <figure><img src="../assets/img/dashboard/final-small.png" alt="The final dashboard layout" loading="lazy"><figcaption>C - Final</figcaption></figure>
+      </div>
+    </section>
+
+    <!-- 06 -->
+    <section class="ps-sec">
+      <p class="ps-label">06 - The hard part</p>
+      <h2 class="ps-h2">Too many data points, not enough ways to show them.</h2>
+      <p class="ps-text">Charts were the biggest challenge. The data jumped around a lot, and many standard charts were hard to read at a glance, which is exactly what our politician needed.</p>
+      <div class="ed-charts">
+        <img src="../assets/img/dashboard/chart-before.png" alt="A standard line chart of water use and rainfall across 287 data points, tangled and hard to read" loading="lazy">
+        <img src="../assets/img/dashboard/chart-after.png" alt="A smoother density chart of rainfall against gallons of water use, with the busiest cluster shaded darkest" loading="lazy">
+      </div>
+    </section>
+
+    <!-- 07 -->
+    <section class="ps-sec">
+      <p class="ps-label">07 - How I split the work</p>
+      <h2 class="ps-h2">Breaking the project into pieces.</h2>
+      <p class="ps-text">I broke the data set down so everyone knew what we had, narrowed our questions from ten to eight, assigned each teammate their questions, and set how many sketches each person owed before the next class.</p>
+
+      <div class="ed-panel">
+        <p class="k">The data, broken down</p>
+        <div class="ed-cols">
+          <div>
+            <div class="ed-big"><b>8</b><span>cities</span></div>
+            <ul class="chips">
+              <li>Lakeview</li><li>Riverton</li><li>Mesa Verde</li><li>Pine City</li>
+              <li>Harbor Point</li><li>Prairie Junction</li><li>Stonebridge</li><li>Sunfield</li>
+            </ul>
+          </div>
+          <div>
+            <div class="ed-big"><b>13</b><span>measures</span></div>
+            <ul class="chips">
+              <li>Region</li><li>Population</li><li>Electricity use</li><li>Renewable share</li><li>CO2 emissions</li>
+              <li>PM2.5</li><li>AQI</li><li>Avg. temperature</li><li>Rainfall</li><li>Water use</li>
+              <li>Waste tons</li><li>Recycling rate</li><li>Transit share</li>
+            </ul>
+          </div>
+        </div>
+        <p class="foot">Tracked monthly for one year, so every chart could show change over time.</p>
+      </div>
+
+      <div class="ed-panel">
+        <p class="k">Questions, assigned</p>
+        <div class="ed-legend" aria-label="Legend">
+          <span><i class="ed-dot" style="--c:#8db8ff"></i>Rebecca</span>
+          <span><i class="ed-dot" style="--c:#f0a8f0"></i>Caleigh</span>
+          <span><i class="ed-dot" style="--c:#a5e6a0"></i>Aderyn</span>
+          <span><i class="ed-dot" style="--c:#5c6170"></i>Cut</span>
+        </div>
+        <ol class="ed-qs">
+          <li class="ed-q" style="--c:#8db8ff"><i class="dot"></i><span class="n">01</span>How population affects CO2 emissions and waste</li>
+          <li class="ed-q" style="--c:#f0a8f0"><i class="dot"></i><span class="n">02</span>Recycling tons vs. waste tons</li>
+          <li class="ed-q" style="--c:#a5e6a0"><i class="dot"></i><span class="n">03</span>Public transit and CO2 emissions</li>
+          <li class="ed-q" style="--c:#f0a8f0"><i class="dot"></i><span class="n">04</span>Rainfall by region and month</li>
+          <li class="ed-q" style="--c:#a5e6a0"><i class="dot"></i><span class="n">05</span>Water use vs. rainfall</li>
+          <li class="ed-q" style="--c:#a5e6a0"><i class="dot"></i><span class="n">06</span>Whether temperature affects public transit use</li>
+          <li class="ed-q" style="--c:#8db8ff"><i class="dot"></i><span class="n">07</span>CO2 emissions vs. air quality (AQI, PM2.5)</li>
+          <li class="ed-q ed-q--cut" style="--c:#5c6170"><i class="dot"></i><span class="n">08</span>Population by region<span class="cut">CUT</span></li>
+          <li class="ed-q" style="--c:#8db8ff"><i class="dot"></i><span class="n">09</span>Average temperature and rainfall</li>
+          <li class="ed-q ed-q--cut" style="--c:#5c6170"><i class="dot"></i><span class="n">10</span>Region and public transit<span class="cut">CUT</span></li>
+        </ol>
+        <p class="foot">Ten questions, narrowed to eight and split between three people.</p>
+        <div class="ed-note">
+          <p><b>9/22</b>2-3 sketches per Question by next class.</p>
+          <p><b>9/24</b>Next class period also please have 2-3 layout designs.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 08 -->
+    <section class="ps-sec">
+      <p class="ps-label">08 - The final dashboard</p>
+      <h2 class="ps-h2">One theme at a time.</h2>
+      <p class="ps-text">Each theme gets its own section, with highlighted boxes that say what the charts mean in plain language.</p>
+      <div class="ed-final">
+        <img src="../assets/img/dashboard/final-full.png" alt="The full final dashboard, scrolling through each theme with charts and highlighted takeaway boxes" loading="lazy">
+        <div class="ed-anno">
+          <div><h3>Theme navigation</h3><p>Quality of Life, Water, Transit and Waste, matching our four question groups.</p></div>
+          <div><h3>Plain-language takeaways</h3><p>Highlighted boxes explain each chart, so the politician doesn't have to decode it.</p></div>
+          <div><h3>Change over time</h3><p>Sparklines and monthly lines show how each city shifted across the year.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 09 -->
+    <section class="ps-sec">
+      <p class="ps-label">09 - Reflection</p>
+      <h2 class="ps-h2">Data as the main character.</h2>
+      <p class="ps-text">This project pushed me to treat data as the center of a design, not something added at the end. It also taught me to lead: setting goals and keeping three people moving toward one design.</p>
+    </section>
+
+    <!-- 10 -->
+    <section class="ps-sec ed-center" style="padding-bottom:120px">
+      <p class="ps-label">10 - What I'd do now</p>
+      <h2 class="ps-h2">Make it truly glanceable.</h2>
+      <p class="ps-text">The final dashboard still asks a lot of a reader with no time. A next version would lead each theme with three headline numbers and one key chart, with the rest of the detail a click away.</p>
+    </section>
   </main>
 
   <section class="next" aria-label="Next project">

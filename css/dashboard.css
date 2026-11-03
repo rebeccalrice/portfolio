@@ -1,0 +1,77 @@
+/* ==========================================================
+   Ecological Dashboard case study (builds on pokestop.css + rewired.css)
+   ========================================================== */
+
+.ed { --lime: #d4f04a; }
+.ed .ps-label, .ed .ps-hero .eyebrow-ps { color: var(--lime); }
+.ed .ps-hero h1 { font-size: clamp(52px, 7.8vw, 112px); }
+.ed .ps-hero .tag { color: #fff; max-width: 900px; }
+.ed .ps-facts { background: var(--lime); color: #000; margin-top: 56px; }
+.ed .rw-card .k { color: var(--lime); }
+.ed .rw-pal .k { color: var(--lime); }
+
+.ed-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 24px; }
+.ed-stat { background: var(--card); border-radius: 25px; padding: 40px; }
+.ed-stat b { display: block; font-family: var(--ps-font-head); font-size: 64px; line-height: 1.2; color: var(--lime); }
+.ed-stat h3 { font-family: var(--ps-font-body); font-size: 24px; margin-top: 12px; }
+.ed-stat p { font-size: 16px; color: var(--muted); }
+
+.ed-three { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 24px; }
+.ed-three figure { margin: 0; }
+.ed-three img { width: 100%; aspect-ratio: 400 / 348; object-fit: cover; border-radius: 20px; display: block; }
+.ed-three figcaption { font-family: var(--ps-font-body); font-weight: 700; font-size: 24px; margin-top: 12px; }
+
+.ed-charts { display: grid; grid-template-columns: 665fr 537fr; gap: 24px; margin-top: 24px; align-items: stretch; }
+.ed-charts img { width: 100%; height: 100%; object-fit: cover; border-radius: 20px; display: block; background: #fff; }
+
+.ed-panel { background: var(--card); border-radius: 25px; padding: 44px 48px; margin-top: 24px; }
+.ed-panel .k { font-family: var(--font-mono); font-size: 16px; color: var(--lime); margin-bottom: 20px; text-transform: uppercase; }
+.ed-panel .foot { font-size: 18px; color: var(--muted); margin-top: 24px; }
+.ed-cols { display: grid; grid-template-columns: 540fr 540fr; gap: 64px; align-items: start; }
+.ed-big { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; }
+.ed-big b { font-family: var(--ps-font-head); font-size: 56px; line-height: 1; color: var(--lime); }
+.ed-big span { font-size: 24px; font-weight: 700; }
+.ed-panel .chips { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; margin: 0; padding: 0; }
+.ed-panel .chips li { background: var(--chip); border-radius: 27px; padding: 9px 20px; font-size: 16px; }
+
+.ed-legend { display: flex; flex-wrap: wrap; gap: 24px; margin-bottom: 24px; font-size: 16px; color: var(--muted); }
+.ed-legend span, .ed-q { display: flex; align-items: center; }
+.ed-dot { flex: none; width: 14px; height: 14px; border-radius: 50%; background: var(--c); margin-right: 8px; }
+.ed-qs { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.ed-q { gap: 16px; font-size: 22px; }
+.ed-q .dot { flex: none; width: 16px; height: 16px; border-radius: 50%; background: var(--c); }
+.ed-q .n { flex: none; width: 24px; font-size: 18px; color: var(--muted); }
+.ed-q--cut, .ed-q--cut .n { color: #5c6170; }
+.ed-q .cut { font-size: 14px; color: #5c6170; margin-left: 8px; }
+.ed-note { background: var(--card); border-left: 4px solid var(--lime); border-radius: 12px; padding: 20px 28px; margin-top: 24px; max-width: 560px; font-size: 22px; line-height: 1.4; }
+.ed-note b { display: block; }
+.ed-note p + p { margin-top: 12px; }
+
+.ed-final { display: grid; grid-template-columns: 560px 1fr; gap: 100px; align-items: start; margin-top: 24px; }
+.ed-final img { width: 100%; height: auto; display: block; border-radius: 16px; }
+.ed-anno { display: grid; gap: 24px; }
+.ed-anno div { background: var(--card); border-radius: 25px; padding: 40px; }
+.ed-anno h3 { font-size: 32px; margin-bottom: 12px; }
+.ed-anno p { font-size: 20px; line-height: 1.4; color: var(--muted); }
+
+.ed-center { text-align: center; }
+.ed-center .ps-h2, .ed-center .ps-text { margin-left: auto; margin-right: auto; }
+
+@media (max-width: 1100px) {
+  .ed-stats { grid-template-columns: 1fr 1fr; }
+  .ed-three { grid-template-columns: 1fr 1fr; }
+  .ed-cols, .ed-charts, .ed-final { grid-template-columns: 1fr; }
+  .ed-final { gap: 40px; }
+  .ed-final img { max-width: 560px; }
+}
+@media (max-width: 800px) {
+  .ed-stats, .ed-three { grid-template-columns: 1fr; }
+  .ed-stat { padding: 28px; }
+  .ed-panel { padding: 28px 24px; }
+  .ed-cols { gap: 32px; }
+  .ed-q { font-size: 17px; }
+  .ed-anno div { padding: 28px; }
+  .ed-anno h3 { font-size: 24px; }
+  .ed-anno p { font-size: 17px; }
+  .ed-note { font-size: 18px; }
+}
