@@ -4,11 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>PokeStop | Rebecca Rice</title>
-  <meta name="description" content="PokeStop: a Pokémon card marketplace app with price alerts that aren't spam. Solo UX/UI case study.">
+  <meta name="description" content="PokeStop: one app to find, compare, buy and sell Pokémon cards, with price alerts that aren't spam. A solo UX/UI case study by Rebecca Rice.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400;1,9..40,500&family=Space+Mono:ital@0;1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100,400;100,700&family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400;1,9..40,500&family=Inter:wght@700&family=Space+Mono:ital@0;1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/pokestop.css">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -24,11 +25,203 @@
   </nav>
   <div class="back"><a href="../index.html#work">← All work</a></div>
 
-  <main id="main" class="case">
-    <h1 class="sr-only" style="position:absolute;left:-9999px">PokeStop</h1>
-    <div class="case__body">
-      <img src="../assets/img/case-pokestop.jpg" alt="PokeStop case study: the problem, research, persona, user flow, design system, price comparison and critique changes" width="747" height="4096">
+  <main id="main" class="ps">
+    <!-- Hero -->
+    <header class="ps-hero">
+      <p class="eyebrow-ps">UX/UI CASE STUDY - 2026</p>
+      <h1>PokeStop</h1>
+      <p class="tag">One app to find, compare, buy and sell Pokemon Cards.</p>
+      <div class="ps-phones">
+        <img class="p-left" src="../assets/img/pokestop/hero-left.png" alt="PokeStop card detail screen with a price chart" width="1162" height="1882">
+        <img class="p-mid" src="../assets/img/pokestop/hero-center.png" alt="PokeStop watchlist screen with card listings" width="1104" height="1826">
+        <img class="p-right" src="../assets/img/pokestop/hero-right.png" alt="PokeStop browse screen with a grid of Pokémon cards" width="1144" height="1802">
+      </div>
+    </header>
+    <div class="ps-facts">
+      <dl class="ps-facts__inner">
+        <div><dt>Role</dt><dd>Solo Designer</dd></div>
+        <div><dt>Tools</dt><dd>Figma</dd></div>
+        <div><dt>Project</dt><dd>Build an App</dd></div>
+        <div><dt>Timeline</dt><dd>Fall 2026</dd></div>
+      </dl>
     </div>
+
+    <!-- 01 Problem -->
+    <section class="ps-sec">
+      <p class="ps-label">01 - The problem</p>
+      <h2 class="ps-h2">Too many sites. Too much information.</h2>
+      <p class="ps-text">Collectors check several sites to find the best price on a card, and the biggest one, TCGPlayer, packs in so much information that it’s hard to read at a glance. The brief asked for a live market tracker that alerts users to deals without feeling like spam.</p>
+    </section>
+
+    <!-- 02 Research -->
+    <section class="ps-sec">
+      <p class="ps-label">02 - Research</p>
+      <h2 class="ps-h2">What the market gets right, and wrong.</h2>
+      <p class="ps-text">I focused on Pokémon cards only, and on enthusiasts rather than scalpers.</p>
+      <div class="ps-cards">
+        <article class="ps-card">
+          <div class="ps-card__img"><img src="../assets/img/pokestop/research-tcgplayer.png" alt="TCGPlayer card page" loading="lazy"></div>
+          <h3>TCGPlayer</h3>
+          <p>The Most data, but hard to scan.</p>
+        </article>
+        <article class="ps-card">
+          <div class="ps-card__img"><img src="../assets/img/pokestop/research-stockx.png" alt="StockX product page" loading="lazy"></div>
+          <h3>StockX</h3>
+          <p>Far easier to read at a glance.</p>
+        </article>
+        <article class="ps-card">
+          <div class="ps-card__img"><img src="../assets/img/pokestop/research-collectr.png" alt="Collectr app screen" loading="lazy" style="object-position: center 30%"></div>
+          <h3>Collectr</h3>
+          <p>Bare-bones, but I want to build on it.</p>
+        </article>
+        <article class="ps-card">
+          <div class="ps-card__img ps-card__img--phone"><img src="../assets/img/pokestop/research-ebay.png" alt="eBay app listing screen" loading="lazy"></div>
+          <h3>eBay</h3>
+          <p>Everyone knows eBay, a great entry point for sellers.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- 03 Persona -->
+    <section class="ps-sec">
+      <div class="ps-persona">
+        <div class="ps-persona__img"><img src="../assets/img/pokestop/persona-kay.png" alt="User persona card for Kay, 24, a Pokémon card collector" loading="lazy"></div>
+        <div>
+          <p class="ps-label">03 - Meet Kay</p>
+          <h2 class="ps-h2">The Collector</h2>
+          <p class="ps-text">Kay, 24, collects her favorite older cards and is hunting a specific Porygon. She wants one app, one purchase, and information she can read at a glance.</p>
+          <div class="ps-chips">
+            <span class="ps-chip">No off-site buying</span>
+            <span class="ps-chip">Easy Filters</span>
+            <span class="ps-chip">Clear selling Info</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 Flow -->
+    <section class="ps-sec">
+      <p class="ps-label">04 - The flow, and the detour</p>
+      <h2 class="ps-h2">Even with a detour, Kay never leaves the app.</h2>
+      <p class="ps-text">Kay gets an alert, compares sellers, and checks out. But when she doesn’t have enough money, she sells her Rowlet inside the app, then buys the next cheapest Porygon.</p>
+      <p class="ps-label ps-label--gray" style="margin-top:40px">Happy path</p>
+      <div class="ps-flow" role="list" aria-label="Happy path">
+        <span class="ps-step" role="listitem">Get price alert</span><img src="../assets/img/pokestop/arrow.svg" alt="">
+        <span class="ps-step" role="listitem">Open Watchlist</span><img src="../assets/img/pokestop/arrow.svg" alt="">
+        <span class="ps-step" role="listitem">Compare 4 sellers</span><img src="../assets/img/pokestop/arrow.svg" alt="">
+        <span class="ps-step" role="listitem">Check out</span>
+      </div>
+      <p class="ps-label">The detour</p>
+      <div class="ps-flow" role="list" aria-label="The detour">
+        <span class="ps-step ps-step--red" role="listitem">Not enough money</span><img src="../assets/img/pokestop/arrow.svg" alt="">
+        <span class="ps-step ps-step--outline" role="listitem">List Rowlet</span><img src="../assets/img/pokestop/arrow.svg" alt="">
+        <span class="ps-step ps-step--outline" role="listitem">Rowlet Sells</span><img src="../assets/img/pokestop/arrow.svg" alt="">
+        <span class="ps-step ps-step--outline" role="listitem">Cheapest card gone</span><img src="../assets/img/pokestop/arrow.svg" alt="">
+        <span class="ps-step ps-step--outline" role="listitem">Buy next cheapest</span><img src="../assets/img/pokestop/arrow.svg" alt="">
+        <span class="ps-step ps-step--done" role="listitem">Checked out</span>
+      </div>
+    </section>
+
+    <!-- 05 Logic + system -->
+    <section class="ps-sec">
+      <div class="ps-pair">
+        <div class="ps-panel">
+          <p class="ps-label">05 - The logic</p>
+          <h3>When does an alert fire?</h3>
+          <pre class="ps-code">IF price A − price B &gt; fees + shipping
+AND card is on watchlist
+AND price ≤ Kay’s target
+THEN alert</pre>
+        </div>
+        <div class="ps-panel">
+          <p class="ps-label">The system</p>
+          <h3>Design System</h3>
+          <div class="ps-swatches">
+            <div class="ps-swatch"><i style="background:#0c0f12"></i>Ground</div>
+            <div class="ps-swatch"><i style="background:#bed5ff"></i>Blue</div>
+            <div class="ps-swatch"><i style="background:#e3343a"></i>Red</div>
+            <div class="ps-swatch"><i style="background:#fff"></i>White</div>
+          </div>
+          <img class="pill" src="../assets/img/pokestop/navpill-system.png" alt="PokeStop bottom navigation bar with home, search, cart, listings and tag icons" width="360" height="60">
+          <p class="ps-type">Inter 10<br>Kdam Thmor Pro 20</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 Sketch to screen -->
+    <section class="ps-sec">
+      <p class="ps-label">06 - From sketch to screen</p>
+      <h2 class="ps-h2">Point A to C</h2>
+      <div class="ps-trio">
+        <figure><img src="../assets/img/pokestop/sketches.jpg" alt="Hand-drawn sketches of the app screens" loading="lazy"><figcaption>A - Sketches</figcaption></figure>
+        <figure><img src="../assets/img/pokestop/wireframes.png" alt="Low-fidelity wireframes of the app screens" loading="lazy"><figcaption>B - Wireframes</figcaption></figure>
+        <figure><img src="../assets/img/pokestop/final.png" alt="Final high-fidelity PokeStop screens" loading="lazy"><figcaption>C - Final</figcaption></figure>
+      </div>
+    </section>
+
+    <!-- 07 Big moment -->
+    <section class="ps-sec">
+      <div class="ps-split">
+        <div>
+          <p class="ps-label">07 - Big moment</p>
+          <h2 class="ps-h2">Alerts that aren’t spam</h2>
+          <p class="ps-text">Alerts only fire for cards on Kay’s watchlist, at a price she set. If she gets a notification, it’s one she asked for.</p>
+        </div>
+        <div class="ps-notes">
+          <div class="ps-note"><i class="ps-note__icon" aria-hidden="true"></i><p><b>Pokestop</b><span>A card you want has appeared for the desired price!</span></p></div>
+          <div class="ps-note ps-note--indent"><i class="ps-note__icon" aria-hidden="true"></i><p><b>Pokestop</b><span>Your Rowlet (082/080) has sold for $5.93!</span></p></div>
+          <div class="ps-note"><i class="ps-note__icon" aria-hidden="true"></i><p><b>Pokestop</b><span>Error! Not enough money in that account.</span></p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 08 Most proud of -->
+    <section class="ps-sec">
+      <div class="ps-price">
+        <div class="ps-price__phone"><img src="../assets/img/pokestop/price-phone.png" alt="PokeStop price comparison screen showing one card across four platforms" loading="lazy"></div>
+        <div>
+          <p class="ps-label">08 - Most proud of</p>
+          <h2 class="ps-h2">Price comparison</h2>
+          <p class="ps-text">One card, four platforms side by side. The best deal is visible at a glance, with more detail one tap away.</p>
+          <div class="ps-tiles">
+            <div class="ps-tile"><small>eBay</small><b>$13.19</b></div>
+            <div class="ps-tile ps-tile--best"><small>Vinted</small><b>$4.93</b></div>
+            <div class="ps-tile"><small>TCG</small><b>$21.02</b></div>
+            <div class="ps-tile"><small>Mercari</small><b>$7.20</b></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 09 Feedback -->
+    <section class="ps-sec">
+      <p class="ps-label">09 - Feedback</p>
+      <h2 class="ps-h2">What critique changed</h2>
+      <div class="ps-ba">
+        <div class="ps-ba__card">
+          <p class="k">BEFORE</p>
+          <img src="../assets/img/pokestop/navpill-before.png" alt="Navigation bar with a dark blue background" width="360" height="60" loading="lazy">
+          <p>Dark blue, contrasts poorly against the background.</p>
+        </div>
+        <div class="ps-ba__card">
+          <p class="k">AFTER</p>
+          <img src="../assets/img/pokestop/navpill-after.png" alt="Navigation bar with a lighter blue background" width="360" height="60" loading="lazy">
+          <p>Lighter blue stands out against the darker interface.</p>
+        </div>
+      </div>
+      <hr class="ps-rule">
+      <div class="ps-ba__notes">
+        <div><h3>Phone UI</h3><p>Adding device details made the screens read as a real app.</p></div>
+        <div><h3>Friction Point</h3><p>Critique helped me find the money detour. It took a few rounds, but it became the center of the flow.</p></div>
+      </div>
+    </section>
+
+    <!-- 10 What's next -->
+    <section class="ps-sec ps-next">
+      <p class="ps-label">10 - What’s next</p>
+      <p class="ps-text">I’d love to build this out as a full app one day, come back to this project after school, testing it with real collectors, possibly expanding beyond Pokémon.</p>
+      <div class="ps-pokeball"><img src="../assets/img/pokestop/pokeball.svg" alt="PokeStop app icon: a red stop sign over a Poké Ball"></div>
+    </section>
   </main>
 
   <section class="next" aria-label="Next project">
