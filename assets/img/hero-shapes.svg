@@ -1,0 +1,14 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="1440" height="820" viewBox="0 0 1440 820" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Hero Shapes + Diagonal" clip-path="url(#clip0_0_8)">
+<path id="Vector" d="M780 0H1440V600L1000 700L780 0Z" fill="#2F5BFF"/>
+<path id="Vector_2" d="M900 150L1320 70L1200 540L830 470L900 150Z" fill="#FF2D87"/>
+<path id="Vector_3" d="M1060 400L1400 310L1290 660L1060 400Z" fill="#FFD21F"/>
+<path id="Vector_4" d="M730 560L880 500L840 650L730 560Z" fill="#FF6B2C"/>
+<path id="Vector_5" d="M0 760L1440 620V820H0V760Z" fill="#0C0F12"/>
+</g>
+<defs>
+<clipPath id="clip0_0_8">
+<rect width="1440" height="820" fill="white"/>
+</clipPath>
+</defs>
+</svg>
